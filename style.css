@@ -457,3 +457,35 @@
 
 </body>
 </html>
+/* =========================
+   26. SCROLL EFFECTS & REVEAL
+   ========================= */
+
+.site-header.is-scrolled {
+  box-shadow: 0 12px 34px rgba(0, 0, 0, 0.4);
+  border-bottom-color: var(--color-border-strong);
+}
+
+.main-nav a[aria-current] {
+  color: var(--color-gold-light);
+}
+
+.main-nav a[aria-current]::after {
+  transform: scaleX(1);
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(22px);
+  transition:
+    opacity 700ms var(--ease-out),
+    transform 700ms var(--ease-out);
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+#form-note[data-state="ok"] { color: var(--color-success); }
+#form-note[data-state="warn"] { color: #d49a5a; }
