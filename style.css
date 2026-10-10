@@ -1,0 +1,282 @@
+/* ===== پایه ===== */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --bg: #0e0c0a;
+  --bg2: #171310;
+  --card: #1c1714;
+  --gold: #d4af4c;
+  --gold-light: #e8c766;
+  --text: #e8e4dd;
+  --muted: #9a938a;
+  --border: rgba(212, 175, 76, 0.18);
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: Vazirmatn, "IRANSans", Tahoma, Arial, sans-serif;
+  line-height: 1.9;
+  direction: rtl;
+}
+
+a { color: inherit; text-decoration: none; }
+img { max-width: 100%; display: block; }
+
+.wrap {
+  width: min(1140px, calc(100% - 40px));
+  margin: auto;
+}
+
+/* ===== هدر ===== */
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 22px 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.brand {
+  font-size: 20px;
+  font-weight: 800;
+  color: var(--gold);
+}
+
+.links {
+  display: flex;
+  gap: 24px;
+  font-size: 15px;
+}
+
+.links a {
+  color: var(--muted);
+  transition: 0.3s;
+}
+
+.links a:hover { color: var(--gold); }
+
+/* ===== هیرو ===== */
+.hero {
+  min-height: 75vh;
+  padding-bottom: 60px;
+  background:
+    radial-gradient(circle at 70% 20%, rgba(212, 175, 76, 0.13), transparent 45%),
+    var(--bg);
+}
+
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 55px;
+  align-items: center;
+  padding-top: 70px;
+}
+
+.eyebrow {
+  display: inline-block;
+  color: var(--gold);
+  font-size: 13px;
+  letter-spacing: 2px;
+  margin-bottom: 14px;
+  padding: 6px 14px;
+  border: 1px solid var(--border);
+  border-radius: 30px;
+}
+
+.hero h1 {
+  font-size: clamp(40px, 7vw, 76px);
+  color: var(--gold-light);
+  line-height: 1.2;
+  margin-bottom: 14px;
+}
+
+.hero-lead {
+  font-size: 21px;
+  color: var(--text);
+  margin-bottom: 10px;
+}
+
+.muted { color: var(--muted); }
+
+.hero-actions {
+  display: flex;
+  gap: 14px;
+  margin-top: 30px;
+  flex-wrap: wrap;
+}
+
+.btn {
+  display: inline-block;
+  padding: 13px 28px;
+  background: linear-gradient(135deg, var(--gold), #a5852e);
+  color: #17130b;
+  border-radius: 30px;
+  font-weight: bold;
+  font-size: 15px;
+  transition: 0.3s;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 30px rgba(212, 175, 76, 0.25);
+}
+
+.btn.ghost {
+  background: transparent;
+  border: 1px solid var(--border);
+  color: var(--gold);
+}
+
+.btn.ghost:hover {
+  background: rgba(212, 175, 76, 0.08);
+  box-shadow: none;
+}
+
+/* ===== عکس پروفایل ===== */
+.portrait-frame {
+  padding: 10px;
+  border: 1px solid var(--border);
+  border-radius: 22px;
+  background: linear-gradient(145deg, rgba(212, 175, 76, 0.14), rgba(255,255,255,0.02));
+  box-shadow: 0 25px 60px rgba(0,0,0,0.6);
+}
+
+.portrait-frame img {
+  border-radius: 14px;
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  object-fit: cover;
+}
+
+/* ===== بخش‌ها ===== */
+.section {
+  padding: 75px 0;
+}
+
+.section.paper {
+  background: var(--bg2);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+
+.section-heading {
+  margin-bottom: 45px;
+  text-align: center;
+}
+
+.section-heading h2 {
+  font-size: clamp(26px, 4vw, 40px);
+  color: var(--gold-light);
+  margin: 10px 0;
+}
+
+/* ===== گرید بخش‌های اصلی ===== */
+.main-sections {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.section-card-big {
+  display: block;
+  padding: 40px 28px;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  text-align: center;
+  transition: 0.35s;
+  position: relative;
+  overflow: hidden;
+}
+
+.section-card-big::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(212,175,76,0.06), transparent);
+  opacity: 0;
+  transition: 0.35s;
+}
+
+.section-card-big:hover {
+  transform: translateY(-6px);
+  border-color: rgba(212, 175, 76, 0.45);
+  box-shadow: 0 20px 45px rgba(0,0,0,0.5);
+}
+
+.section-card-big:hover::after { opacity: 1; }
+
+.section-card-big .num {
+  display: block;
+  color: var(--gold);
+  font-size: 15px;
+  margin-bottom: 12px;
+  opacity: 0.8;
+}
+
+.section-card-big h3 {
+  font-size: 24px;
+  color: var(--gold-light);
+  margin-bottom: 8px;
+}
+
+.section-card-big p {
+  color: var(--muted);
+  font-size: 15px;
+}
+
+/* ===== درون‌مایه ===== */
+.quote-section {
+  text-align: center;
+  padding: 80px 0;
+}
+
+.quote-section blockquote {
+  max-width: 780px;
+  margin: 25px auto 0;
+  font-size: clamp(20px, 3vw, 28px);
+  color: var(--gold-light);
+  line-height: 1.9;
+  font-weight: 600;
+}
+
+/* ===== تماس ===== */
+.contactbox {
+  max-width: 600px;
+  margin: auto;
+  padding: 35px;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  text-align: center;
+}
+
+.contactbox p { margin: 12px 0; color: var(--muted); }
+.contactbox b { color: var(--gold); }
+.contactbox a { color: var(--text); }
+.contactbox a:hover { color: var(--gold); }
+
+/* ===== فوتر ===== */
+footer {
+  padding: 35px 0;
+  text-align: center;
+  color: var(--muted);
+  font-size: 14px;
+  border-top: 1px solid var(--border);
+}
+
+/* ===== موبایل ===== */
+@media (max-width: 900px) {
+  .hero-grid { grid-template-columns: 1fr; text-align: center; }
+  .hero-actions { justify-content: center; }
+  .main-sections { grid-template-columns: repeat(2, 1fr); }
+  .links { display: none; }
+}
+
+@media (max-width: 560px) {
+  .main-sections { grid-template-columns: 1fr; }
+  .section { padding: 55px 0; }
+}
