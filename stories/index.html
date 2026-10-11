@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#0a0a0c">
+<title>داستانک‌ها | حسین محمدی آمیرزا</title>
+<meta name="description" content="داستانک‌ها و خاطرات کوتاه از حسین محمدی آمیرزا.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container nav-wrap">
+    <a class="brand" href="../index.html">
+      <span class="brand-mark">ح‌م‌آ</span>
+      <span class="brand-copy">
+        <strong class="brand-name">حسین محمدی آمیرزا</strong>
+        <small class="brand-caption">داستانک‌ها</small>
+      </span>
+    </a>
+    <button class="menu-toggle" aria-expanded="false" aria-controls="main-nav" aria-label="منو">
+      <span></span><span></span><span></span>
+    </button>
+    <nav class="main-nav" id="main-nav">
+      <a href="../index.html">خانه</a>
+      <a href="../index.html#books">کتاب‌ها</a>
+      <a href="../index.html#screenplays">فیلمنامه‌ها</a>
+      <a href="../index.html#series">سریال‌ها</a>
+      <a href="../index.html#poetry">شعر</a>
+      <a href="index.html" aria-current="page">داستانک‌ها</a>
+      <a href="../index.html#blog">وبلاگ</a>
+      <a href="../index.html#contact" class="nav-cta">تماس</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+  <section class="page-hero">
+    <div class="container">
+      <p class="eyebrow">روایت‌های کوتاه</p>
+      <h1 class="page-title">داستانک‌ها و <em>خاطرات</em></h1>
+      <p class="page-lead">قصه‌های کوتاه از انسان، زندگی و لحظه‌هایی که می‌مانند.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div id="stories-list" class="stories-list"></div>
+      <p id="stories-empty" class="stories-empty" hidden>هنوز داستانی منتشر نشده است.</p>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <a class="footer-brand" href="../index.html">حسین محمدی آمیرزا</a>
+    <p class="footer-tag">روایت انسان، در امتداد تاریخ</p>
+    <p class="footer-copy">© <span id="year">2026</span> تمامی حقوق محفوظ است.</p>
+  </div>
+</footer>
+
+<script src="posts.js"></script>
+<script>
+  (function () {
+    const list = document.getElementById("stories-list");
+    const empty = document.getElementById("stories-empty");
+    const yearEl = document.getElementById("year");
+    const menuButton = document.querySelector(".menu-toggle");
+    const mainNav = document.querySelector("#main-nav");
+
+    if (yearEl) yearEl.textContent = new Date().getFullYear();
+
+    if (menuButton && mainNav) {
+      menuButton.addEventListener("click", function () {
+        const open = menuButton.getAttribute("aria-expanded") === "true";
+        menuButton.setAttribute("aria-expanded", String(!open));
+        mainNav.classList.toggle("is-open", !open);
+      });
+    }
+
+    if (!list) return;
+
+    var items = (typeof stories !== "undefined" && Array.isArray(stories)) ? stories : [];
+
+    if (!items.length) {
+      if (empty) empty.hidden = false;
+      return;
+    }
+
+    items.forEach(function (story) {
+      var card = document.createElement("a");
+      card.className = "story-card";
+      card.href = story.file;
+      card.innerHTML =
+        '<span class="story-num">' + story.id + '</span>' +
+        '<div class="story-body">' +
+          '<h2 class="story-title">' + story.title + '</h2>' +
+          '<p class="story-excerpt">' + story.excerpt + '</p>' +
+          '<span class="story-date">' + story.date + '</span>' +
+        '</div>' +
+        '<span class="story-arrow">←</span>';
+      list.appendChild(card);
+    });
+  })();
+</script>
+
+</body>
+</html>
