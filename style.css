@@ -1736,3 +1736,254 @@ p { color: var(--text-soft); }
     transition-duration: 0.01ms !important;
   }
 }
+/* =========================
+   22. PAGE HERO (صفحات داخلی)
+   ========================= */
+
+.page-hero {
+  position: relative;
+  padding: clamp(70px, 9vw, 120px) 0 clamp(40px, 5vw, 70px);
+  background:
+    radial-gradient(ellipse at 15% 30%, rgba(90, 143, 90, 0.14), transparent 45%),
+    radial-gradient(ellipse at 90% 80%, rgba(90, 143, 90, 0.06), transparent 50%),
+    var(--bg);
+  border-bottom: 1px solid var(--border-soft);
+}
+
+.page-title {
+  margin-bottom: 14px;
+  font-size: clamp(2rem, 4.5vw, 3.4rem);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  line-height: 1.35;
+}
+
+.page-title em {
+  font-style: normal;
+  background: linear-gradient(135deg, var(--stories-light), var(--stories));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.page-lead {
+  max-width: 640px;
+  margin: 0;
+  color: var(--muted);
+  font-size: 1rem;
+}
+
+/* =========================
+   23. STORIES LIST
+   ========================= */
+
+.stories-list {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+}
+
+.story-card {
+  position: relative;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 24px;
+  padding: 28px 30px;
+  border: 1px solid rgba(90, 143, 90, 0.22);
+  border-radius: var(--radius-lg);
+  background:
+    linear-gradient(145deg, rgba(90, 143, 90, 0.06), transparent 60%),
+    var(--surface);
+  transition: all var(--t);
+  overflow: hidden;
+}
+
+.story-card::before {
+  content: "";
+  position: absolute;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  width: 3px;
+  background: linear-gradient(180deg, var(--stories-light), var(--stories));
+  transform: scaleY(0);
+  transform-origin: top;
+  transition: transform var(--t);
+}
+
+.story-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(90, 143, 90, 0.5);
+  box-shadow: 0 20px 45px rgba(90, 143, 90, 0.18);
+}
+
+.story-card:hover::before { transform: scaleY(1); }
+
+.story-num {
+  display: grid;
+  place-items: center;
+  width: 52px;
+  height: 52px;
+  flex-shrink: 0;
+  border: 1px solid rgba(90, 143, 90, 0.4);
+  border-radius: 50%;
+  color: var(--stories-light);
+  font-size: 0.95rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  transition: all var(--t);
+}
+
+.story-card:hover .story-num {
+  background: rgba(90, 143, 90, 0.12);
+  border-color: var(--stories-light);
+  transform: rotate(-8deg);
+}
+
+.story-body { min-width: 0; }
+
+.story-title {
+  margin-bottom: 8px;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--text);
+  transition: color var(--t-fast);
+  line-height: 1.5;
+}
+
+.story-card:hover .story-title { color: var(--stories-light); }
+
+.story-excerpt {
+  margin: 0 0 10px;
+  color: var(--muted);
+  font-size: 0.9rem;
+  line-height: 1.9;
+}
+
+.story-date {
+  display: inline-block;
+  color: var(--stories);
+  font-size: 0.78rem;
+  letter-spacing: 1px;
+  opacity: 0.85;
+}
+
+.story-arrow {
+  color: var(--stories-light);
+  font-size: 1.4rem;
+  transition: transform var(--t);
+  flex-shrink: 0;
+}
+
+.story-card:hover .story-arrow {
+  transform: translateX(-8px);
+}
+
+.stories-empty {
+  text-align: center;
+  padding: 60px 20px;
+  color: var(--muted);
+  font-size: 1rem;
+  border: 1px dashed var(--border);
+  border-radius: var(--radius-lg);
+}
+
+/* =========================
+   24. STORY PAGE (صفحه داستان)
+   ========================= */
+
+.story-page {
+  max-width: 780px;
+  margin-inline: auto;
+  padding: clamp(50px, 8vw, 100px) 0;
+}
+
+.story-header {
+  margin-bottom: 50px;
+  padding-bottom: 30px;
+  border-bottom: 1px solid var(--border-soft);
+}
+
+.story-page-title {
+  margin: 16px 0 14px;
+  font-size: clamp(1.9rem, 4.5vw, 3rem);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  line-height: 1.4;
+  color: var(--text);
+}
+
+.story-page-date {
+  margin: 0;
+  color: var(--stories-light);
+  font-size: 0.85rem;
+  letter-spacing: 1.5px;
+}
+
+.story-content {
+  font-size: 1.08rem;
+  line-height: 2.4;
+  color: var(--text-soft);
+}
+
+.story-content p {
+  margin-bottom: 24px;
+  color: var(--text-soft);
+}
+
+.story-content p:last-child { margin-bottom: 0; }
+
+.story-content p:first-of-type::first-letter {
+  float: right;
+  margin-left: 8px;
+  margin-top: 4px;
+  color: var(--stories-light);
+  font-size: 3.4rem;
+  font-weight: 800;
+  line-height: 0.9;
+}
+
+.story-content code {
+  padding: 2px 8px;
+  border-radius: 5px;
+  background: rgba(90, 143, 90, 0.12);
+  color: var(--stories-light);
+  font-family: monospace;
+  font-size: 0.85em;
+  direction: ltr;
+  display: inline-block;
+}
+
+.story-footer {
+  margin-top: 60px;
+  padding-top: 30px;
+  border-top: 1px solid var(--border-soft);
+  text-align: center;
+}
+
+/* =========================
+   25. RESPONSIVE — STORIES
+   ========================= */
+
+@media (max-width: 620px) {
+  .story-card {
+    grid-template-columns: auto 1fr;
+    gap: 16px;
+    padding: 22px 20px;
+  }
+
+  .story-arrow {
+    display: none;
+  }
+
+  .story-num {
+    width: 44px;
+    height: 44px;
+    font-size: 0.85rem;
+  }
+
+  .story-title { font-size: 1.1rem; }
+  .story-content { font-size: 1rem; line-height: 2.2; }
+  .story-content p:first-of-type::first-letter { font-size: 2.6rem; }
+}
