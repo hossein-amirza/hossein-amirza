@@ -8,20 +8,20 @@ const stories = [
     title: "شبی که آب آمد و گوسفندان ما را برد",
     date: "۱۴۰۴/۰۵/۱۵",
     excerpt: "روایتی از یک شب سیل، خسارتی بزرگ و جمله‌ای که سال‌ها در یاد ماند.",
-    file: "001-shabi-ke-ab-amad.html"
+    file: "posts/001-shabi-ke-ab-amad.md"
   },
   {
     id: "002",
     title: "بمب سیاه",
     date: "۱۴۰۴/۰۵/۲۰",
     excerpt: "خاطره‌ای از نوجوانی، کنجکاوی و پرسشی که سال‌ها بی‌پاسخ ماند.",
-    file: "002-bomb-siah.html"
+    file: "posts/002-bomb-siah.md"
   },
-    {
+  {
     id: "003",
     title: "پرش از نهر بزرگ",
     date: "۱۴۰۴/۰۶/۰۱",
     excerpt: "روایتی از کودکی، یک پرش، و درسی که سال‌ها بعد فهمیدم.",
-    file: "003-paresh-az-nahr.html"
+    file: "posts/003-paresh-az-nahr.md"
   }
 ];
