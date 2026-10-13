@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#0a0a0c">
+<title>داستانک | حسین محمدی آمیرزا</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container nav-wrap">
+    <a class="brand" href="../index.html">
+      <span class="brand-mark">ح‌م‌آ</span>
+      <span class="brand-copy">
+        <strong class="brand-name">حسین محمدی آمیرزا</strong>
+        <small class="brand-caption">داستانک</small>
+      </span>
+    </a>
+    <nav class="main-nav">
+      <a href="index.html">← همه داستانک‌ها</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+  <article class="story-page container">
+    <header class="story-header">
+      <span class="eyebrow">داستانک</span>
+      <h1 class="story-page-title" id="story-title">در حال بارگذاری...</h1>
+      <p class="story-page-date" id="story-date"></p>
+    </header>
+
+    <div class="story-content" id="story-content">
+      <p>لطفاً صبر کنید...</p>
+    </div>
+
+    <footer class="story-footer">
+      <a class="button button-outline" href="index.html">← بازگشت به داستانک‌ها</a>
+    </footer>
+  </article>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <a class="footer-brand" href="../index.html">حسین محمدی آمیرزا</a>
+    <p class="footer-copy">© <span id="year">2026</span> تمامی حقوق محفوظ است.</p>
+  </div>
+</footer>
+
+<script src="posts.js"></script>
+<script>
+  (function () {
+    var params = new URLSearchParams(window.location.search);
+    var id = params.get("id");
+    var titleEl = document.getElementById("story-title");
+    var dateEl = document.getElementById("story-date");
+    var contentEl = document.getElementById("story-content");
+    var yearEl = document.getElementById("year");
+
+    if (yearEl) yearEl.textContent = new Date().getFullYear();
+
+    var story = (typeof stories !== "undefined" && Array.isArray(stories))
+      ? stories.find(function (s) { return s.id === id; })
+      : null;
+
+    if (!story) {
+      titleEl.textContent = "داستان پیدا نشد";
+      contentEl.innerHTML = '<p>متأسفانه این داستان در سایت موجود نیست.</p>';
+      return;
+    }
+
+    document.title = story.title + " | حسین محمدی آمیرزا";
+    titleEl.textContent = story.title;
+    dateEl.textContent = story.date;
+
+    // خواندن فایل markdown
+    fetch(story.file)
+      .then(function (response) {
+        if (!response.ok) throw new Error("فایل پیدا نشد");
+        return response.text();
+      })
+      .then(function (text) {
+        var body = stripFrontMatter(text);
+        var html = renderMarkdown(body);
+        contentEl.innerHTML = html;
+      })
+      .catch(function () {
+        contentEl.innerHTML = '<p>خطا در بارگذاری داستان.</p>';
+      });
+  })();
+
+  function stripFrontMatter(text) {
+    var lines = text.split(/\r?\n/);
+    if (lines[0] === "---") {
+      var end = lines.indexOf("---", 1);
+      if (end > 0) {
+        return lines.slice(end + 1).join("\n").trim();
+      }
+    }
+    return text;
+  }
+
+  function renderMarkdown(md) {
+    var parts = md.split(/\n\s*\n/);
+    var html = "";
+    parts.forEach(function (block) {
+      block = block.trim();
+      if (!block) return;
+      html += "<p>" + escapeHtml(block).replace(/\n/g, "<br>") + "</p>";
+    });
+    return html;
+  }
+
+  function escapeHtml(str) {
+    return str
+      .replace(/&/g, "&amp;")
+      .replace(/</g, "&lt;")
+      .replace(/>/g, "&gt;");
+  }
+</script>
+
+</body>
+</html>
