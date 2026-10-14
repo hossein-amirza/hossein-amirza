@@ -1,0 +1,33 @@
+title: "حسین محمدی آمیرزا"
+description: "وب‌سایت رسمی حسین محمدی آمیرزا؛ نویسنده، پژوهشگر، شاعر و فیلمنامه‌نویس"
+lang: "fa"
+locale: "fa_IR"
+timezone: "Asia/Tehran"
+
+url: "https://hossein-amirza.github.io"
+baseurl: "/hossein-amirza"
+
+markdown: kramdown
+permalink: /articles/:categories/:title/
+
+# تنظیمات انتشار مطالب
+future: false
+show_excerpts: true
+excerpt_separator: "<!--more-->"
+
+# دسته‌بندی مطالب
+defaults:
+  - scope:
+      path: ""
+      type: posts
+    values:
+      layout: post
+      lang: fa
+      comments: false
+
+# فایل‌ها و پوشه‌هایی که نباید پردازش شوند
+exclude:
+  - README.md
+  - LICENSE
+  - Gemfile
+  - Gemfile.lock
