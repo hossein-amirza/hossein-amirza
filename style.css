@@ -1,264 +1,177 @@
-"use strict";
+/* =========================================
+   HOSSEIN MOHAMMADI AMIRZA
+   Typography & Reading Experience
+   ========================================= */
 
-(() => {
-  document.addEventListener("DOMContentLoaded", () => {
-    // ===== ثابت‌ها =====
-    const MOBILE_BREAKPOINT = 760; // هماهنگ با CSS
-    const SCROLL_THRESHOLD = 20;
-    const ARIA_OPEN = "باز کردن فهرست";
-    const ARIA_CLOSE = "بستن فهرست";
+:root {
+  --nastaliq: "Noto Nastaliq Urdu", serif;
+  --font-body: "Vazirmatn", Tahoma, sans-serif;
 
-    // ===== المان‌ها =====
-    const header = document.querySelector(".site-header");
-    const menuToggle = document.querySelector(".menu-toggle");
-    const mainNav = document.querySelector("#main-nav");
-    const navLinks = document.querySelectorAll(
-      '.site-nav a[href^="#"], .main-nav a[href^="#"]'
-    );
+  --ink: #292720;
+  --ink-soft: #55534c;
+  --paper: #fffdf8;
+  --paper-deep: #f5f0e6;
+  --gold: #ad8950;
+  --line: #e5dccb;
 
-    // ===== منوی موبایل =====
-    function closeMenu(returnFocus = false) {
-      if (!menuToggle || !mainNav) return;
+  --reading-width: 760px;
+  --reading-size: 17px;
+  --reading-line-height: 2.5;
+}
 
-      menuToggle.setAttribute("aria-expanded", "false");
-      menuToggle.setAttribute("aria-label", ARIA_OPEN);
-      mainNav.classList.remove("is-open");
-      document.body.classList.remove("menu-open");
+/* پایهٔ تایپوگرافی فارسی */
+html {
+  scroll-behavior: smooth;
+  text-size-adjust: 100%;
+}
 
-      if (returnFocus) menuToggle.focus();
-    }
+body {
+  font-family: var(--font-body);
+  color: var(--ink);
+  line-height: 1.9;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
 
-    function openMenu() {
-      if (!menuToggle || !mainNav) return;
+/* محتوای متنی و پیش‌گفتار کتاب */
+.prose {
+  width: 100%;
+  max-width: var(--reading-width);
+  margin-inline: auto;
+  color: #373631;
+  font-family: var(--font-body);
+  font-size: var(--reading-size);
+  line-height: var(--reading-line-height);
+  text-align: justify;
+  overflow-wrap: break-word;
+  word-break: normal;
+  hyphens: none;
+}
 
-      menuToggle.setAttribute("aria-expanded", "true");
-      menuToggle.setAttribute("aria-label", ARIA_CLOSE);
-      mainNav.classList.add("is-open");
-      document.body.classList.add("menu-open");
-    }
+.prose p {
+  margin: 0 0 1.5em;
+  text-align: justify;
+  text-indent: 1em;
+}
 
-    if (menuToggle && mainNav) {
-      menuToggle.addEventListener("click", () => {
-        const isExpanded =
-          menuToggle.getAttribute("aria-expanded") === "true";
-        isExpanded ? closeMenu() : openMenu();
-      });
+.prose p:last-child {
+  margin-bottom: 0;
+}
 
-      navLinks.forEach((link) => {
-        link.addEventListener("click", () => closeMenu());
-      });
+/* بند آغازین */
+.prose .prose-lead {
+  color: var(--ink);
+  font-size: 1.1em;
+  font-weight: 500;
+  line-height: 2.6;
+}
 
-      document.addEventListener("keydown", (event) => {
-        if (event.key === "Escape") {
-          closeMenu(true); // ← برگرداندن فوکوس
-        }
-      });
+/* سرفصل‌های داخل متن با فونت نستعلیق */
+.prose h2,
+.prose h3,
+.prose h4 {
+  color: var(--ink);
+  font-family: var(--nastaliq, "Noto Nastaliq Urdu"), serif;
+  font-weight: 700;
+  text-align: center;
+  text-indent: 0;
+  overflow-wrap: anywhere;
+}
 
-      document.addEventListener("click", (event) => {
-        if (
-          mainNav.classList.contains("is-open") &&
-          !mainNav.contains(event.target) &&
-          !menuToggle.contains(event.target)
-        ) {
-          closeMenu();
-        }
-      });
+.prose h2 {
+  margin: 2em 0 1em;
+  padding-bottom: 0.5em;
+  font-size: clamp(27px, 4vw, 36px);
+  line-height: 2.2;
+  border-bottom: 1px solid var(--line);
+}
 
-      let resizeTimer;
-      window.addEventListener("resize", () => {
-        clearTimeout(resizeTimer);
-        resizeTimer = setTimeout(() => {
-          if (window.innerWidth > MOBILE_BREAKPOINT) closeMenu();
-        }, 100); // ← debounce
-      });
-    }
+.prose h3 {
+  margin: 1.8em 0 0.9em;
+  font-size: clamp(23px, 3.2vw, 30px);
+  line-height: 2.2;
+}
 
-    // ===== افکت هدر هنگام اسکرول =====
-    function updateHeader() {
-      if (!header) return;
-      const scrollY = window.scrollY || window.pageYOffset || 0;
-      header.classList.toggle("is-scrolled", scrollY > SCROLL_THRESHOLD);
-    }
+.prose h4 {
+  margin: 1.5em 0 0.75em;
+  font-size: 23px;
+  line-height: 2.1;
+}
 
-    updateHeader();
-    window.addEventListener("scroll", updateHeader, { passive: true });
+/* نقل‌قول */
+.prose blockquote,
+blockquote.excerpt {
+  margin: 2em 0;
+  padding: 1.2em 1.4em;
+  border-right: 3px solid var(--gold);
+  border-radius: 4px;
+  background: var(--paper-deep);
+  color: var(--ink-soft);
+  line-height: 2.4;
+}
 
-    // ===== اسکرول اسپای =====
-    const observedSections = Array.from(navLinks)
-      .map((link) => {
-        const href = link.getAttribute("href");
-        if (!href || href === "#") return null;
-        const target = document.querySelector(href);
-        return target ? { link, target } : null;
-      })
-      .filter(Boolean);
+.prose blockquote p,
+blockquote.excerpt p {
+  text-indent: 0;
+}
 
-    if ("IntersectionObserver" in window && observedSections.length) {
-      const sectionObserver = new IntersectionObserver(
-        (entries) => {
-          const visible = entries
-            .filter((e) => e.isIntersecting)
-            .sort((a, b) => b.intersectionRatio - a.intersectionRatio);
+/* جداکنندهٔ بخش‌ها */
+.prose hr {
+  width: 76px;
+  margin: 2.5em auto;
+  border: 0;
+  border-top: 2px solid var(--gold);
+}
 
-          if (!visible.length) return;
-          const activeSection = visible[0].target;
+/* عنوان‌های بیرون از prose در صفحهٔ کتاب */
+.section-title {
+  color: var(--ink);
+  font-family: var(--nastaliq, "Noto Nastaliq Urdu"), serif;
+  font-weight: 700;
+  line-height: 2.2;
+  text-align: center;
+}
 
-          navLinks.forEach((link) => {
-            const isActive =
-              link.getAttribute("href") === `#${activeSection.id}`;
+/* جلوگیری از پنهان‌شدن عنوان‌ها پشت هدر ثابت */
+[id] {
+  scroll-margin-top: 100px;
+}
 
-            link.classList.toggle("is-active", isActive);
-            if (isActive) {
-              link.setAttribute("aria-current", "location");
-            } else {
-              link.removeAttribute("aria-current");
-            }
-          });
-        },
-        {
-          rootMargin: "-20% 0px -60% 0px",
-          threshold: [0, 0.2, 0.5]
-        }
-      );
+/* نمایش در موبایل */
+@media (max-width: 560px) {
+  .prose {
+    font-size: 16px;
+    line-height: 2.4;
+  }
 
-      observedSections.forEach(({ target }) => {
-        sectionObserver.observe(target);
-      });
-    }
+  .prose p {
+    margin-bottom: 1.3em;
+  }
 
-    // ===== Reveal on Scroll =====
-    const revealTargets = document.querySelectorAll(
-      [
-        ".hero-copy",
-        ".hero-portrait",
-        ".section-heading",
-        ".intro-copy",
-        ".intro-aside",
-        ".field-card",
-        ".work-card",
-        ".works-note",
-        ".writing-category",
-        ".philosophy-inner",
-        ".contact-panel",
-        ".contact-form"
-      ].join(",")
-    );
+  .prose .prose-lead {
+    font-size: 17px;
+    line-height: 2.5;
+  }
 
-    const reduceMotion = window.matchMedia(
-      "(prefers-reduced-motion: reduce)"
-    ).matches;
+  .prose h2 {
+    margin-top: 1.6em;
+    font-size: 27px;
+  }
 
-    if (!reduceMotion && "IntersectionObserver" in window && revealTargets.length) {
-      const revealObserver = new IntersectionObserver(
-        (entries, observer) => {
-          entries.forEach((entry) => {
-            if (entry.isIntersecting) {
-              entry.target.classList.add("is-visible");
-              observer.unobserve(entry.target);
-            }
-          });
-        },
-        {
-          threshold: 0.08,
-          rootMargin: "0px 0px -30px 0px"
-        }
-      );
+  .prose h3 {
+    margin-top: 1.5em;
+    font-size: 23px;
+  }
 
-      revealTargets.forEach((el) => {
-        el.classList.add("reveal");
-        revealObserver.observe(el);
-      });
-    } else {
-      // بدون انیمیشن، محتوا نمایش داده شود
-      revealTargets.forEach((el) => el.classList.add("is-visible"));
-    }
+  .prose blockquote,
+  blockquote.excerpt {
+    padding: 1em;
+  }
+}
 
-    // ===== Fallback تصاویر =====
-    document.querySelectorAll("img").forEach((image) => {
-      const markMissing = () => {
-        const container = image.closest(
-          ".portrait-frame, .work-cover, .work-card"
-        );
-        if (container) container.classList.add("image-missing");
-      };
-
-      image.addEventListener("error", markMissing);
-      if (image.complete && image.naturalWidth === 0) markMissing();
-    });
-
-    // ===== سال شمسی =====
-    const yearElement = document.querySelector("#year");
-    if (yearElement) {
-      try {
-        yearElement.textContent = new Intl.DateTimeFormat(
-          "fa-IR-u-ca-persian",
-          { year: "numeric" }
-        ).format(new Date());
-      } catch (error) {
-        yearElement.textContent = "۱۴۰۵";
-      }
-    }
-
-    // ===== فرم تماس =====
-    const contactForm = document.querySelector("#contact-form");
-    const formStatus = document.querySelector("#form-status");
-
-    if (contactForm && formStatus) {
-      formStatus.setAttribute("aria-live", "polite");
-      formStatus.setAttribute("role", "status");
-
-      contactForm.addEventListener("submit", (event) => {
-        event.preventDefault();
-
-        if (!contactForm.reportValidity()) return;
-
-        const nameInput = document.querySelector("#name");
-        const emailInput = document.querySelector("#email");
-        const messageInput = document.querySelector("#message");
-
-        if (!nameInput || !emailInput || !messageInput) return;
-
-        const name = nameInput.value.trim();
-        const email = emailInput.value.trim();
-        const message = messageInput.value.trim();
-
-        if (!name || !email || !message) {
-          formStatus.textContent = "لطفاً تمام فیلدهای ضروری را تکمیل کنید.";
-          return;
-        }
-
-        const recipient = "hosseinmohammadi.writer@gmail.com";
-        const subject = `پیام از وب‌سایت - ${name}`;
-        const body = [
-          `نام فرستنده: ${name}`,
-          `ایمیل فرستنده: ${email}`,
-          "",
-          "متن پیام:",
-          message
-        ].join("\r\n");
-
-        const mailto =
-          `mailto:${recipient}` +
-          `?subject=${encodeURIComponent(subject)}` +
-          `&body=${encodeURIComponent(body)}`;
-
-        formStatus.textContent =
-          "برنامه ایمیل در حال باز شدن است. برای ارسال نهایی، پیام را در آن تأیید کنید.";
-
-        // باز کردن mailto بدون ترک صفحه
-        const link = document.createElement("a");
-        link.href = mailto;
-        link.style.display = "none";
-        document.body.appendChild(link);
-        link.click();
-        document.body.removeChild(link);
-
-        // اگر mailto کار نکرد
-        setTimeout(() => {
-          formStatus.textContent =
-            `اگر برنامه ایمیل باز نشد، پیام خود را به ${recipient} بفرستید.`;
-        }, 2500);
-      });
-    }
-  });
-})();
+/* احترام به تنظیم کاهش حرکت کاربر */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
