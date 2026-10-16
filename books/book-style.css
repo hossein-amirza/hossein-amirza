@@ -235,3 +235,108 @@
 
   .other-book img { height: 260px; }
 }
+/* =========================================
+   ارتقای خوانایی پیش‌گفتار و زیبایی سرفصل‌ها
+   ========================================= */
+
+/* متن اصلی و پیش‌گفتار */
+.prose {
+  max-width: 760px;
+  margin-inline: auto;
+  color: #373631;
+  font-family: "Vazirmatn", Tahoma, sans-serif;
+  font-size: 17px;
+  line-height: 2.7;
+  letter-spacing: 0;
+  text-align: justify;
+  overflow-wrap: anywhere;
+}
+
+/* فاصله‌گذاری آرام و منظم بندها */
+.prose p {
+  margin: 0 0 26px;
+  text-align: justify;
+  text-indent: 1.2em;
+}
+
+/* بند آغازین پیش‌گفتار */
+.prose .prose-lead {
+  color: #292720;
+  font-size: 19px;
+  font-weight: 500;
+  line-height: 2.8;
+}
+
+/* سرفصل‌های داخل متن */
+.prose h2,
+.prose h3,
+.prose h4 {
+  margin: 48px 0 24px;
+  color: var(--ink);
+  font-family: var(--nastaliq), "Noto Nastaliq Urdu", serif;
+  font-weight: 700;
+  line-height: 2.2;
+  text-align: center;
+}
+
+/* عنوان اصلی هر بخش */
+.prose h2 {
+  font-size: clamp(27px, 4vw, 36px);
+  padding-bottom: 18px;
+  border-bottom: 1px solid var(--line);
+}
+
+/* عنوان‌های فرعی */
+.prose h3 {
+  font-size: clamp(23px, 3vw, 29px);
+}
+
+/* عنوان‌های کوچک‌تر */
+.prose h4 {
+  font-size: 22px;
+}
+
+/* جداکنندهٔ ظریف برای بخش‌های طولانی */
+.prose hr {
+  width: 80px;
+  margin: 42px auto;
+  border: 0;
+  border-top: 2px solid var(--gold);
+}
+
+/* نقل‌قول‌های درون پیش‌گفتار */
+.prose blockquote {
+  margin: 32px 0;
+  padding: 18px 24px;
+  border-right: 3px solid var(--gold);
+  background: var(--paper-deep);
+  color: var(--ink);
+  line-height: 2.5;
+}
+
+/* نمایش مناسب در گوشی */
+@media (max-width: 560px) {
+  .prose {
+    font-size: 16px;
+    line-height: 2.5;
+  }
+
+  .prose .prose-lead {
+    font-size: 17px;
+    line-height: 2.6;
+  }
+
+  .prose h2 {
+    margin-top: 36px;
+    font-size: 27px;
+  }
+
+  .prose h3 {
+    font-size: 23px;
+  }
+
+  .prose p {
+    margin-bottom: 22px;
+  }
+}
+
