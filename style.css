@@ -175,3 +175,304 @@ blockquote.excerpt p {
     scroll-behavior: auto;
   }
 }
+
+/* ============================================================
+   Long Screenplays — Responsive Styles
+   ============================================================ */
+
+.screenplay-section {
+  --screenplay-accent: var(--accent-color, #c6a15b);
+  --screenplay-surface: var(--card-bg, #171717);
+  --screenplay-border: var(--border-color, #333);
+  --screenplay-text: var(--text-color, #f2f0eb);
+  --screenplay-muted: var(--muted-color, #aaa);
+
+  position: relative;
+  padding-block: clamp(64px, 8vw, 112px);
+  overflow: clip;
+}
+
+.screenplay-section .screenplay-heading {
+  max-width: 760px;
+  margin-inline: auto;
+  margin-bottom: clamp(32px, 5vw, 56px);
+  text-align: center;
+}
+
+.screenplay-section .screenplay-heading .eyebrow {
+  display: inline-block;
+  margin-bottom: 12px;
+  color: var(--screenplay-accent);
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+}
+
+.screenplay-section .screenplay-heading h2 {
+  margin-block: 0 16px;
+  line-height: 1.5;
+  text-wrap: balance;
+}
+
+.screenplay-section .screenplay-heading p {
+  max-width: 650px;
+  margin-inline: auto;
+  line-height: 2;
+  color: var(--screenplay-muted);
+  text-wrap: pretty;
+}
+
+.screenplay-section .screenplay-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  align-items: stretch;
+  gap: clamp(18px, 2.5vw, 30px);
+}
+
+.screenplay-section .screenplay-card {
+  min-width: 0;
+  height: 100%;
+  border: 1px solid var(--screenplay-border);
+  border-radius: 16px;
+  overflow: hidden;
+  background: var(--screenplay-surface);
+  transition:
+    border-color 220ms ease,
+    box-shadow 220ms ease,
+    transform 220ms ease;
+}
+
+.screenplay-section .screenplay-link {
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+  color: inherit;
+  text-decoration: none;
+  border-radius: inherit;
+}
+
+.screenplay-section .screenplay-poster {
+  position: relative;
+  aspect-ratio: 2 / 3;
+  overflow: hidden;
+  background: #222;
+  isolation: isolate;
+}
+
+.screenplay-section .screenplay-poster::after {
+  content: "";
+  position: absolute;
+  inset: 45% 0 0;
+  z-index: 1;
+  pointer-events: none;
+  background: linear-gradient(
+    to bottom,
+    transparent,
+    rgb(0 0 0 / 24%)
+  );
+}
+
+.screenplay-section .screenplay-poster img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  transition: transform 500ms ease;
+}
+
+.screenplay-section .screenplay-badge {
+  position: absolute;
+  z-index: 2;
+  top: 14px;
+  right: 14px;
+  max-width: calc(100% - 28px);
+  padding: 7px 12px;
+  border: 1px solid rgb(255 255 255 / 16%);
+  border-radius: 999px;
+  color: #fff;
+  background: rgb(18 18 18 / 84%);
+  font-size: 0.78rem;
+  font-weight: 700;
+  line-height: 1.5;
+  backdrop-filter: blur(8px);
+}
+
+.screenplay-section .badge-trilogy {
+  border-color: rgb(198 161 91 / 55%);
+  color: #f0d59d;
+}
+
+.screenplay-section .badge-standalone {
+  color: #eee;
+}
+
+.screenplay-section .badge-epic {
+  border-color: rgb(174 82 60 / 60%);
+  color: #ffc0a9;
+}
+
+.screenplay-section .screenplay-info {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: clamp(18px, 2.2vw, 26px);
+}
+
+.screenplay-section .screenplay-type {
+  margin-bottom: 10px;
+  color: var(--screenplay-accent);
+  font-size: 0.8rem;
+  font-weight: 600;
+  line-height: 1.8;
+}
+
+.screenplay-section .screenplay-info h3 {
+  margin: 0 0 12px;
+  font-size: clamp(1.15rem, 1.7vw, 1.4rem);
+  font-weight: 800;
+  line-height: 1.7;
+  text-wrap: balance;
+}
+
+.screenplay-section .screenplay-info p {
+  margin: 0 0 20px;
+  color: var(--screenplay-muted);
+  font-size: 0.94rem;
+  line-height: 2;
+  text-wrap: pretty;
+}
+
+.screenplay-section .screenplay-footer {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px 14px;
+  width: 100%;
+  margin-top: auto;
+  padding-top: 16px;
+  border-top: 1px solid var(--screenplay-border);
+  font-size: 0.8rem;
+  line-height: 1.8;
+}
+
+.screenplay-section .screenplay-footer > span:first-child {
+  font-weight: 700;
+}
+
+.screenplay-section .screenplay-mark {
+  margin-inline-start: auto;
+  color: var(--screenplay-muted);
+}
+
+.screenplay-section .screenplay-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 20px;
+  color: var(--screenplay-accent);
+  font-size: 0.9rem;
+  font-weight: 700;
+  line-height: 1.8;
+}
+
+.screenplay-section .screenplay-cta span {
+  display: inline-block;
+  transition: transform 220ms ease;
+}
+
+.screenplay-section .screenplay-note {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  max-width: 820px;
+  margin: 38px auto 0;
+  color: var(--screenplay-muted);
+  font-size: 0.85rem;
+  line-height: 2;
+}
+
+.screenplay-section .screenplay-note-mark {
+  flex: 0 0 auto;
+  color: var(--screenplay-accent);
+  font-weight: 700;
+}
+
+/* تعامل با ماوس */
+@media (hover: hover) and (pointer: fine) {
+  .screenplay-section .screenplay-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--screenplay-accent);
+    box-shadow: 0 16px 36px rgb(0 0 0 / 16%);
+  }
+
+  .screenplay-section .screenplay-card:hover img {
+    transform: scale(1.035);
+  }
+
+  .screenplay-section .screenplay-card:hover .screenplay-cta span {
+    transform: translateX(-4px);
+  }
+}
+
+/* فوکوس صفحه‌کلید */
+.screenplay-section .screenplay-link:focus-visible {
+  outline: 3px solid var(--screenplay-accent);
+  outline-offset: -4px;
+}
+
+/* تبلت */
+@media (max-width: 900px) {
+  .screenplay-section .screenplay-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 22px;
+  }
+}
+
+/* موبایل */
+@media (max-width: 600px) {
+  .screenplay-section {
+    padding-block: 52px;
+  }
+
+  .screenplay-section .screenplay-grid {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 22px;
+    max-width: 440px;
+    margin-inline: auto;
+  }
+
+  .screenplay-section .screenplay-heading {
+    margin-bottom: 30px;
+  }
+
+  .screenplay-section .screenplay-info {
+    padding: 20px;
+  }
+
+  .screenplay-section .screenplay-info h3 {
+    font-size: 1.25rem;
+  }
+
+  .screenplay-section .screenplay-note {
+    margin-top: 28px;
+  }
+}
+
+/* احترام به تنظیمات حرکتی کاربر */
+@media (prefers-reduced-motion: reduce) {
+  .screenplay-section .screenplay-card,
+  .screenplay-section .screenplay-poster img,
+  .screenplay-section .screenplay-cta span {
+    transition: none;
+  }
+
+  .screenplay-section .screenplay-card:hover {
+    transform: none;
+  }
+
+  .screenplay-section .screenplay-card:hover img {
+    transform: none;
+  }
+}
