@@ -1,469 +1,570 @@
-"use strict";
-
+```javascript
 /* =========================================================
-   HOSSEIN MOHAMMADI AMIRZA — SITE SCRIPT
-   Version 5.0 — Production Ready
+   HOSSEIN MOHAMMADI AMIRZA — PERSONAL WEBSITE
+   script.js | Version 6.0
+   Synchronized with the current index.html
    ========================================================= */
 
 (() => {
-  document.addEventListener("DOMContentLoaded", () => {
-    /* =====================================================
-       ۰. آماده‌سازی اولیه
-       ===================================================== */
+  "use strict";
 
-    // [۱۰/۱۰] علامت‌گذاری برای CSS (progressive enhancement)
-    document.documentElement.classList.add("js-enabled");
+  /* -------------------------------------------------------
+     1. CONFIGURATION
+     ------------------------------------------------------- */
 
-    /* =====================================================
-       ۱. ثابت‌های پیکربندی
-       ===================================================== */
+  const CONFIG = {
+    // ایمیل مقصد فرم تماس
+    // فرم با mailto برنامهٔ ایمیل کاربر را باز می‌کند.
+    contactEmail: "hosseinmohammadi.writer@gmail.com",
 
-    const MOBILE_BREAKPOINT = 760;   // [۱۰/۱۰] هماهنگ با CSS
-    const SCROLL_THRESHOLD  = 12;    // [۱۰/۱۰] آستانه بهتر برای هدر
-    const RESIZE_DEBOUNCE   = 120;
+    // مدت نمایش پیام‌های فرم (میلی‌ثانیه)
+    statusDuration: 6000,
 
-    const ARIA_OPEN  = "باز کردن فهرست";
-    const ARIA_CLOSE = "بستن فهرست";
+    // کلاس‌های نمایش تدریجی
+    revealSelector: ".reveal",
 
-    /* =====================================================
-       ۲. کش کردن المان‌ها
-       ===================================================== */
+    // لینک‌های اصلی منو
+    navSelector: "#navLinks"
+  };
 
-    const header     = document.querySelector(".site-header");
-    const menuToggle = document.querySelector(".menu-toggle");
+  /* -------------------------------------------------------
+     2. HELPERS
+     ------------------------------------------------------- */
 
-    // [۱۰/۱۰] پشتیبانی از شناسه‌های قدیمی و جدید
-    const mainNav = document.querySelector(
-      "#site-navigation, #main-nav"
-    );
+  const $ = (selector, root = document) =>
+    root.querySelector(selector);
 
-    // [۱۰/۱۰] پشتیبانی از هر دو ساختار کلاس
-    const navLinks = document.querySelectorAll(
-      '.site-nav a[href^="#"], ' +
-      '.main-nav a[href^="#"], ' +
-      '#site-navigation a[href^="#"], ' +
-      '#main-nav a[href^="#"]'
-    );
+  const $$ = (selector, root = document) =>
+    Array.from(root.querySelectorAll(selector));
 
-    const reduceMotion = window.matchMedia(
-      "(prefers-reduced-motion: reduce)"
-    ).matches;
-
-    /* =====================================================
-       ۳. توابع کمکی
-       ===================================================== */
-
-    // [۱۰/۱۰] تنظیم پیام وضعیت فرم با dataset برای استایل‌دهی CSS
-    function setNote(element, text, type) {
-      if (!element) return;
-      element.textContent = text;
-      if (type) element.dataset.state = type;
+  const safely = (callback, fallback = null) => {
+    try {
+      return callback();
+    } catch (error) {
+      console.error("[Website]", error);
+      return fallback;
     }
+  };
 
-    // [۱۰/۱۰] اعتبارسنجی ایمیل
-    function isValidEmail(value) {
-      return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
+  const prefersReducedMotion = () =>
+    window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  /* -------------------------------------------------------
+     3. CURRENT PERSIAN YEAR
+     ------------------------------------------------------- */
+
+  function initializeYear() {
+    const yearElement = $("#year");
+    if (!yearElement) return;
+
+    try {
+      const persianYear = new Intl.DateTimeFormat(
+        "fa-IR-u-ca-persian",
+        { year: "numeric" }
+      ).format(new Date());
+
+      yearElement.textContent = persianYear;
+    } catch {
+      // جایگزین ساده در مرورگرهای قدیمی
+      yearElement.textContent = String(
+        new Date().getFullYear() - 621
+      );
     }
+  }
 
-    /* =====================================================
-       ۴. منوی موبایل
-       ===================================================== */
+  /* -------------------------------------------------------
+     4. MOBILE NAVIGATION
+     HTML:
+     #menuToggle
+     #navLinks.links
+     ------------------------------------------------------- */
 
-    function closeMenu(returnFocus = false) {
-      if (!menuToggle || !mainNav) return;
+  function initializeNavigation() {
+    const menuToggle = $("#menuToggle");
+    const navLinks = $(CONFIG.navSelector);
 
-      mainNav.classList.remove("is-open");
-      document.body.classList.remove("menu-open");
+    if (!menuToggle || !navLinks) return;
 
-      menuToggle.setAttribute("aria-expanded", "false");
-      menuToggle.setAttribute("aria-label", ARIA_OPEN);
+    const navAnchors = $$('a[href]', navLinks);
 
-      // [۱۰/۱۰] بازگرداندن فوکوس به دکمه
-      if (returnFocus) {
-        menuToggle.focus();
-      }
-    }
-
-    function openMenu() {
-      if (!menuToggle || !mainNav) return;
-
-      mainNav.classList.add("is-open");
-      document.body.classList.add("menu-open");
-
-      menuToggle.setAttribute("aria-expanded", "true");
-      menuToggle.setAttribute("aria-label", ARIA_CLOSE);
-    }
-
-    if (menuToggle && mainNav) {
-      // [۱۰/۱۰] هماهنگ‌سازی وضعیت اولیه با HTML
-      const initiallyOpen =
-        menuToggle.getAttribute("aria-expanded") === "true";
-
-      if (initiallyOpen) openMenu();
-      else closeMenu();
-
-      // کلیک روی دکمه
-      menuToggle.addEventListener("click", () => {
-        const isOpen =
-          menuToggle.getAttribute("aria-expanded") === "true";
-
-        if (isOpen) closeMenu();
-        else openMenu();
-      });
-
-      // بستن پس از انتخاب لینک
-      navLinks.forEach((link) => {
-        link.addEventListener("click", () => closeMenu());
-      });
-
-      // [۱۰/۱۰] بستن با Escape + بازگرداندن فوکوس
-      document.addEventListener("keydown", (event) => {
-        if (
-          event.key === "Escape" &&
-          mainNav.classList.contains("is-open")
-        ) {
-          closeMenu(true);
-        }
-      });
-
-      // [۱۰/۱۰] بستن با کلیک بیرون (با چک Node)
-      document.addEventListener("click", (event) => {
-        if (
-          !mainNav.classList.contains("is-open") ||
-          !(event.target instanceof Node)
-        ) {
-          return;
-        }
-
-        if (
-          !mainNav.contains(event.target) &&
-          !menuToggle.contains(event.target)
-        ) {
-          closeMenu();
-        }
-      });
-
-      // [۱۰/۱۰] بستن با resize (debounce شده)
-      let resizeTimer;
-      window.addEventListener("resize", () => {
-        window.clearTimeout(resizeTimer);
-        resizeTimer = window.setTimeout(() => {
-          if (window.innerWidth > MOBILE_BREAKPOINT) {
-            closeMenu();
-          }
-        }, RESIZE_DEBOUNCE);
-      });
-
-      // [۱۰/۱۰] بستن هنگام خروج فوکوس از منو
-      mainNav.addEventListener("focusout", (event) => {
-        if (!mainNav.classList.contains("is-open")) return;
-
-        const nextTarget = event.relatedTarget;
-
-        if (
-          nextTarget instanceof Node &&
-          !mainNav.contains(nextTarget) &&
-          !menuToggle.contains(nextTarget)
-        ) {
-          closeMenu();
-        }
-      });
-    }
-
-    /* =====================================================
-       ۵. افکت سربرگ هنگام اسکرول
-       ===================================================== */
-
-    function updateHeader() {
-      if (!header) return;
-
-      const scrollY = window.scrollY || window.pageYOffset || 0;
-      header.classList.toggle(
-        "is-scrolled",
-        scrollY > SCROLL_THRESHOLD
+    function isOpen() {
+      return (
+        navLinks.classList.contains("is-open") ||
+        navLinks.classList.contains("active")
       );
     }
 
-    updateHeader();
-    window.addEventListener("scroll", updateHeader, { passive: true });
+    function setMenu(open) {
+      navLinks.classList.toggle("is-open", open);
+      navLinks.classList.toggle("active", open);
 
-    /* =====================================================
-       ۶. اسکرول اسپای — تشخیص بخش فعال
-       ===================================================== */
+      menuToggle.setAttribute("aria-expanded", String(open));
+      menuToggle.setAttribute(
+        "aria-label",
+        open ? "بستن منو" : "باز کردن منو"
+      );
+    }
 
-    const observedSections = Array.from(navLinks)
+    menuToggle.setAttribute("aria-controls", "navLinks");
+    menuToggle.setAttribute("aria-expanded", "false");
+    menuToggle.setAttribute("aria-label", "باز کردن منو");
+
+    menuToggle.addEventListener("click", (event) => {
+      event.preventDefault();
+      setMenu(!isOpen());
+    });
+
+    // بستن منو پس از انتخاب یک لینک
+    navAnchors.forEach((anchor) => {
+      anchor.addEventListener("click", () => {
+        setMenu(false);
+      });
+    });
+
+    // بستن منو با Escape
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "Escape" && isOpen()) {
+        setMenu(false);
+        menuToggle.focus();
+      }
+    });
+
+    // بستن منو با کلیک خارج از آن
+    document.addEventListener("click", (event) => {
+      if (!isOpen()) return;
+
+      const clickedInside =
+        navLinks.contains(event.target) ||
+        menuToggle.contains(event.target);
+
+      if (!clickedInside) setMenu(false);
+    });
+
+    // بستن منو هنگام بازگشت به نمای دسکتاپ
+    window.addEventListener("resize", () => {
+      if (window.innerWidth > 900) {
+        setMenu(false);
+      }
+    });
+
+    // وضعیت اولیه
+    setMenu(false);
+  }
+
+  /* -------------------------------------------------------
+     5. LIGHT / DARK THEME
+     HTML:
+     #themeToggle
+     ------------------------------------------------------- */
+
+  function initializeTheme() {
+    const themeToggle = $("#themeToggle");
+    const root = document.documentElement;
+    const storageKey = "hossein-amirza-theme";
+
+    function readSavedTheme() {
+      return safely(() => localStorage.getItem(storageKey), null);
+    }
+
+    function saveTheme(theme) {
+      safely(() => localStorage.setItem(storageKey, theme));
+    }
+
+    function getInitialTheme() {
+      const saved = readSavedTheme();
+
+      if (saved === "light" || saved === "dark") {
+        return saved;
+      }
+
+      return window.matchMedia("(prefers-color-scheme: dark)").matches
+        ? "dark"
+        : "light";
+    }
+
+    function applyTheme(theme, persist = false) {
+      const normalized = theme === "dark" ? "dark" : "light";
+
+      root.dataset.theme = normalized;
+      root.style.colorScheme = normalized;
+
+      if (themeToggle) {
+        const isDark = normalized === "dark";
+
+        themeToggle.setAttribute("aria-pressed", String(isDark));
+        themeToggle.setAttribute(
+          "aria-label",
+          isDark ? "فعال‌کردن حالت روشن" : "فعال‌کردن حالت تاریک"
+        );
+        themeToggle.setAttribute(
+          "title",
+          isDark ? "حالت روشن" : "حالت تاریک"
+        );
+      }
+
+      if (persist) saveTheme(normalized);
+    }
+
+    applyTheme(getInitialTheme());
+
+    if (themeToggle) {
+      themeToggle.addEventListener("click", () => {
+        const nextTheme =
+          root.dataset.theme === "dark" ? "light" : "dark";
+
+        applyTheme(nextTheme, true);
+      });
+    }
+
+    // تغییر خودکار فقط زمانی که کاربر انتخاب قبلی ندارد
+    const colorScheme = window.matchMedia(
+      "(prefers-color-scheme: dark)"
+    );
+
+    colorScheme.addEventListener?.("change", (event) => {
+      if (!readSavedTheme()) {
+        applyTheme(event.matches ? "dark" : "light");
+      }
+    });
+  }
+
+  /* -------------------------------------------------------
+     6. SCROLL REVEAL ANIMATIONS
+     HTML elements use .reveal
+     ------------------------------------------------------- */
+
+  function initializeReveal() {
+    const elements = $$(CONFIG.revealSelector);
+
+    if (!elements.length) return;
+
+    // جلوگیری از پنهان ماندن محتوا در حالت کاهش حرکت
+    if (
+      prefersReducedMotion() ||
+      !("IntersectionObserver" in window)
+    ) {
+      elements.forEach((element) => {
+        element.classList.add("is-visible");
+      });
+      return;
+    }
+
+    const observer = new IntersectionObserver(
+      (entries, currentObserver) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("is-visible");
+            currentObserver.unobserve(entry.target);
+          }
+        });
+      },
+      {
+        threshold: 0.12,
+        rootMargin: "0px 0px -35px 0px"
+      }
+    );
+
+    elements.forEach((element) => observer.observe(element));
+  }
+
+  /* -------------------------------------------------------
+     7. ACTIVE NAVIGATION LINK
+     Highlight the link for the visible section
+     ------------------------------------------------------- */
+
+  function initializeActiveNavigation() {
+    const navLinks = $(CONFIG.navSelector);
+    if (!navLinks) return;
+
+    const links = $$('a[href^="#"]', navLinks);
+
+    const sections = links
       .map((link) => {
-        const href = link.getAttribute("href");
-        if (!href || href === "#") return null;
+        const id = link.getAttribute("href");
 
-        const target = document.getElementById(href.slice(1));
-        return target ? { link, target } : null;
+        if (!id || id === "#") return null;
+
+        const section = $(id);
+        return section ? { link, section } : null;
       })
       .filter(Boolean);
 
-    // [۱۰/۱۰] تابع کمکی برای تنظیم لینک فعال
-    function setActiveSection(activeId) {
-      navLinks.forEach((link) => {
-        const isActive =
-          link.getAttribute("href") === `#${activeId}`;
+    if (!sections.length) return;
 
-        link.classList.toggle("is-active", isActive);
+    function setActive(activeLink) {
+      links.forEach((link) => {
+        link.classList.remove("is-active", "active");
+        link.removeAttribute("aria-current");
+      });
 
-        if (isActive) {
-          // [۱۰/۱۰] مقدار صحیح: "location" نه "page"
-          link.setAttribute("aria-current", "location");
-        } else {
-          link.removeAttribute("aria-current");
+      if (activeLink) {
+        activeLink.classList.add("is-active", "active");
+        activeLink.setAttribute("aria-current", "location");
+      }
+    }
+
+    if (!("IntersectionObserver" in window)) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const visible = entries
+          .filter((entry) => entry.isIntersecting)
+          .sort(
+            (a, b) =>
+              b.intersectionRatio - a.intersectionRatio
+          );
+
+        if (!visible.length) return;
+
+        const current = sections.find(
+          (item) => item.section === visible[0].target
+        );
+
+        if (current) setActive(current.link);
+      },
+      {
+        rootMargin: "-20% 0px -60% 0px",
+        threshold: [0, 0.15, 0.35, 0.6]
+      }
+    );
+
+    sections.forEach(({ section }) => observer.observe(section));
+
+    // انتخاب لینک هنگام کلیک
+    links.forEach((link) => {
+      link.addEventListener("click", () => setActive(link));
+    });
+  }
+
+  /* -------------------------------------------------------
+     8. BACK TO TOP
+     HTML: #scrollTop
+     ------------------------------------------------------- */
+
+  function initializeScrollTop() {
+    const button = $("#scrollTop");
+    if (!button) return;
+
+    const updateButton = () => {
+      const visible = window.scrollY > 400;
+
+      button.classList.toggle("is-visible", visible);
+      button.classList.toggle("visible", visible);
+      button.setAttribute("aria-hidden", String(!visible));
+      button.tabIndex = visible ? 0 : -1;
+    };
+
+    button.addEventListener("click", (event) => {
+      event.preventDefault();
+
+      window.scrollTo({
+        top: 0,
+        behavior: prefersReducedMotion() ? "auto" : "smooth"
+      });
+    });
+
+    window.addEventListener("scroll", updateButton, {
+      passive: true
+    });
+
+    updateButton();
+  }
+
+  /* -------------------------------------------------------
+     9. IMAGE ERROR HANDLING
+     Keep the page layout intact if an image is missing.
+     ------------------------------------------------------- */
+
+  function initializeImages() {
+    const images = $$("img");
+
+    images.forEach((img) => {
+      img.addEventListener("error", () => {
+        img.classList.add("image-missing");
+        img.setAttribute("data-image-error", "true");
+
+        const container = img.closest(
+          ".screenplay-poster, .portrait-frame, .book-cover, .portrait"
+        );
+
+        if (container) {
+          container.classList.add("has-image-error");
+        }
+
+        console.warn("[Website] Image could not be loaded:", img.src);
+      });
+
+      img.addEventListener("load", () => {
+        img.classList.remove("image-missing");
+        img.removeAttribute("data-image-error");
+
+        const container = img.closest(
+          ".screenplay-poster, .portrait-frame, .book-cover, .portrait"
+        );
+
+        if (container) {
+          container.classList.remove("has-image-error");
         }
       });
-    }
+    });
+  }
+
+  /* -------------------------------------------------------
+     10. CONTACT FORM
+     HTML:
+     #contactForm
+     #contactName
+     #contactEmail
+     #contactSubject
+     #contactMessage
+     #submitContact
+     #formStatus
+
+     This fallback opens the visitor's email application.
+     It does NOT send a message directly from the website.
+     ------------------------------------------------------- */
+
+  function initializeContactForm() {
+    const form = $("#contactForm");
+    if (!form) return;
+
+    const nameInput = $("#contactName", form);
+    const emailInput = $("#contactEmail", form);
+    const subjectInput = $("#contactSubject", form);
+    const messageInput = $("#contactMessage", form);
+    const submitButton = $("#submitContact", form);
+    const statusElement = $("#formStatus");
 
     if (
-      "IntersectionObserver" in window &&
-      observedSections.length
+      !nameInput ||
+      !emailInput ||
+      !messageInput ||
+      !submitButton
     ) {
-      const sectionObserver = new IntersectionObserver(
-        (entries) => {
-          const visibleEntries = entries
-            .filter((entry) => entry.isIntersecting)
-            .sort(
-              (a, b) => b.intersectionRatio - a.intersectionRatio
-            );
-
-          if (!visibleEntries.length) return;
-
-          const activeId = visibleEntries[0].target.id;
-          if (activeId) setActiveSection(activeId);
-        },
-        {
-          // [۱۰/۱۰] ناحیه فعال دقیق‌تر
-          rootMargin: "-35% 0px -55% 0px",
-          threshold: [0, 0.2, 0.5]
-        }
+      console.warn(
+        "[Website] Contact form fields do not match the expected HTML."
       );
-
-      // [۱۰/۱۰] حذف تکراری‌ها (اگر لینک تکراری باشد)
-      const uniqueTargets = new Set(
-        observedSections.map(({ target }) => target)
-      );
-
-      uniqueTargets.forEach((target) => {
-        sectionObserver.observe(target);
-      });
+      return;
     }
 
-    /* =====================================================
-       ۷. نمایش تدریجی محتوا (Reveal on Scroll)
-       ===================================================== */
+    function showStatus(message, type = "info") {
+      if (!statusElement) return;
 
-    const revealTargets = document.querySelectorAll(
-      [
-        ".hero-copy",
-        ".hero-portrait",
-        ".section-heading",
-        ".intro-copy",
-        ".intro-aside",
-        ".field-card",
-        ".work-card",
-        ".works-note",
-        ".writing-category",
-        ".philosophy-inner",
-        ".contact-panel"
-      ].join(",")
-    );
-
-    // [۱۰/۱۰] ابتدا همه را آماده می‌کنیم
-    revealTargets.forEach((element) => {
-      element.classList.add("reveal");
-    });
-
-    if (reduceMotion || !("IntersectionObserver" in window)) {
-      // [۱۰/۱۰] محتوا در حالت کاهش حرکت پنهان نمی‌ماند
-      revealTargets.forEach((element) => {
-        element.classList.add("is-visible");
-      });
-    } else {
-      const revealObserver = new IntersectionObserver(
-        (entries, observer) => {
-          entries.forEach((entry) => {
-            if (!entry.isIntersecting) return;
-
-            entry.target.classList.add("is-visible");
-            observer.unobserve(entry.target);
-          });
-        },
-        {
-          threshold: 0.08,
-          rootMargin: "0px 0px -30px 0px"
-        }
-      );
-
-      revealTargets.forEach((element) => {
-        revealObserver.observe(element);
-      });
+      statusElement.textContent = message;
+      statusElement.dataset.status = type;
+      statusElement.setAttribute("role", "status");
+      statusElement.setAttribute("aria-live", "polite");
     }
 
-    /* =====================================================
-       ۸. مدیریت خطای تصاویر (Fallback)
-       ===================================================== */
+    // فعال‌کردن دکمه؛ ارسال واقعی با mailto انجام نمی‌شود.
+    submitButton.disabled = false;
 
-    document.querySelectorAll("img").forEach((image) => {
-      const getContainer = () =>
-        image.closest(
-          ".portrait-frame, .work-cover, .work-card"
+    form.addEventListener("submit", (event) => {
+      event.preventDefault();
+
+      if (!form.reportValidity()) return;
+
+      const name = nameInput.value.trim();
+      const email = emailInput.value.trim();
+      const subject = subjectInput?.value.trim() || "پیام از وب‌سایت";
+      const message = messageInput.value.trim();
+
+      if (!name || !email || !message) {
+        showStatus(
+          "لطفاً نام، ایمیل و متن پیام را کامل وارد کنید.",
+          "error"
         );
-
-      const markMissing = () => {
-        const container = getContainer();
-        if (container) container.classList.add("image-missing");
-      };
-
-      const markLoaded = () => {
-        if (image.naturalWidth > 0) {
-          const container = getContainer();
-          if (container) container.classList.remove("image-missing");
-        }
-      };
-
-      image.addEventListener("error", markMissing);
-      image.addEventListener("load", markLoaded);
-
-      // [۱۰/۱۰] بررسی خطای تصاویر cache شده
-      if (image.complete && image.naturalWidth === 0) {
-        markMissing();
-      }
-    });
-
-    /* =====================================================
-       ۹. سال شمسی پابرگ
-       ===================================================== */
-
-    // [۱۰/۱۰] پشتیبانی از شناسه‌های مختلف
-    const yearElement = document.querySelector(
-      "#year, #current-year"
-    );
-
-    if (yearElement) {
-      try {
-        // [۱۰/۱۰] تقویم واقعی شمسی (نه فقط ارقام فارسی)
-        yearElement.textContent = new Intl.DateTimeFormat(
-          "fa-IR-u-ca-persian",
-          { year: "numeric" }
-        ).format(new Date());
-      } catch (error) {
-        // [۱۰/۱۰] fallback اگر Intl پشتیبانی نشود
-        yearElement.textContent = "۱۴۰۴";
-      }
-    }
-
-    /* =====================================================
-       ۱۰. فرم تماس (mailto)
-       ===================================================== */
-
-    const contactForm = document.querySelector("#contact-form");
-    const formStatus  = document.querySelector(
-      "#form-status, #form-note"
-    );
-
-    if (contactForm) {
-      // [۱۰/۱۰] تنظیم ویژگی‌های ARIA برای screen reader
-      if (formStatus) {
-        formStatus.setAttribute("role", "status");
-        formStatus.setAttribute("aria-live", "polite");
+        return;
       }
 
-      contactForm.addEventListener("submit", (event) => {
-        event.preventDefault();
-
-        // [۱۰/۱۰] اعتبارسنجی بومی مرورگر (اگر پشتیبانی شود)
-        if (typeof contactForm.reportValidity === "function") {
-          if (!contactForm.reportValidity()) return;
-        }
-
-        // [۱۰/۱۰] گرفتن فیلدها از داخل خود فرم (نه از document)
-        const nameInput    = contactForm.querySelector("#name");
-        const emailInput   = contactForm.querySelector("#email");
-        const messageInput = contactForm.querySelector("#message");
-
-        if (!nameInput || !emailInput || !messageInput) {
-          setNote(
-            formStatus,
-            "ساختار فرم کامل نیست؛ لطفاً فیلدهای تماس را بررسی کنید.",
-            "error"
-          );
-          return;
-        }
-
-        const name    = nameInput.value.trim();
-        const email   = emailInput.value.trim();
-        const message = messageInput.value.trim();
-
-        // اعتبارسنجی خالی بودن
-        if (!name || !email || !message) {
-          setNote(
-            formStatus,
-            "لطفاً نام، ایمیل و متن پیام را تکمیل کنید.",
-            "warn"
-          );
-          return;
-        }
-
-        // اعتبارسنجی ایمیل
-        if (!isValidEmail(email)) {
-          setNote(
-            formStatus,
-            "نشانی ایمیل واردشده معتبر نیست.",
-            "warn"
-          );
-          return;
-        }
-
-        const recipient = "hosseinmohammadi.writer@gmail.com";
-        const subject = `پیام از وب‌سایت — ${name}`;
-
-        const body = [
-          `نام فرستنده: ${name}`,
-          `ایمیل فرستنده: ${email}`,
-          "",
-          "متن پیام:",
-          message
-        ].join("\r\n");
-
-        const mailto =
-          `mailto:${recipient}` +
-          `?subject=${encodeURIComponent(subject)}` +
-          `&body=${encodeURIComponent(body)}`;
-
-        setNote(
-          formStatus,
-          "برنامهٔ ایمیل در حال باز شدن است. ارسال پیام را در آن تأیید کنید.",
-          "ok"
+      if (!CONFIG.contactEmail) {
+        showStatus(
+          "برای ارسال پیام، ابتدا سرویس تماس سایت را پیکربندی کنید.",
+          "error"
         );
+        return;
+      }
 
-        // [۱۰/۱۰] روش امن‌تر برای باز کردن mailto (بدون ترک صفحه)
-        const emailLink = document.createElement("a");
-        emailLink.href = mailto;
-        emailLink.hidden = true;
-        emailLink.setAttribute("aria-hidden", "true");
+      const emailSubject = `[وب‌سایت] ${subject}`;
+      const emailBody = [
+        `نام: ${name}`,
+        `ایمیل فرستنده: ${email}`,
+        "",
+        "متن پیام:",
+        message
+      ].join("\n");
 
-        document.body.appendChild(emailLink);
-        emailLink.click();
-        emailLink.remove();
+      const mailtoURL =
+        `mailto:${CONFIG.contactEmail}` +
+        `?subject=${encodeURIComponent(emailSubject)}` +
+        `&body=${encodeURIComponent(emailBody)}`;
 
-        // [۱۰/۱۰] پیام پشتیبان اگر mailto کار نکرد
-        window.setTimeout(() => {
-          if (
-            formStatus &&
-            document.visibilityState === "visible"
-          ) {
-            setNote(
-              formStatus,
-              `اگر برنامهٔ ایمیل باز نشد، پیام خود را مستقیماً به ${recipient} ارسال کنید.`,
-              "ok"
-            );
-          }
-        }, 2500);
-      });
+      showStatus(
+        "برنامهٔ ایمیل شما باز می‌شود. برای ارسال نهایی، پیام را در آن تأیید کنید.",
+        "info"
+      );
+
+      // فقط برنامهٔ ایمیل کاربر را باز می‌کند.
+      // ارسال خودکار یا ارسال به سرور در این روش وجود ندارد.
+      window.location.href = mailtoURL;
+    });
+  }
+
+  /* -------------------------------------------------------
+     11. ACCESSIBILITY IMPROVEMENTS
+     ------------------------------------------------------- */
+
+  function initializeAccessibility() {
+    // افزودن focus-visible به‌صورت CSS در فایل style.css توصیه می‌شود.
+    const menuToggle = $("#menuToggle");
+
+    if (menuToggle && !menuToggle.hasAttribute("type")) {
+      menuToggle.setAttribute("type", "button");
     }
-  });
+
+    const themeToggle = $("#themeToggle");
+
+    if (themeToggle && !themeToggle.hasAttribute("type")) {
+      themeToggle.setAttribute("type", "button");
+    }
+
+    const scrollTop = $("#scrollTop");
+
+    if (scrollTop && !scrollTop.hasAttribute("type")) {
+      scrollTop.setAttribute("type", "button");
+    }
+  }
+
+  /* -------------------------------------------------------
+     12. INITIALIZE EVERYTHING
+     ------------------------------------------------------- */
+
+  function initializeWebsite() {
+    initializeYear();
+    initializeNavigation();
+    initializeTheme();
+    initializeReveal();
+    initializeActiveNavigation();
+    initializeScrollTop();
+    initializeImages();
+    initializeContactForm();
+    initializeAccessibility();
+
+    document.documentElement.classList.add("js-ready");
+
+    console.info(
+      "[Website] Hossein Amirza website initialized successfully."
+    );
+  }
+
+  if (document.readyState === "loading") {
+    document.addEventListener(
+      "DOMContentLoaded",
+      initializeWebsite,
+      { once: true }
+    );
+  } else {
+    initializeWebsite();
+  }
 })();
+```
