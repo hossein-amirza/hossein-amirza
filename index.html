@@ -1,43 +1,46 @@
+---
+---
+
 <!doctype html>
 <html lang="fa" dir="rtl">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <meta name="theme-color" content="#211b18" media="(prefers-color-scheme: dark)">
-  <meta name="theme-color" content="#f4efe7" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#211b18">
   <meta name="color-scheme" content="light dark">
 
   <title>حسین محمدی آمیرزا | نویسنده، شاعر و پژوهشگر تاریخ</title>
 
-  <meta name="description" content="وب‌سایت رسمی حسین محمدی آمیرزا؛ نویسنده، شاعر، پژوهشگر تاریخ و فیلمنامه‌نویس. کتاب‌ها، فیلمنامه‌ها، سریال‌ها، داستان‌های کوتاه، شعرها، پژوهش‌ها و وبلاگ.">
+  <meta name="description"
+        content="وب‌سایت رسمی حسین محمدی آمیرزا؛ کتاب‌ها، فیلمنامه‌ها، سریال‌ها، داستان‌های کوتاه، اشعار، پژوهش‌های تاریخی و یادداشت‌های وبلاگ.">
+
   <meta name="author" content="حسین محمدی آمیرزا">
   <meta name="robots" content="index, follow">
   <meta name="referrer" content="strict-origin-when-cross-origin">
 
-  <link rel="canonical" href="https://hossein-amirza.github.io/hossein-amirza/">
+  <link rel="canonical"
+        href="https://hossein-amirza.github.io/hossein-amirza/">
 
   <meta property="og:type" content="website">
   <meta property="og:locale" content="fa_IR">
   <meta property="og:site_name" content="حسین محمدی آمیرزا">
-  <meta property="og:title" content="حسین محمدی آمیرزا | نویسنده و پژوهشگر تاریخ">
-  <meta property="og:description" content="کتاب‌ها، فیلمنامه‌ها، سریال‌ها، داستان‌های کوتاه، شعرها، پژوهش‌ها و وبلاگ حسین محمدی آمیرزا.">
-  <meta property="og:url" content="https://hossein-amirza.github.io/hossein-amirza/">
-  <meta property="og:image" content="https://hossein-amirza.github.io/hossein-amirza/images/og-cover.jpg">
-  <meta property="og:image:width" content="1200">
-  <meta property="og:image:height" content="630">
-  <meta property="og:image:alt" content="وب‌سایت رسمی حسین محمدی آمیرزا">
-
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="حسین محمدی آمیرزا | نویسنده و پژوهشگر تاریخ">
-  <meta name="twitter:description" content="معرفی کتاب‌ها، آثار ادبی، فیلمنامه‌ها و پژوهش‌های تاریخی.">
-  <meta name="twitter:image" content="https://hossein-amirza.github.io/hossein-amirza/images/og-cover.jpg">
+  <meta property="og:title"
+        content="حسین محمدی آمیرزا | نویسنده و پژوهشگر تاریخ">
+  <meta property="og:description"
+        content="مجموعه آثار ادبی، نمایشی و پژوهشی حسین محمدی آمیرزا.">
+  <meta property="og:url"
+        content="https://hossein-amirza.github.io/hossein-amirza/">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
 
-  <link rel="stylesheet" href="assets/style.css">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700;800&display=swap"
+    rel="stylesheet">
+
+  <!-- فایل‌های موجود در ریشهٔ مخزن -->
+  <link rel="stylesheet" href="{{ '/style.css' | relative_url }}">
 
   <script type="application/ld+json">
   {
@@ -46,306 +49,1515 @@
     "name": "حسین محمدی آمیرزا",
     "alternateName": "Hossein Mohammadi Amirza",
     "url": "https://hossein-amirza.github.io/hossein-amirza/",
-    "image": "https://hossein-amirza.github.io/hossein-amirza/images/og-cover.jpg",
-    "jobTitle": ["نویسنده", "شاعر", "پژوهشگر تاریخ", "فیلمنامه‌نویس"],
-    "knowsAbout": ["ادبیات", "شعر", "داستان‌نویسی", "تاریخ", "پژوهش تاریخی", "فیلمنامه‌نویسی"]
+    "jobTitle": [
+      "نویسنده",
+      "شاعر",
+      "پژوهشگر تاریخ",
+      "فیلمنامه‌نویس"
+    ],
+    "knowsAbout": [
+      "ادبیات",
+      "شعر",
+      "داستان‌نویسی",
+      "تاریخ",
+      "پژوهش تاریخی",
+      "فیلمنامه‌نویسی"
+    ]
   }
   </script>
 </head>
 
 <body class="theme-home">
 
-  <a class="skip-link" href="#main">رفتن به محتوای اصلی</a>
+  <a class="skip-link" href="#main">
+    رفتن به محتوای اصلی
+  </a>
 
-  <!-- ===== HEADER ===== -->
+  <!-- =========================================
+       سربرگ و منوی اصلی
+  ========================================== -->
+
   <header class="hero" id="home">
+
     <nav class="nav wrap" aria-label="منوی اصلی">
-      <a class="brand" href="#home" aria-label="حسین محمدی آمیرزا؛ صفحه اصلی">
+
+      <a class="brand"
+         href="{{ '/' | relative_url }}"
+         aria-label="صفحه اصلی حسین محمدی آمیرزا">
+
         <span class="brand-mark" aria-hidden="true">ح</span>
         <span>حسین محمدی آمیرزا</span>
+
       </a>
 
       <div class="nav-actions">
-        <button class="theme-toggle" id="themeToggle" type="button"
-          aria-label="تغییر حالت رنگ" aria-pressed="false" title="تغییر حالت رنگ">
+
+        <button
+          class="theme-toggle"
+          id="themeToggle"
+          type="button"
+          aria-label="تغییر حالت رنگ"
+          aria-pressed="false"
+          title="تغییر حالت رنگ">
+
           <span class="theme-icon" aria-hidden="true">☾</span>
+
         </button>
-        <button class="menu-toggle" id="menuToggle" type="button"
-          aria-expanded="false" aria-controls="navLinks" aria-label="باز کردن منو">
-          <span aria-hidden="true"></span><span aria-hidden="true"></span><span aria-hidden="true"></span>
+
+        <button
+          class="menu-toggle"
+          id="menuToggle"
+          type="button"
+          aria-expanded="false"
+          aria-controls="navLinks"
+          aria-label="باز کردن منو">
+
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+
         </button>
+
       </div>
 
       <div class="links" id="navLinks">
+
         <a href="#about">درباره من</a>
-        <a href="#windows">حوزه‌ها</a>
+        <a href="#works">آثار</a>
         <a href="#books">کتاب‌ها</a>
         <a href="#screenplays">فیلمنامه‌ها</a>
         <a href="#series">سریال‌ها</a>
-        <a href="#stories">داستان‌های کوتاه</a>
-        <a href="#poems">شعرها</a>
+        <a href="#stories">داستان‌ها</a>
+        <a href="#poems">اشعار</a>
         <a href="#research">پژوهش‌ها</a>
         <a href="#blog">وبلاگ</a>
-        <a href="#contact">تماس</a>
+        <a href="#contact">ارتباط</a>
+
       </div>
+
     </nav>
 
+
+    <!-- =========================================
+         معرفی اصلی
+    ========================================== -->
+
     <div class="hero-grid wrap">
+
       <div class="hero-copy">
-        <span class="eyebrow"><span class="eyebrow-line" aria-hidden="true"></span> وب‌سایت رسمی نویسنده</span>
-        <h1>حسین محمدی <span>آمیرزا</span></h1>
-        <p class="hero-lead">نویسنده، شاعر، پژوهشگر تاریخ و فیلمنامه‌نویس</p>
-        <p class="hero-quote">«کلمات، راهی برای ماندگار شدن هستند.»</p>
+
+        <span class="eyebrow">
+          <span class="eyebrow-line" aria-hidden="true"></span>
+          وب‌سایت رسمی
+        </span>
+
+        <h1>
+          حسین محمدی
+          <span>آمیرزا</span>
+        </h1>
+
+        <p class="hero-lead">
+          نویسنده، شاعر، پژوهشگر تاریخ و فیلمنامه‌نویس
+        </p>
+
+        <p class="hero-description">
+          به دنیای نوشته‌ها، آثار ادبی، روایت‌های نمایشی
+          و پژوهش‌های تاریخی خوش آمدید.
+          در اینجا می‌توانید آثار منتشرشده را بخوانید،
+          نوشته‌های تازه را دنبال کنید و به آرشیو هر بخش دسترسی داشته باشید.
+        </p>
+
         <div class="hero-actions">
-          <a class="btn" href="#books">کاوش در کتاب‌ها <span aria-hidden="true">←</span></a>
-          <a class="btn btn-outline" href="#about">آشنایی با نویسنده</a>
+
+          <a class="btn" href="#latest">
+            تازه‌ترین نوشته‌ها
+            <span aria-hidden="true">←</span>
+          </a>
+
+          <a class="btn btn-outline" href="#works">
+            مرور همه بخش‌ها
+          </a>
+
         </div>
-        <div class="hero-signature" aria-hidden="true">روایت · تاریخ · خیال</div>
+
+        <div class="hero-signature" aria-hidden="true">
+          ادبیات · تاریخ · روایت
+        </div>
+
       </div>
+
+
+      <!-- تصویرسازی تزئینی؛ بدون وابستگی به تصویر ساختگی -->
 
       <div class="hero-art" aria-hidden="true">
+
         <div class="art-orbit orbit-one"></div>
         <div class="art-orbit orbit-two"></div>
+
         <div class="art-panel">
-          <span class="art-topline">دفتر روایت‌ها</span>
-          <div class="art-monogram">ح.م.آ</div>
+
+          <span class="art-topline">
+            دفتر نوشته‌ها
+          </span>
+
+          <div class="art-monogram">
+            ح.م.آ
+          </div>
+
           <div class="art-rule"></div>
-          <p>از حافظهٔ تاریخ<br>تا افق خیال</p>
-          <span class="art-bottomline">نویسنده و پژوهشگر</span>
+
+          <p>
+            کتاب‌ها،
+            <br>
+            شعرها،
+            <br>
+            روایت‌ها
+          </p>
+
+          <span class="art-bottomline">
+            مجموعه آثار
+          </span>
+
         </div>
+
         <span class="art-dot dot-one"></span>
         <span class="art-dot dot-two"></span>
+
       </div>
+
     </div>
 
+
     <div class="hero-bottom wrap">
-      <span>جهان‌هایی برای خواندن</span>
-      <a href="#about" aria-label="رفتن به بخش درباره نویسنده">↓</a>
-      <span>اندیشه‌هایی برای ماندن</span>
+
+      <span>آثار و نوشته‌ها</span>
+
+      <a href="#main" aria-label="رفتن به محتوای سایت">
+        ↓
+      </a>
+
+      <span>آرشیو و مطالب تازه</span>
+
     </div>
+
   </header>
+
 
   <main id="main">
 
-    <!-- درباره نویسنده -->
-    <section class="section" id="about" aria-labelledby="about-title">
+
+    <!-- =========================================
+         معرفی نویسنده
+    ========================================== -->
+
+    <section
+      class="section"
+      id="about"
+      aria-labelledby="about-title">
+
       <div class="wrap">
+
         <header class="section-heading reveal">
-          <span class="eyebrow">درباره نویسنده</span>
-          <h2 id="about-title">میان روایت، تاریخ و خیال</h2>
-          <p>نوشتن، سفری برای کشف معنا و بازخوانی تجربهٔ انسانی است.</p>
+
+          <span class="eyebrow">
+            درباره نویسنده
+          </span>
+
+          <h2 id="about-title">
+            آشنایی با حسین محمدی آمیرزا
+          </h2>
+
+          <p>
+            معرفی نویسنده و دسترسی به مسیرهای مختلف آثار او.
+          </p>
+
         </header>
+
 
         <div class="about-grid">
+
           <div class="prose reveal">
-            <p>نوشتن برای من تنها کنار هم نشاندن واژه‌ها نیست؛ تلاشی است برای کشف معنا، شناخت انسان و بازخوانی جهان.</p>
-            <p>ادبیات و تاریخ، هر یک به شیوهٔ خود از زندگی انسان سخن می‌گویند. یکی از راه تجربه، خیال و روایت؛ دیگری از مسیر حافظه، شواهد و بازنگری در گذشته. پیوند این دو، زمینه‌ای برای اندیشیدن به انسان و زمانهٔ او فراهم می‌کند.</p>
-            <p>در نوشته‌ها و پژوهش‌هایم، به روایت‌هایی علاقه‌مندم که فراتر از لحظهٔ خود می‌روند؛ روایت‌هایی که پرسش برمی‌انگیزند و خواننده را به تأمل دعوت می‌کنند.</p>
+
+            <p>
+              این وب‌سایت برای گردآوری و انتشار آثار ادبی،
+              نوشته‌ها، فیلمنامه‌ها و پژوهش‌های تاریخی طراحی شده است.
+            </p>
+
+            <p>
+              بخش‌های مختلف سایت از یکدیگر مستقل‌اند تا خواننده بتواند
+              کتاب‌ها را جدا از فیلمنامه‌ها، داستان‌ها را جدا از اشعار
+              و یادداشت‌های وبلاگ را جدا از پژوهش‌های تاریخی دنبال کند.
+            </p>
+
+            <p>
+              در کنار آرشیو آثار، نوشته‌های تازه نیز در بخش مربوط به خود
+              قرار می‌گیرند و با اضافه شدن مطالب جدید، فهرست‌ها به‌روز می‌شوند.
+            </p>
+
           </div>
+
 
           <div class="facts reveal">
+
             <article class="fact">
               <span class="fact-index">۰۱</span>
-              <div><h3>کتاب‌ها</h3><p>آثاری در حوزهٔ تاریخ، ادبیات و پژوهش</p></div>
+              <div>
+                <h3>آثار مکتوب</h3>
+                <p>کتاب‌ها و نوشته‌های پژوهشی</p>
+              </div>
             </article>
+
             <article class="fact">
               <span class="fact-index">۰۲</span>
-              <div><h3>فیلمنامه‌ها</h3><p>روایت‌های تصویری برای سینما</p></div>
+              <div>
+                <h3>آثار نمایشی</h3>
+                <p>فیلمنامه‌ها و سریال‌ها</p>
+              </div>
             </article>
+
             <article class="fact">
               <span class="fact-index">۰۳</span>
-              <div><h3>شعر و داستان</h3><p>تجربه‌هایی در زبان، خیال و روایت</p></div>
+              <div>
+                <h3>ادبیات خلاق</h3>
+                <p>داستان‌های کوتاه و اشعار</p>
+              </div>
             </article>
+
             <article class="fact">
               <span class="fact-index">۰۴</span>
-              <div><h3>پژوهش تاریخی</h3><p>بررسی گذشته و پیوند آن با امروز</p></div>
+              <div>
+                <h3>نوشته‌های روزانه</h3>
+                <p>یادداشت‌ها و مطالب وبلاگ</p>
+              </div>
             </article>
+
           </div>
+
         </div>
+
       </div>
+
     </section>
 
-    <!-- حوزه‌ها -->
-    <section class="section paper" id="windows" aria-labelledby="windows-title">
+
+    <!-- =========================================
+         دسترسی سریع به همه بخش‌ها
+    ========================================== -->
+
+    <section
+      class="section paper"
+      id="works"
+      aria-labelledby="works-title">
+
       <div class="wrap">
+
         <header class="section-heading reveal">
-          <span class="eyebrow">مسیرهای نوشتن و اندیشیدن</span>
-          <h2 id="windows-title">چهار پنجره به یک جهان</h2>
-          <p>هر حوزه، راهی متفاوت برای شناخت انسان و روایت جهان است.</p>
+
+          <span class="eyebrow">
+            فهرست آثار
+          </span>
+
+          <h2 id="works-title">
+            از کجا شروع می‌کنید؟
+          </h2>
+
+          <p>
+            مستقیماً وارد بخش موردعلاقه‌تان شوید.
+          </p>
+
         </header>
+
 
         <div class="windows-grid">
-          <article class="window-card reveal">
-            <span class="card-symbol" aria-hidden="true">✳</span><span class="card-count">۰۱ / روایت</span>
-            <h3>نویسندگی و داستان</h3>
-            <p>ساختن جهان‌های روایی، پرداخت شخصیت‌ها و جست‌وجوی معنا در تجربه‌های انسانی.</p>
-          </article>
-          <article class="window-card reveal">
-            <span class="card-symbol" aria-hidden="true">❋</span><span class="card-count">۰۲ / زبان</span>
-            <h3>شعر و ادبیات</h3>
-            <p>کشف ظرفیت‌های زبان برای بیان احساس، اندیشه و تصویرهای ماندگار.</p>
-          </article>
-          <article class="window-card reveal">
-            <span class="card-symbol" aria-hidden="true">⌘</span><span class="card-count">۰۳ / حافظه</span>
-            <h3>پژوهش تاریخ</h3>
-            <p>بررسی روایت‌های گذشته و تأمل دربارهٔ پیوند تاریخ با زندگی امروز.</p>
-          </article>
-          <article class="window-card reveal">
-            <span class="card-symbol" aria-hidden="true">◈</span><span class="card-count">۰۴ / تصویر</span>
-            <h3>فیلمنامه‌نویسی</h3>
-            <p>تبدیل ایده به ساختاری تصویری با تکیه بر شخصیت، موقعیت و حرکت داستان.</p>
-          </article>
+
+          <a class="window-card reveal"
+             href="#books">
+
+            <span class="card-symbol" aria-hidden="true">▤</span>
+            <span class="card-count">۰۱ / کتاب</span>
+
+            <h3>کتاب‌ها</h3>
+
+            <p>
+              فهرست کتاب‌ها، مشخصات آثار و صفحه اختصاصی هر عنوان.
+            </p>
+
+            <span class="card-link">
+              ورود به بخش کتاب‌ها ←
+            </span>
+
+          </a>
+
+
+          <a class="window-card reveal"
+             href="#screenplays">
+
+            <span class="card-symbol" aria-hidden="true">▣</span>
+            <span class="card-count">۰۲ / سینما</span>
+
+            <h3>فیلمنامه‌ها</h3>
+
+            <p>
+              آرشیو مستقل آثار نوشته‌شده برای سینما.
+            </p>
+
+            <span class="card-link">
+              ورود به فیلمنامه‌ها ←
+            </span>
+
+          </a>
+
+
+          <a class="window-card reveal"
+             href="#series">
+
+            <span class="card-symbol" aria-hidden="true">▥</span>
+            <span class="card-count">۰۳ / مجموعه نمایشی</span>
+
+            <h3>سریال‌ها</h3>
+
+            <p>
+              فهرست آثار سریالی و اطلاعات مربوط به هر اثر.
+            </p>
+
+            <span class="card-link">
+              ورود به سریال‌ها ←
+            </span>
+
+          </a>
+
+
+          <a class="window-card reveal"
+             href="#stories">
+
+            <span class="card-symbol" aria-hidden="true">✎</span>
+            <span class="card-count">۰۴ / داستان</span>
+
+            <h3>داستان‌های کوتاه</h3>
+
+            <p>
+              مجموعه داستان‌ها با صفحه مستقل برای هر نوشته.
+            </p>
+
+            <span class="card-link">
+              خواندن داستان‌ها ←
+            </span>
+
+          </a>
+
+
+          <a class="window-card reveal"
+             href="#poems">
+
+            <span class="card-symbol" aria-hidden="true">❋</span>
+            <span class="card-count">۰۵ / شعر</span>
+
+            <h3>اشعار</h3>
+
+            <p>
+              آرشیوی جداگانه برای شعرهای منتشرشده.
+            </p>
+
+            <span class="card-link">
+              ورود به بخش اشعار ←
+            </span>
+
+          </a>
+
+
+          <a class="window-card reveal"
+             href="#research">
+
+            <span class="card-symbol" aria-hidden="true">⌕</span>
+            <span class="card-count">۰۶ / پژوهش</span>
+
+            <h3>پژوهش‌های تاریخی</h3>
+
+            <p>
+              مقالات و پژوهش‌ها در یک بخش موضوعی مستقل.
+            </p>
+
+            <span class="card-link">
+              مشاهده پژوهش‌ها ←
+            </span>
+
+          </a>
+
+
+          <a class="window-card reveal"
+             href="#blog">
+
+            <span class="card-symbol" aria-hidden="true">▤</span>
+            <span class="card-count">۰۷ / یادداشت</span>
+
+            <h3>وبلاگ</h3>
+
+            <p>
+              یادداشت‌های روزانه، دیدگاه‌ها و نوشته‌های تازه.
+            </p>
+
+            <span class="card-link">
+              خواندن وبلاگ ←
+            </span>
+
+          </a>
+
         </div>
+
       </div>
+
     </section>
 
-    <!-- کتاب‌ها — قهوه‌ای -->
-    <section class="section theme-books" id="books" aria-labelledby="books-title">
+
+    <!-- =========================================
+         تازه‌ترین نوشته‌ها
+         از داستان، شعر و وبلاگ
+    ========================================== -->
+
+    <section
+      class="section"
+      id="latest"
+      aria-labelledby="latest-title">
+
       <div class="wrap">
+
         <header class="section-heading reveal">
+
+          <span class="eyebrow">
+            به‌تازگی منتشرشده
+          </span>
+
+          <h2 id="latest-title">
+            تازه‌ترین نوشته‌ها
+          </h2>
+
+          <p>
+            آخرین داستان‌ها، اشعار و یادداشت‌ها در یک نگاه.
+          </p>
+
+        </header>
+
+
+        <div class="book-grid">
+
+          {% assign latest_stories = site.stories | sort: "date" | reverse %}
+          {% assign latest_poems = site.poems | sort: "date" | reverse %}
+          {% assign latest_blog = site.posts | sort: "date" | reverse %}
+
+          {% assign latest_items = "" | split: "" %}
+          {% assign latest_items = latest_items | concat: latest_stories %}
+          {% assign latest_items = latest_items | concat: latest_poems %}
+          {% assign latest_items = latest_items | concat: latest_blog %}
+          {% assign latest_items = latest_items | sort: "date" | reverse %}
+          {% assign latest_items = latest_items | slice: 0, 6 %}
+
+
+          {% if latest_items.size > 0 %}
+
+            {% for item in latest_items %}
+
+              <article class="work-card reveal">
+
+                {% if item.cover %}
+
+                  <a class="work-cover"
+                     href="{{ item.url | relative_url }}"
+                     aria-label="خواندن {{ item.title | escape }}">
+
+                    <img
+                      src="{{ item.cover | relative_url }}"
+                      alt="{{ item.cover_alt | default: item.title | escape }}"
+                      loading="lazy">
+
+                  </a>
+
+                {% endif %}
+
+
+                <div class="work-body">
+
+                  {% if item.collection == "stories" %}
+                    <span class="work-category">داستان کوتاه</span>
+                  {% elsif item.collection == "poems" %}
+                    <span class="work-category">شعر</span>
+                  {% else %}
+                    <span class="work-category">وبلاگ</span>
+                  {% endif %}
+
+
+                  <h3>
+                    <a href="{{ item.url | relative_url }}">
+                      {{ item.title | escape }}
+                    </a>
+                  </h3>
+
+
+                  {% assign item_description = item.description
+                    | default: item.excerpt
+                    | strip_html
+                    | normalize_whitespace %}
+
+                  {% if item_description != "" %}
+
+                    <p>
+                      {{ item_description | truncate: 150 | escape }}
+                    </p>
+
+                  {% endif %}
+
+
+                  {% if item.date %}
+
+                    <time
+                      class="work-date"
+                      datetime="{{ item.date | date_to_xmlschema }}">
+
+                      {{ item.date | date: "%Y/%m/%d" }}
+
+                    </time>
+
+                  {% endif %}
+
+
+                  <a class="work-link"
+                     href="{{ item.url | relative_url }}">
+
+                    ادامه مطلب
+                    <span aria-hidden="true">←</span>
+
+                  </a>
+
+                </div>
+
+              </article>
+
+            {% endfor %}
+
+          {% else %}
+
+            <div class="empty-state">
+
+              <h3>
+                نوشته‌های تازه در اینجا نمایش داده می‌شوند
+              </h3>
+
+              <p>
+                پس از ثبت داستان‌ها، اشعار و نوشته‌های وبلاگ،
+                جدیدترین مطالب به‌صورت خودکار در این بخش قرار می‌گیرند.
+              </p>
+
+            </div>
+
+          {% endif %}
+
+        </div>
+
+
+        <div class="section-more reveal">
+
+          <a class="btn btn-outline"
+             href="{{ '/archive.html' | relative_url }}?type=stories">
+
+            مشاهده آرشیو نوشته‌ها
+            <span aria-hidden="true">←</span>
+
+          </a>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================================
+         کتاب‌ها
+    ========================================== -->
+
+    <section
+      class="section theme-books"
+      id="books"
+      aria-labelledby="books-title">
+
+      <div class="wrap">
+
+        <header class="section-heading reveal">
+
           <span class="eyebrow">۰۱ / کتاب</span>
+
           <h2 id="books-title">کتاب‌ها</h2>
-          <p>آثاری در حوزه تاریخ، ادبیات و پژوهش. جلد چرمی، بوی کاغذ، ماندگاری.</p>
+
+          <p>
+            فهرست کتاب‌ها و اطلاعات مربوط به هر اثر.
+          </p>
+
         </header>
-        <div class="book-grid" data-list="books" data-limit="6"></div>
-        <div class="section-more reveal">
-          <a class="btn btn-outline" href="archive.html?type=books">همه‌ی کتاب‌ها ←</a>
+
+
+        <div class="book-grid">
+
+          {% assign books = site.books | sort: "date" | reverse %}
+          {% assign books = books | slice: 0, 6 %}
+
+          {% if books.size > 0 %}
+
+            {% for item in books %}
+
+              <article class="work-card reveal">
+
+                {% if item.cover %}
+
+                  <a class="work-cover"
+                     href="{{ item.url | relative_url }}">
+
+                    <img
+                      src="{{ item.cover | relative_url }}"
+                      alt="{{ item.cover_alt | default: item.title | escape }}"
+                      loading="lazy">
+
+                  </a>
+
+                {% endif %}
+
+
+                <div class="work-body">
+
+                  <span class="work-category">کتاب</span>
+
+                  <h3>
+                    <a href="{{ item.url | relative_url }}">
+                      {{ item.title | escape }}
+                    </a>
+                  </h3>
+
+                  {% assign description = item.description
+                    | default: item.excerpt
+                    | strip_html
+                    | normalize_whitespace %}
+
+                  {% if description != "" %}
+                    <p>{{ description | truncate: 150 | escape }}</p>
+                  {% endif %}
+
+                  {% if item.author %}
+                    <p class="work-meta">
+                      نویسنده: {{ item.author | escape }}
+                    </p>
+                  {% endif %}
+
+                  <a class="work-link"
+                     href="{{ item.url | relative_url }}">
+                    جزئیات کتاب ←
+                  </a>
+
+                </div>
+
+              </article>
+
+            {% endfor %}
+
+          {% else %}
+
+            <p class="empty-state">
+              کتاب‌ها پس از ثبت در آرشیو، در این بخش نمایش داده می‌شوند.
+            </p>
+
+          {% endif %}
+
         </div>
+
+
+        <div class="section-more reveal">
+
+          <a class="btn btn-outline"
+             href="{{ '/archive.html' | relative_url }}?type=books">
+
+            همه کتاب‌ها ←
+
+          </a>
+
+        </div>
+
       </div>
+
     </section>
 
-    <!-- فیلمنامه‌ها — قرمز سینمایی -->
-    <section class="section theme-screenplays" id="screenplays" aria-labelledby="screenplays-title">
+
+    <!-- =========================================
+         فیلمنامه‌ها
+    ========================================== -->
+
+    <section
+      class="section theme-screenplays"
+      id="screenplays"
+      aria-labelledby="screenplays-title">
+
       <div class="wrap">
+
         <header class="section-heading reveal">
+
           <span class="eyebrow">۰۲ / سینما</span>
+
           <h2 id="screenplays-title">فیلمنامه‌ها</h2>
-          <p>روایت‌هایی برای پردهٔ سینما؛ جهان‌هایی از شخصیت، تاریخ، نبرد و سرنوشت.</p>
+
+          <p>
+            آرشیو فیلمنامه‌ها و اطلاعات مربوط به هر اثر.
+          </p>
+
         </header>
-        <div class="screenplay-grid" data-list="screenplays" data-limit="3"></div>
-        <div class="section-more reveal">
-          <a class="btn btn-outline" href="archive.html?type=screenplays">همه‌ی فیلمنامه‌ها ←</a>
+
+
+        <div class="screenplay-grid">
+
+          {% assign screenplays = site.screenplays | sort: "date" | reverse %}
+          {% assign screenplays = screenplays | slice: 0, 3 %}
+
+          {% if screenplays.size > 0 %}
+
+            {% for item in screenplays %}
+
+              <article class="work-card reveal">
+
+                {% if item.cover %}
+
+                  <a class="work-cover"
+                     href="{{ item.url | relative_url }}">
+
+                    <img
+                      src="{{ item.cover | relative_url }}"
+                      alt="{{ item.cover_alt | default: item.title | escape }}"
+                      loading="lazy">
+
+                  </a>
+
+                {% endif %}
+
+
+                <div class="work-body">
+
+                  <span class="work-category">فیلمنامه</span>
+
+                  <h3>
+                    <a href="{{ item.url | relative_url }}">
+                      {{ item.title | escape }}
+                    </a>
+                  </h3>
+
+                  {% assign description = item.description
+                    | default: item.excerpt
+                    | strip_html
+                    | normalize_whitespace %}
+
+                  {% if description != "" %}
+                    <p>{{ description | truncate: 160 | escape }}</p>
+                  {% endif %}
+
+                  <a class="work-link"
+                     href="{{ item.url | relative_url }}">
+                    مشاهده اطلاعات اثر ←
+                  </a>
+
+                </div>
+
+              </article>
+
+            {% endfor %}
+
+          {% else %}
+
+            <p class="empty-state">
+              فیلمنامه‌های ثبت‌شده در این قسمت نمایش داده خواهند شد.
+            </p>
+
+          {% endif %}
+
         </div>
+
+
+        <div class="section-more reveal">
+
+          <a class="btn btn-outline"
+             href="{{ '/archive.html' | relative_url }}?type=screenplays">
+
+            همه فیلمنامه‌ها ←
+
+          </a>
+
+        </div>
+
       </div>
+
     </section>
 
-    <!-- سریال‌ها — سرمه‌ای -->
-    <section class="section theme-series" id="series" aria-labelledby="series-title">
+
+    <!-- =========================================
+         سریال‌ها
+    ========================================== -->
+
+    <section
+      class="section theme-series"
+      id="series"
+      aria-labelledby="series-title">
+
       <div class="wrap">
+
         <header class="section-heading reveal">
-          <span class="eyebrow">۰۳ / سریال</span>
+
+          <span class="eyebrow">۰۳ / مجموعه نمایشی</span>
+
           <h2 id="series-title">سریال‌ها</h2>
-          <p>روایت‌های دنباله‌دار برای پخش هفتگی. شب، قسمت، انتظار.</p>
+
+          <p>
+            آرشیو مستقل سریال‌ها و معرفی هر مجموعه.
+          </p>
+
         </header>
-        <div class="book-grid" data-list="series" data-limit="3"></div>
-        <div class="section-more reveal">
-          <a class="btn btn-outline" href="archive.html?type=series">همه‌ی سریال‌ها ←</a>
+
+
+        <div class="book-grid">
+
+          {% assign series_items = site.series | sort: "date" | reverse %}
+          {% assign series_items = series_items | slice: 0, 3 %}
+
+          {% if series_items.size > 0 %}
+
+            {% for item in series_items %}
+
+              <article class="work-card reveal">
+
+                {% if item.cover %}
+
+                  <a class="work-cover"
+                     href="{{ item.url | relative_url }}">
+
+                    <img
+                      src="{{ item.cover | relative_url }}"
+                      alt="{{ item.cover_alt | default: item.title | escape }}"
+                      loading="lazy">
+
+                  </a>
+
+                {% endif %}
+
+
+                <div class="work-body">
+
+                  <span class="work-category">سریال</span>
+
+                  <h3>
+                    <a href="{{ item.url | relative_url }}">
+                      {{ item.title | escape }}
+                    </a>
+                  </h3>
+
+                  {% assign description = item.description
+                    | default: item.excerpt
+                    | strip_html
+                    | normalize_whitespace %}
+
+                  {% if description != "" %}
+                    <p>{{ description | truncate: 150 | escape }}</p>
+                  {% endif %}
+
+                  <a class="work-link"
+                     href="{{ item.url | relative_url }}">
+                    مشاهده اطلاعات سریال ←
+                  </a>
+
+                </div>
+
+              </article>
+
+            {% endfor %}
+
+          {% else %}
+
+            <p class="empty-state">
+              آثار سریالی پس از ثبت در آرشیو اینجا نمایش داده می‌شوند.
+            </p>
+
+          {% endif %}
+
         </div>
+
+
+        <div class="section-more reveal">
+
+          <a class="btn btn-outline"
+             href="{{ '/archive.html' | relative_url }}?type=series">
+
+            همه سریال‌ها ←
+
+          </a>
+
+        </div>
+
       </div>
+
     </section>
 
-    <!-- داستان‌های کوتاه — سبز زیتونی -->
-    <section class="section theme-stories" id="stories" aria-labelledby="stories-title">
+
+    <!-- =========================================
+         داستان‌های کوتاه
+    ========================================== -->
+
+    <section
+      class="section theme-stories"
+      id="stories"
+      aria-labelledby="stories-title">
+
       <div class="wrap">
+
         <header class="section-heading reveal">
+
           <span class="eyebrow">۰۴ / داستان</span>
+
           <h2 id="stories-title">داستان‌های کوتاه</h2>
-          <p>روایت‌های کوتاه از زندگی، خاطره و خیال. دفترچه، قلم، رشد.</p>
+
+          <p>
+            هر داستان، یک نوشته مستقل با صفحه و نشانی اختصاصی.
+          </p>
+
         </header>
-        <div class="book-grid" data-list="stories" data-limit="3"></div>
-        <div class="section-more reveal">
-          <a class="btn btn-outline" href="archive.html?type=stories">همه‌ی داستان‌ها ←</a>
+
+
+        <div class="book-grid">
+
+          {% assign stories = site.stories | sort: "date" | reverse %}
+          {% assign stories = stories | slice: 0, 3 %}
+
+          {% if stories.size > 0 %}
+
+            {% for item in stories %}
+
+              <article class="work-card reveal">
+
+                {% if item.cover %}
+
+                  <a class="work-cover"
+                     href="{{ item.url | relative_url }}">
+
+                    <img
+                      src="{{ item.cover | relative_url }}"
+                      alt="{{ item.cover_alt | default: item.title | escape }}"
+                      loading="lazy">
+
+                  </a>
+
+                {% endif %}
+
+
+                <div class="work-body">
+
+                  <span class="work-category">داستان کوتاه</span>
+
+                  <h3>
+                    <a href="{{ item.url | relative_url }}">
+                      {{ item.title | escape }}
+                    </a>
+                  </h3>
+
+                  {% assign description = item.description
+                    | default: item.excerpt
+                    | strip_html
+                    | normalize_whitespace %}
+
+                  {% if description != "" %}
+                    <p>{{ description | truncate: 160 | escape }}</p>
+                  {% endif %}
+
+                  {% if item.date %}
+
+                    <time datetime="{{ item.date | date_to_xmlschema }}"
+                          class="work-date">
+
+                      {{ item.date | date: "%Y/%m/%d" }}
+
+                    </time>
+
+                  {% endif %}
+
+                  <a class="work-link"
+                     href="{{ item.url | relative_url }}">
+                    خواندن داستان ←
+                  </a>
+
+                </div>
+
+              </article>
+
+            {% endfor %}
+
+          {% else %}
+
+            <p class="empty-state">
+              داستان‌های کوتاه تازه پس از انتشار در این بخش قرار می‌گیرند.
+            </p>
+
+          {% endif %}
+
         </div>
+
+
+        <div class="section-more reveal">
+
+          <a class="btn btn-outline"
+             href="{{ '/archive.html' | relative_url }}?type=stories">
+
+            همه داستان‌ها ←
+
+          </a>
+
+        </div>
+
       </div>
+
     </section>
 
-    <!-- شعرها — بنفش -->
-    <section class="section theme-poems" id="poems" aria-labelledby="poems-title">
+
+    <!-- =========================================
+         اشعار
+    ========================================== -->
+
+    <section
+      class="section theme-poems"
+      id="poems"
+      aria-labelledby="poems-title">
+
       <div class="wrap">
+
         <header class="section-heading reveal">
+
           <span class="eyebrow">۰۵ / شعر</span>
-          <h2 id="poems-title">شعرها</h2>
-          <p>کشف ظرفیت‌های زبان برای بیان احساس و تصویر. الهام، شهود، ارغوان.</p>
+
+          <h2 id="poems-title">اشعار</h2>
+
+          <p>
+            آرشیو شعرها؛ جدا از داستان‌ها و نوشته‌های وبلاگ.
+          </p>
+
         </header>
-        <div class="book-grid" data-list="poems" data-limit="3"></div>
-        <div class="section-more reveal">
-          <a class="btn btn-outline" href="archive.html?type=poems">همه‌ی شعرها ←</a>
+
+
+        <div class="book-grid">
+
+          {% assign poems = site.poems | sort: "date" | reverse %}
+          {% assign poems = poems | slice: 0, 3 %}
+
+          {% if poems.size > 0 %}
+
+            {% for item in poems %}
+
+              <article class="work-card poem-card reveal">
+
+                <div class="work-body">
+
+                  <span class="work-category">شعر</span>
+
+                  <h3>
+                    <a href="{{ item.url | relative_url }}">
+                      {{ item.title | escape }}
+                    </a>
+                  </h3>
+
+                  {% assign description = item.description
+                    | default: item.excerpt
+                    | strip_html
+                    | normalize_whitespace %}
+
+                  {% if description != "" %}
+                    <p class="poem-excerpt">
+                      {{ description | truncate: 180 | escape }}
+                    </p>
+                  {% endif %}
+
+                  {% if item.date %}
+
+                    <time datetime="{{ item.date | date_to_xmlschema }}"
+                          class="work-date">
+
+                      {{ item.date | date: "%Y/%m/%d" }}
+
+                    </time>
+
+                  {% endif %}
+
+                  <a class="work-link"
+                     href="{{ item.url | relative_url }}">
+                    خواندن شعر ←
+                  </a>
+
+                </div>
+
+              </article>
+
+            {% endfor %}
+
+          {% else %}
+
+            <p class="empty-state">
+              شعرهای منتشرشده در این بخش فهرست خواهند شد.
+            </p>
+
+          {% endif %}
+
         </div>
+
+
+        <div class="section-more reveal">
+
+          <a class="btn btn-outline"
+             href="{{ '/archive.html' | relative_url }}?type=poems">
+
+            همه اشعار ←
+
+          </a>
+
+        </div>
+
       </div>
+
     </section>
 
-    <!-- پژوهش‌ها — فیروزه‌ای -->
-    <section class="section theme-research" id="research" aria-labelledby="research-title">
+
+    <!-- =========================================
+         پژوهش‌های تاریخی
+    ========================================== -->
+
+    <section
+      class="section theme-research"
+      id="research"
+      aria-labelledby="research-title">
+
       <div class="wrap">
+
         <header class="section-heading reveal">
+
           <span class="eyebrow">۰۶ / پژوهش</span>
+
           <h2 id="research-title">پژوهش‌های تاریخی</h2>
-          <p>بررسی گذشته و پیوند آن با امروز. آرشیو، سند، حافظه.</p>
+
+          <p>
+            مقالات و نوشته‌های پژوهشی در آرشیوی جداگانه.
+          </p>
+
         </header>
-        <div class="book-grid" data-list="research" data-limit="3"></div>
-        <div class="section-more reveal">
-          <a class="btn btn-outline" href="archive.html?type=research">همه‌ی پژوهش‌ها ←</a>
+
+
+        <div class="book-grid">
+
+          {% assign research_items = site.research | sort: "date" | reverse %}
+          {% assign research_items = research_items | slice: 0, 3 %}
+
+          {% if research_items.size > 0 %}
+
+            {% for item in research_items %}
+
+              <article class="work-card reveal">
+
+                {% if item.cover %}
+
+                  <a class="work-cover"
+                     href="{{ item.url | relative_url }}">
+
+                    <img
+                      src="{{ item.cover | relative_url }}"
+                      alt="{{ item.cover_alt | default: item.title | escape }}"
+                      loading="lazy">
+
+                  </a>
+
+                {% endif %}
+
+
+                <div class="work-body">
+
+                  <span class="work-category">پژوهش تاریخی</span>
+
+                  <h3>
+                    <a href="{{ item.url | relative_url }}">
+                      {{ item.title | escape }}
+                    </a>
+                  </h3>
+
+                  {% assign description = item.description
+                    | default: item.excerpt
+                    | strip_html
+                    | normalize_whitespace %}
+
+                  {% if description != "" %}
+                    <p>{{ description | truncate: 160 | escape }}</p>
+                  {% endif %}
+
+                  <a class="work-link"
+                     href="{{ item.url | relative_url }}">
+                    مطالعه پژوهش ←
+                  </a>
+
+                </div>
+
+              </article>
+
+            {% endfor %}
+
+          {% else %}
+
+            <p class="empty-state">
+              پژوهش‌های ثبت‌شده در این بخش نمایش داده می‌شوند.
+            </p>
+
+          {% endif %}
+
         </div>
+
+
+        <div class="section-more reveal">
+
+          <a class="btn btn-outline"
+             href="{{ '/archive.html' | relative_url }}?type=research">
+
+            همه پژوهش‌ها ←
+
+          </a>
+
+        </div>
+
       </div>
+
     </section>
 
-    <!-- وبلاگ — نارنجی کهربایی -->
-    <section class="section theme-blog" id="blog" aria-labelledby="blog-title">
+
+    <!-- =========================================
+         وبلاگ
+    ========================================== -->
+
+    <section
+      class="section theme-blog"
+      id="blog"
+      aria-labelledby="blog-title">
+
       <div class="wrap">
+
         <header class="section-heading reveal">
-          <span class="eyebrow">۰۷ / وبلاگ</span>
+
+          <span class="eyebrow">۰۷ / یادداشت‌ها</span>
+
           <h2 id="blog-title">وبلاگ</h2>
-          <p>یادداشت‌های روزانه، تأملات، و نوشته‌های کوتاه. گرم، شخصی، کهربایی.</p>
+
+          <p>
+            برای یادداشت‌های روزانه، دیدگاه‌ها و نوشته‌های تازه.
+          </p>
+
         </header>
-        <div class="book-grid" data-list="blog" data-limit="3"></div>
-        <div class="section-more reveal">
-          <a class="btn btn-outline" href="archive.html?type=blog">همه‌ی نوشته‌ها ←</a>
+
+
+        <div class="book-grid">
+
+          {% assign posts = site.posts | sort: "date" | reverse %}
+          {% assign posts = posts | slice: 0, 3 %}
+
+          {% if posts.size > 0 %}
+
+            {% for item in posts %}
+
+              <article class="work-card reveal">
+
+                {% if item.cover %}
+
+                  <a class="work-cover"
+                     href="{{ item.url | relative_url }}">
+
+                    <img
+                      src="{{ item.cover | relative_url }}"
+                      alt="{{ item.cover_alt | default: item.title | escape }}"
+                      loading="lazy">
+
+                  </a>
+
+                {% endif %}
+
+
+                <div class="work-body">
+
+                  <span class="work-category">وبلاگ</span>
+
+                  <h3>
+                    <a href="{{ item.url | relative_url }}">
+                      {{ item.title | escape }}
+                    </a>
+                  </h3>
+
+                  {% assign description = item.description
+                    | default: item.excerpt
+                    | strip_html
+                    | normalize_whitespace %}
+
+                  {% if description != "" %}
+                    <p>{{ description | truncate: 160 | escape }}</p>
+                  {% endif %}
+
+                  {% if item.date %}
+
+                    <time datetime="{{ item.date | date_to_xmlschema }}"
+                          class="work-date">
+
+                      {{ item.date | date: "%Y/%m/%d" }}
+
+                    </time>
+
+                  {% endif %}
+
+                  <a class="work-link"
+                     href="{{ item.url | relative_url }}">
+                    ادامه مطلب ←
+                  </a>
+
+                </div>
+
+              </article>
+
+            {% endfor %}
+
+          {% else %}
+
+            <p class="empty-state">
+              نوشته‌های وبلاگ پس از انتشار در این قسمت نمایش داده می‌شوند.
+            </p>
+
+          {% endif %}
+
         </div>
+
+
+        <div class="section-more reveal">
+
+          <a class="btn btn-outline"
+             href="{{ '/archive.html' | relative_url }}?type=blog">
+
+            همه نوشته‌های وبلاگ ←
+
+          </a>
+
+        </div>
+
       </div>
+
     </section>
 
-    <!-- نقل‌قول -->
-    <section class="quote-section paper" aria-label="نقل‌قول از نویسنده">
-      <div class="wrap reveal">
-        <span class="eyebrow">از دفتر نویسنده</span>
-        <blockquote>«نوشتن، گاهی بازگشت به گذشته است؛ گاهی کشف چیزی در اکنون، و گاهی ساختن جهانی که هنوز وجود ندارد.»</blockquote>
-      </div>
-    </section>
 
-    <!-- تماس -->
-    <section class="section paper" id="contact" aria-labelledby="contact-title">
+    <!-- =========================================
+         ارتباط
+    ========================================== -->
+
+    <section
+      class="section paper"
+      id="contact"
+      aria-labelledby="contact-title">
+
       <div class="wrap">
+
         <header class="section-heading reveal">
-          <span class="eyebrow">در ارتباط باشیم</span>
-          <h2 id="contact-title">گفت‌وگو و همکاری</h2>
-          <p>برای ارتباط دربارهٔ کتاب‌ها یا پیشنهاد همکاری ادبی و پژوهشی، از راه ایمیل استفاده کنید.</p>
+
+          <span class="eyebrow">ارتباط</span>
+
+          <h2 id="contact-title">
+            گفت‌وگو و همکاری
+          </h2>
+
+          <p>
+            این بخش برای راه‌های ارتباطی رسمی و پیشنهادهای همکاری در نظر گرفته شده است.
+          </p>
+
         </header>
+
 
         <div class="contactbox reveal">
+
           <div class="contact-intro">
-            <span class="contact-symbol" aria-hidden="true">✉</span>
+
+            <span class="contact-symbol" aria-hidden="true">
+              ✉
+            </span>
+
             <h3>ارتباط با نویسنده</h3>
-            <p>برای ارسال پیام، پیشنهاد همکاری یا درخواست مصاحبه، از نشانی زیر استفاده کنید.</p>
-            <a class="btn btn-outline" href="mailto:info@hossein-amirza.ir">ارسال ایمیل <span aria-hidden="true">←</span></a>
+
+            {% if site.author.email %}
+
+              <p>
+                برای ارتباط دربارهٔ آثار و پیشنهاد همکاری می‌توانید ایمیل بفرستید.
+              </p>
+
+              <a class="btn btn-outline"
+                 href="mailto:{{ site.author.email | escape }}">
+
+                ارسال ایمیل
+                <span aria-hidden="true">←</span>
+
+              </a>
+
+            {% else %}
+
+              <p>
+                نشانی ایمیل یا پیوند ارتباطی رسمی باید در تنظیمات سایت تعریف شود.
+                تا آن زمان، نشانی تماس تأییدنشده‌ای نمایش داده نمی‌شود.
+              </p>
+
+            {% endif %}
+
           </div>
-          <p class="muted-note">پاسخ‌گویی معمولاً ظرف چند روز کاری انجام می‌شود.</p>
+
         </div>
+
       </div>
+
     </section>
 
   </main>
 
-  <!-- ===== FOOTER ===== -->
+
+  <!-- =========================================
+       پابرگ
+  ========================================== -->
+
   <footer class="footer">
+
     <div class="wrap footer-inner">
-      <a class="footer-brand" href="#home">حسین محمدی آمیرزا</a>
-      <p>© <span id="year">۱۴۰۵</span> تمامی حقوق محفوظ است.</p>
-      <a href="#home">بازگشت به بالا ↑</a>
+
+      <a class="footer-brand"
+         href="{{ '/' | relative_url }}">
+
+        حسین محمدی آمیرزا
+
+      </a>
+
+      <p>
+        © ۱۴۰۵ — تمامی حقوق محفوظ است.
+      </p>
+
+      <a href="#home">
+        بازگشت به بالا ↑
+      </a>
+
     </div>
+
   </footer>
 
-  <button class="scroll-top" id="scrollTop" type="button" aria-label="بازگشت به بالای صفحه" title="بازگشت به بالا" hidden>↑</button>
 
-  <script src="assets/script.js" defer></script>
+  <button
+    class="scroll-top"
+    id="scrollTop"
+    type="button"
+    aria-label="بازگشت به بالای صفحه"
+    title="بازگشت به بالا"
+    hidden>
+
+    ↑
+
+  </button>
+
+
+  <!-- فایل JavaScript موجود در ریشهٔ مخزن -->
+  <script src="{{ '/script.js' | relative_url }}" defer></script>
+
 </body>
 </html>
