@@ -1,175 +1,21 @@
+
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>{{ page.title | escape }} | حسین محمدی آمیرزا</title>
-  <meta name="description" content="{{ page.excerpt | default: site.description | strip_html | normalize_whitespace | escape }}">
+  <title>{{ page.title | escape }} | {{ site.title | escape }}</title>
+
+  <meta
+    name="description"
+    content="{{ page.excerpt | default: site.description | strip_html | normalize_whitespace | escape }}"
+  >
   <meta name="author" content="حسین محمدی آمیرزا">
   <meta name="robots" content="index, follow">
 
   <link rel="canonical" href="{{ page.url | absolute_url }}">
-
-  <style>
-    :root {
-      --bg: #f7f5f0;
-      --paper: #ffffff;
-      --text: #242424;
-      --muted: #666;
-      --accent: #855b32;
-      --border: #e8e1d7;
-      --width: 820px;
-    }
-
-    * { box-sizing: border-box; }
-
-    body {
-      margin: 0;
-      background: var(--bg);
-      color: var(--text);
-      font-family: Tahoma, Arial, sans-serif;
-      font-size: 18px;
-      line-height: 2.15;
-    }
-
-    a { color: var(--accent); }
-
-    .topbar {
-      background: var(--paper);
-      border-bottom: 1px solid var(--border);
-      padding: 16px 20px;
-    }
-
-    .topbar-inner {
-      max-width: 1000px;
-      margin: auto;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      flex-wrap: wrap;
-      gap: 12px;
-    }
-
-    .brand {
-      font-size: 18px;
-      font-weight: bold;
-      text-decoration: none;
-      color: var(--text);
-    }
-
-    .back {
-      display: inline-block;
-      padding: 9px 16px;
-      border: 1px solid var(--border);
-      border-radius: 10px;
-      text-decoration: none;
-      font-size: 15px;
-    }
-
-    main {
-      max-width: var(--width);
-      margin: 38px auto;
-      padding: 0 18px;
-    }
-
-    article {
-      background: var(--paper);
-      border: 1px solid var(--border);
-      border-radius: 18px;
-      padding: clamp(22px, 5vw, 58px);
-      box-shadow: 0 10px 35px rgba(0, 0, 0, .035);
-    }
-
-    h1 {
-      font-size: clamp(28px, 5vw, 42px);
-      line-height: 1.65;
-      margin: 0 0 16px;
-    }
-
-    .meta {
-      color: var(--muted);
-      font-size: 14px;
-      margin-bottom: 28px;
-    }
-
-    .article-content h2 {
-      font-size: 27px;
-      margin-top: 36px;
-    }
-
-    .article-content h3 {
-      font-size: 22px;
-      margin-top: 28px;
-    }
-
-    .article-content p { margin: 0 0 24px; }
-
-    .article-content img {
-      display: block;
-      max-width: 100%;
-      height: auto;
-      margin: 28px auto;
-      border-radius: 12px;
-    }
-
-    .article-content blockquote {
-      margin: 28px 0;
-      padding: 12px 22px;
-      border-right: 4px solid var(--accent);
-      background: #faf7f2;
-      color: #514536;
-    }
-
-    .article-content ul,
-    .article-content ol {
-      padding-right: 28px;
-    }
-
-    .article-content pre {
-      direction: ltr;
-      text-align: left;
-      overflow-x: auto;
-      padding: 16px;
-      background: #f1f1f1;
-      border-radius: 10px;
-    }
-
-    .article-content table {
-      width: 100%;
-      border-collapse: collapse;
-      display: block;
-      overflow-x: auto;
-    }
-
-    .article-content th,
-    .article-content td {
-      border: 1px solid var(--border);
-      padding: 10px;
-    }
-
-    .article-footer {
-      margin-top: 38px;
-      padding-top: 22px;
-      border-top: 1px solid var(--border);
-      color: var(--muted);
-      font-size: 15px;
-    }
-
-    footer {
-      text-align: center;
-      padding: 28px 16px;
-      color: var(--muted);
-      font-size: 14px;
-    }
-
-    @media (max-width: 600px) {
-      body { font-size: 17px; }
-      main { margin: 20px auto; padding: 0 12px; }
-      article { border-radius: 12px; }
-      .article-content h2 { font-size: 23px; }
-    }
-  </style>
+  <link rel="stylesheet" href="{{ '/style.css' | relative_url }}">
 </head>
 
 <body>
@@ -177,29 +23,40 @@
     <div class="topbar-inner">
       <a class="brand" href="{{ '/' | relative_url }}">
         حسین محمدی آمیرزا
+        <span>نویسنده، شاعر و پژوهشگر</span>
       </a>
 
-      <a class="back" href="{{ '/articles/' | relative_url }}">
-        بازگشت به مقالات و داستان‌ها
+      <a class="back" href="{{ '/' | relative_url }}#works">
+        بازگشت به فهرست آثار
       </a>
     </div>
   </header>
 
-  <main>
-    <article>
+  <main class="article-main">
+    <article class="article-paper">
       <header>
         <h1>{{ page.title | escape }}</h1>
 
-        <div class="meta">
+        <div class="article-meta">
           {% if page.date %}
             <time datetime="{{ page.date | date_to_xmlschema }}">
               {{ page.date | date: "%Y/%m/%d" }}
             </time>
           {% endif %}
 
-          {% if page.categories.size > 0 %}
+          {% assign category_key = page.work_type | default: page.categories.first %}
+          {% if category_key %}
             · دسته:
-            {{ page.categories | join: "، " }}
+            {% case category_key %}
+              {% when "story" %}داستان کوتاه
+              {% when "poetry" %}شعر
+              {% when "blog" %}وبلاگ
+              {% when "screenplay" %}فیلمنامه
+              {% when "serial" %}اثر سریالی
+              {% when "book" %}کتاب
+              {% when "research" %}مقالهٔ پژوهشی
+              {% else %}{{ category_key | escape }}
+            {% endcase %}
           {% endif %}
         </div>
       </header>
@@ -208,18 +65,20 @@
         {{ content }}
       </div>
 
-      <div class="article-footer">
+      <footer class="article-footer">
         نویسنده: حسین محمدی آمیرزا
-        <br>
-        برای مطالعهٔ مطالب بیشتر،
-        <a href="{{ '/articles/' | relative_url }}">به فهرست مقالات و داستان‌ها</a>
-        مراجعه کنید.
-      </div>
+        <p>
+          برای مطالعهٔ آثار دیگر،
+          <a href="{{ '/' | relative_url }}#works">
+            به کتابخانهٔ آثار بازگردید
+          </a>.
+        </p>
+      </footer>
     </article>
   </main>
 
-  <footer>
-    © {{ site.time | date: "%Y" }} حسین محمدی آمیرزا
+  <footer class="site-footer">
+    <p>© {{ site.time | date: "%Y" }} حسین محمدی آمیرزا</p>
   </footer>
 </body>
 </html>
