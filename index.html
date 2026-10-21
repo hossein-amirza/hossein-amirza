@@ -20,17 +20,22 @@
   <meta property="og:title" content="حسین محمدی آمیرزا | نویسنده، شاعر، پژوهشگر تاریخ و فیلمنامه‌نویس">
   <meta property="og:description" content="خانه رسمی آثار، کتاب‌ها، پژوهش‌ها، فیلمنامه‌ها و نوشته‌های حسین محمدی آمیرزا.">
   <meta property="og:url" content="https://hossein-amirza.github.io/hossein-mohammadi-amirza/">
-  <meta property="og:image" content="https://hossein-amirza.github.io/hossein-mohammadi-amirza/ChatGPT%20Image%20Aug%202%2C%202026%2C%2004_56_13%20AM.png">
+  <meta property="og:image" content="https://hossein-amirza.github.io/hossein-mohammadi-amirza/images/%D8%AD%D8%B3%DB%8C%D9%86%20%D9%85%D8%AD%D9%85%D8%AF%DB%8C.png">
 
   <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="حسین محمدی آمیرزا">
   <meta name="twitter:description" content="نویسنده، شاعر، پژوهشگر تاریخ و فیلمنامه‌نویس">
-  <meta name="twitter:image" content="https://hossein-amirza.github.io/hossein-mohammadi-amirza/ChatGPT%20Image%20Aug%202%2C%202026%2C%2004_56_13%20AM.png">
+  <meta name="twitter:image" content="https://hossein-amirza.github.io/hossein-mohammadi-amirza/images/%D8%AD%D8%B3%DB%8C%D9%86%20%D9%85%D8%AD%D9%85%D8%AF%DB%8C.png">
 
   <!-- Performance -->
-  <link rel="preload" as="image" href="ChatGPT%20Image%20Aug%202%2C%202026%2C%2004_56_13%20AM.png" fetchpriority="high">
+  <link rel="preload" as="image" href="images/%D8%AD%D8%B3%DB%8C%D9%86%20%D9%85%D8%AD%D9%85%D8%AF%DB%8C.png" fetchpriority="high">
   <link rel="stylesheet" href="style.css">
+
+  <!-- فونت نستعلیق -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Nastaliq+Urdu:wght@400;500;600;700&display=swap" rel="stylesheet">
 
   <!-- Structured Data -->
   <script type="application/ld+json">
@@ -39,7 +44,7 @@
     "@type": "Person",
     "name": "حسین محمدی آمیرزا",
     "url": "https://hossein-amirza.github.io/hossein-mohammadi-amirza/",
-    "image": "https://hossein-amirza.github.io/hossein-mohammadi-amirza/ChatGPT%20Image%20Aug%202%2C%202026%2C%2004_56_13%20AM.png",
+    "image": "https://hossein-amirza.github.io/hossein-mohammadi-amirza/images/%D8%AD%D8%B3%DB%8C%D9%86%20%D9%85%D8%AD%D9%85%D8%AF%DB%8C.png",
     "jobTitle": ["نویسنده", "شاعر", "پژوهشگر تاریخ", "فیلمنامه‌نویس"],
     "description": "نویسنده، شاعر، پژوهشگر تاریخ و فیلمنامه‌نویس",
     "email": "hosseinmohammadi.writer@gmail.com",
@@ -73,6 +78,7 @@
       --shadow-glow: 0 30px 80px rgba(183, 138, 59, 0.15), 0 0 40px rgba(183, 138, 59, 0.04);
       --radius: 20px;
       --transition: 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+      --font-nastaliq: 'Noto Nastaliq Urdu', 'IranNastaliq', 'Vazirmatn', serif;
     }
 
     * {
@@ -1966,7 +1972,7 @@
     }
 
     /* =========================================================
-       POEMS GATEWAY (بخش جدید اشعار)
+       POEMS GATEWAY (بخش اشعار)
     ========================================================== */
     .poems-gateway {
       position: relative;
@@ -2370,6 +2376,42 @@
       margin-top: 40px;
       font-size: 0.85rem;
       color: var(--muted);
+    }
+
+    /* =========================================================
+       فونت نستعلیق برای سرتیترها
+    ========================================================== */
+    .hero h1,
+    .hero h2,
+    .section-heading h2,
+    .manifesto-content h2,
+    .quote-inner h2,
+    .featured-content h2,
+    .philosophy-content h2,
+    .new-work-content h2,
+    .poems-gateway-title,
+    .poems-grid-section .section-heading h2,
+    .poem-showcase-title {
+      font-family: var(--font-nastaliq);
+      line-height: 1.9;
+      letter-spacing: 0;
+    }
+
+    /* متن‌های بدنه با وزیرمتن بمانند */
+    .section-kicker,
+    .book-info h3,
+    .screenplay-info h3,
+    .series-content h3,
+    .post-card h3,
+    .poem-card h3,
+    .contact-message h3,
+    .profile-heading h3,
+    .about-lead,
+    .hero-lead,
+    .hero-description,
+    .portrait-caption span,
+    .portrait-caption small {
+      font-family: 'Vazirmatn', Tahoma, sans-serif;
     }
 
     /* =========================================================
@@ -2804,7 +2846,7 @@
             <div class="portrait-shadow" aria-hidden="true"></div>
             <div class="portrait-border">
               <div class="portrait-image">
-                <img src="ChatGPT%20Image%20Aug%202%2C%202026%2C%2004_56_13%20AM.png" alt="پرتره حسین محمدی آمیرزا" width="700" height="850" fetchpriority="high">
+                <img src="images/%D8%AD%D8%B3%DB%8C%D9%86%20%D9%85%D8%AD%D9%85%D8%AF%DB%8C.png" alt="پرتره حسین محمدی آمیرزا" width="700" height="850" fetchpriority="high">
               </div>
             </div>
             <div class="portrait-seal" aria-hidden="true">ح</div>
@@ -2920,7 +2962,7 @@
           <!-- BOOK 01 -->
           <a href="books/tarikh-adyan.html" class="book-card">
             <div class="book-cover">
-              <img src="tarikh-adyan.jpg" alt="جلد کتاب تاریخ ادیان" loading="lazy" width="600" height="850" decoding="async">
+              <img src="images/تاریخ ادیان جلد اول.jpg" alt="جلد کتاب تاریخ ادیان" loading="lazy" width="600" height="850" decoding="async">
               <div class="book-overlay"><span>مشاهده اثر</span><strong>←</strong></div>
               <span class="book-number">۰۱</span>
             </div>
@@ -2930,95 +2972,53 @@
           <!-- BOOK 02 -->
           <a href="books/faraz-va-forud.html" class="book-card">
             <div class="book-cover">
-              <img src="ChatGPT%20Image%20Aug%2013%2C%202026%2C%2011_29_08%20AM.png" alt="جلد کتاب فراز و فرود سرنوشت قوم زند" loading="lazy" width="600" height="850" decoding="async">
+              <img src="images/فراز و فرود سرنوشت قوم زند.jpg" alt="جلد کتاب فراز و فرود سرنوشت قوم زند" loading="lazy" width="600" height="850" decoding="async">
               <div class="book-overlay"><span>مشاهده اثر</span><strong>←</strong></div>
               <span class="book-number">۰۲</span>
             </div>
             <div class="book-info"><span class="book-type">تاریخ</span><h3>فراز و فرود سرنوشت قوم زند</h3><p>پژوهشی در تاریخ و سرگذشت قوم زند</p></div>
           </a>
 
-<!-- BOOK 03 -->
-<a href="books/ghoghnoos-ashegh.html" class="book-card">
-  <div class="book-cover">
+          <!-- BOOK 03 -->
+          <a href="books/ghoghnoos-ashegh.html" class="book-card">
+            <div class="book-cover">
+              <img src="images/ققنوس عاشق.jpg" alt="جلد کتاب ققنوس عاشق" loading="lazy" width="600" height="850" decoding="async">
+              <div class="book-overlay"><span>مشاهده اثر</span><strong>←</strong></div>
+              <span class="book-number">۰۳</span>
+            </div>
+            <div class="book-info"><span class="book-type">ادبیات</span><h3>ققنوس عاشق</h3><p>اثری ادبی درباره عشق، انسان و زندگی</p></div>
+          </a>
 
-    <img
-      src="https://hossein-amirza.github.io/hossein-mohammadi-amirza/ghoghnoos-ashegh.jpg"
-      alt="جلد کتاب ققنوس عاشق"
-      loading="lazy"
-      width="600"
-      height="850"
-      decoding="async"
-    >
+          <!-- BOOK 04 -->
+          <a href="books/honar-razm.html" class="book-card">
+            <div class="book-cover">
+              <img src="images/هنر رزم ایرانیان.jpg" alt="جلد کتاب هنر رزم ایرانیان" loading="lazy" width="600" height="850" decoding="async">
+              <div class="book-overlay"><span>مشاهده اثر</span><strong>←</strong></div>
+              <span class="book-number">۰۴</span>
+            </div>
+            <div class="book-info"><span class="book-type">پژوهش تاریخی</span><h3>هنر رزم ایرانیان</h3><p>پژوهشی درباره تاریخ و فرهنگ رزم ایرانیان</p></div>
+          </a>
 
-    <div class="book-overlay">
-      <span>مشاهده اثر</span>
-      <strong>←</strong>
-    </div>
+          <!-- BOOK 05 -->
+          <a href="books/tarikh-adyan-jeld-2.html" class="book-card">
+            <div class="book-cover">
+              <img src="images/تاریخ ادیان جلد دوم.png" alt="جلد کتاب روانشناسی انسان در عصر حیرت" loading="lazy" width="600" height="850" decoding="async">
+              <div class="book-overlay"><span>مشاهده اثر</span><strong>←</strong></div>
+              <span class="book-number">۰۵</span>
+            </div>
+            <div class="book-info"><span class="book-type">اندیشه</span><h3>روانشناسی انسان در عصر حیرت</h3><p>پژوهشی درباره انسان، ذهن و اندیشه</p></div>
+          </a>
 
-    <span class="book-number">۰۳</span>
-
-  </div>
-
-  <div class="book-info">
-    <span class="book-type">ادبیات</span>
-    <h3>ققنوس عاشق</h3>
-    <p>اثری ادبی درباره عشق، انسان و زندگی</p>
-  </div>
-</a>
-
-<!-- BOOK 04 -->
-
-<a href="books/honar-razm.html" class="book-card">
-  <div class="book-cover">
-    <img src="covers/honar-razm.jpg" alt="جلد کتاب هنر رزم ایرانیان" loading="lazy" width="600" height="850" decoding="async">
-    <div class="book-overlay"><span>مشاهده اثر</span><strong>←</strong></div>
-    <span class="book-number">۰۴</span>
-  </div>
-  <div class="book-info"><span class="book-type">پژوهش تاریخی</span><h3>هنر رزم ایرانیان</h3><p>پژوهشی درباره تاریخ و فرهنگ رزم ایرانیان</p></div>
-</a>
-
-<!-- BOOK 05 -->
-
-<a href="books/tarikh-adyan-jeld-2.html" class="book-card">
-  <div class="book-cover">
-    <img src="ChatGPT%20Image%20Aug%2013%2C%202026%2C%2002_23_38%20AM.png"
-         alt="جلد کتاب روانشناسی انسان در عصر حیرت"
-         loading="lazy"
-         width="600"
-         height="850"
-         decoding="async">
-    <div class="book-overlay">
-      <span>مشاهده اثر</span>
-      <strong>←</strong>
-    </div>
-    <span class="book-number">۰۵</span>
-  </div>
-
-  <div class="book-info">
-    <span class="book-type">اندیشه</span>
-    <h3>روانشناسی انسان در عصر حیرت</h3>
-    <p>پژوهشی درباره انسان، ذهن و اندیشه</p>
-  </div>
-</a>
-
-<!-- BOOK 06 -->
-
-<a href="books/golshan.html" class="book-card">
-  <div class="book-cover">
-    <img src="1گلشن.jpg" alt="جلد کتاب گلشنی از قرآن کریم" loading="lazy" width="600" height="850" decoding="async">
-    <div class="book-overlay">
-      <span>مشاهده اثر</span>
-      <strong>←</strong>
-    </div>
-    <span class="book-number">۰۶</span>
-  </div>
-
-  <div class="book-info">
-    <span class="book-type">ادبی و معنوی</span>
-    <h3>گلشنی از قرآن کریم</h3>
-    <p>گزیده‌ای با رویکرد ادبی و معنوی</p>
-  </div>
-</a>
+          <!-- BOOK 06 -->
+          <a href="books/golshan.html" class="book-card">
+            <div class="book-cover">
+              <img src="images/گلشنی از قرآن کریم.jpg" alt="جلد کتاب گلشنی از قرآن کریم" loading="lazy" width="600" height="850" decoding="async">
+              <div class="book-overlay"><span>مشاهده اثر</span><strong>←</strong></div>
+              <span class="book-number">۰۶</span>
+            </div>
+            <div class="book-info"><span class="book-type">ادبی و معنوی</span><h3>گلشنی از قرآن کریم</h3><p>گزیده‌ای با رویکرد ادبی و معنوی</p></div>
+          </a>
+        </div>
 
         <div class="section-closing"><span>این کتابخانه همچنان در حال گسترش است.</span><span class="closing-line"></span><span>آثار تازه در راه‌اند.</span></div>
       </div>
@@ -3029,7 +3029,7 @@
       <div class="container featured-grid">
         <div class="featured-cover">
           <div class="featured-frame">
-            <img src="tarikh-adyan.jpg" alt="جلد کتاب تاریخ ادیان" loading="lazy" width="600" height="850" decoding="async">
+            <img src="images/تاریخ ادیان جلد اول.jpg" alt="جلد کتاب تاریخ ادیان" loading="lazy" width="600" height="850" decoding="async">
           </div>
         </div>
         <div class="featured-content">
@@ -3063,7 +3063,7 @@
   <!-- SCREENPLAY 01 -->
   <a href="screenplays/akharin-nabard-sorena.html" class="screenplay-card">
     <div class="screenplay-cover">
-      <img src="covers/%D8%A2%D8%AE%D8%B1%DB%8C%D9%86%20%D9%86%D8%A8%D8%B1%D8%AF%20%D8%B3%D9%88%D8%B1%D9%86%D8%A7.jpg"
+      <img src="images/سورنا.jpg"
            alt="آخرین نبرد سورنا"
            loading="lazy"
            decoding="async">
@@ -3080,7 +3080,7 @@
   <!-- SCREENPLAY 02 -->
   <a href="screenplays/miras-atesh.html" class="screenplay-card">
     <div class="screenplay-cover">
-      <img src="covers/%D9%85%DB%8C%D8%B1%D8%A7%D8%AB%20%D8%A2%D8%AA%D8%B4.jpg"
+      <img src="images/میراث آتش.jpg"
            alt="سه‌گانه میراث آتش"
            loading="lazy"
            decoding="async">
@@ -3092,11 +3092,12 @@
       <h3>سه‌گانه میراث آتش</h3>
       <p>روایتی درباره تاریخ، میراث و انسان</p>
     </div>
-  </a><!-- SCREENPLAY 03 -->
+  </a>
+
 <!-- SCREENPLAY 03 -->
 <a href="screenplays/dej-shirzanan.html" class="screenplay-card">
   <div class="screenplay-cover">
-    <img src="covers/%D8%AF%DA%98%20%D8%B4%DB%8C%D8%B1%20%D8%B2%D9%86%D8%A7%D9%86.png"
+    <img src="images/دژشیر زنان.jpg"
          alt="دژ شیرزنان"
          loading="lazy"
          decoding="async">
@@ -3108,13 +3109,14 @@
     <p>روایتی تاریخی از ایستادگی و مقاومت</p>
   </div>
 </a>
-  <!-- SCREENPLAY 04 -->
+
+  <!-- SCREENPLAY 04 — TODO: تصویر داروخانه حکیم را در images/ آپلود کنید -->
   <a href="screenplays/darookhane-hakim.html" class="screenplay-card">
     <div class="screenplay-cover">
-      <img src="ChatGPT%20Image%20Aug%2013%2C%202026%2C%2011_22_41%20AM.png"
-         alt="داروخانه حکیم"
-         loading="lazy"
-         decoding="async">
+      <img src="images/داروخانه حکیم.jpg"
+           alt="داروخانه حکیم"
+           loading="lazy"
+           decoding="async">
       <span>۰۴</span>
     </div>
 
@@ -3124,91 +3126,90 @@
       <p>روایتی انسانی در فضای تاریخی</p>
     </div>
   </a>
-<a href="series/cheragh-rah/index.html" class="screenplay-card">
-  <div class="screenplay-cover">
-    <img
-      src="چراغ راه.jpg"
-      alt="چراغ راه"
-      loading="lazy"
-      decoding="async"
-    >
-    <span>۰۵</span>
-  </div>
 
-  <div class="screenplay-info">
-    <small>فیلمنامه کوتاه</small>
-    <h3>چراغ راه</h3>
-    <p>روایتی درباره انتخاب و امید</p>
-  </div>
-</a>
+  <!-- SCREENPLAY 05 — TODO: تصویر چراغ راه را در images/ آپلود کنید -->
+  <a href="series/cheragh-rah/index.html" class="screenplay-card">
+    <div class="screenplay-cover">
+      <img src="images/چراغ راه.jpg"
+           alt="چراغ راه"
+           loading="lazy"
+           decoding="async">
+      <span>۰۵</span>
+    </div>
 
-<a href="series/atr-shirin/index.html" class="screenplay-card">
-  <div class="screenplay-cover">
-    <img
-      src="عطر%20شیرین.png"
-      alt="عطر شیرین"
-      loading="lazy"
-      decoding="async"
-    >
-    <span>۰۶</span>
-  </div>
+    <div class="screenplay-info">
+      <small>فیلمنامه کوتاه</small>
+      <h3>چراغ راه</h3>
+      <p>روایتی درباره انتخاب و امید</p>
+    </div>
+  </a>
 
-  <div class="screenplay-info">
-    <small>فیلمنامه کوتاه</small>
-    <h3>عطر شیرین</h3>
-    <p>روایتی انسانی و عاطفی</p>
-  </div>
-</a>
+  <!-- SCREENPLAY 06 -->
+  <a href="series/atr-shirin/index.html" class="screenplay-card">
+    <div class="screenplay-cover">
+      <img src="images/عطر شیرین.png"
+           alt="عطر شیرین"
+           loading="lazy"
+           decoding="async">
+      <span>۰۶</span>
+    </div>
+
+    <div class="screenplay-info">
+      <small>فیلمنامه کوتاه</small>
+      <h3>عطر شیرین</h3>
+      <p>روایتی انسانی و عاطفی</p>
+    </div>
+  </a>
+
+  <!-- SCREENPLAY 07 -->
   <a href="series/maro-koozeh/index.html" class="screenplay-card">
-  <div class="screenplay-cover">
-    <img
-      src="کوزه%20و%20مار.jpg"
-      alt="کوزه و مار"
-      loading="lazy"
-      decoding="async"
-    >
-    <span>۰۷</span>
-  </div>
+    <div class="screenplay-cover">
+      <img src="images/کوزه و مار.jpg"
+           alt="کوزه و مار"
+           loading="lazy"
+           decoding="async">
+      <span>۰۷</span>
+    </div>
 
-  <div class="screenplay-info">
-    <small>فیلمنامه کوتاه</small>
-    <h3>کوزه و مار</h3>
-    <p>روایتی تلخ و نمادین درباره تشنگی، قدرت و تقسیم</p>
-  </div>
-</a>
+    <div class="screenplay-info">
+      <small>فیلمنامه کوتاه</small>
+      <h3>کوزه و مار</h3>
+      <p>روایتی تلخ و نمادین درباره تشنگی، قدرت و تقسیم</p>
+    </div>
+  </a>
+
+  <!-- SCREENPLAY 08 — TODO: تصویر باران و سنگ را در images/ آپلود کنید -->
   <a href="screenplays/baran-va-sang.html" class="screenplay-card">
-  <div class="screenplay-cover">
-    <img
-      src="covers/baran-va-sang.jpg"
-      alt="باران و سنگ"
-      loading="lazy"
-      decoding="async"
-    >
-    <span>۰۸</span>
-  </div>
-  <div class="screenplay-info">
-    <small>فیلم‌نامه کوتاه</small>
-    <h3>باران و سنگ</h3>
-    <p>روایتی شاعرانه و انسانی</p>
-  </div>
-</a>
-<a href="series/series/sor-o-sat/index.html" class="screenplay-card">
-  <div class="screenplay-cover">
-    <img
-      src="سور%20و%20سات.jpg"
-      alt="سور و سات"
-      loading="lazy"
-      decoding="async"
-    >
-    <span>۰۹</span>
-  </div>
+    <div class="screenplay-cover">
+      <img src="images/باران و سنگ.jpg"
+           alt="باران و سنگ"
+           loading="lazy"
+           decoding="async">
+      <span>۰۸</span>
+    </div>
+    <div class="screenplay-info">
+      <small>فیلم‌نامه کوتاه</small>
+      <h3>باران و سنگ</h3>
+      <p>روایتی شاعرانه و انسانی</p>
+    </div>
+  </a>
 
-  <div class="screenplay-info">
-    <small>فیلمنامه کوتاه</small>
-    <h3>سور و سات</h3>
-    <p>روایتی طنزآمیز و انسانی درباره خانواده و انسانیت</p>
-  </div>
-</a>
+  <!-- SCREENPLAY 09 — TODO: تصویر سور و سات را در images/ آپلود کنید -->
+  <a href="series/series/sor-o-sat/index.html" class="screenplay-card">
+    <div class="screenplay-cover">
+      <img src="images/سور و سات.jpg"
+           alt="سور و سات"
+           loading="lazy"
+           decoding="async">
+      <span>۰۹</span>
+    </div>
+
+    <div class="screenplay-info">
+      <small>فیلمنامه کوتاه</small>
+      <h3>سور و سات</h3>
+      <p>روایتی طنزآمیز و انسانی درباره خانواده و انسانیت</p>
+    </div>
+  </a>
 </div>
 </section>
 
@@ -3242,7 +3243,7 @@
 
   <div class="series-cover">
     <img
-      src="ChatGPT%20Image%20Aug%201%2C%202026%2C%2009_52_09%20AM.png"
+      src="images/دهو پادان.jpg"
       alt="جلد سریال دهوپادان"
       loading="lazy"
       decoding="async"
@@ -3264,7 +3265,7 @@
 
         <div class="series-cover">
           <img
-            src="ChatGPT%20Image%20Aug%201%2C%202026%2C%2007_35_58%20PM.png"
+            src="images/زاگرس.jpg"
             alt="جلد سریال ققنوس زاگرس"
             loading="lazy"
             decoding="async"
@@ -3281,14 +3282,14 @@
       </a>
 
 
-      <!-- ===== ۰۳ | بازی سرنوشت قوم زند ===== -->
+      <!-- ===== ۰۳ | بازی سرنوشت قوم زند — TODO: تصویر را در images/ آپلود کنید ===== -->
       <a href="series/bazi-sarnevesht-ghom-zand/index.html" class="series-item">
 
         <span class="series-number">۰۳</span>
 
         <div class="series-cover">
           <img
-            src="ChatGPT%20Image%20Aug%2013%2C%202026%2C%2011_22_41%20AM.png"
+            src="images/بازی سرنوشت قوم زند.jpg"
             alt="جلد سریال بازی سرنوشت قوم زند"
             loading="lazy"
             decoding="async"
@@ -3305,14 +3306,14 @@
       </a>
 
 
-      <!-- ===== ۰۴ | حماسه زندیان ===== -->
+      <!-- ===== ۰۴ | حماسه زندیان — TODO: تصویر کریم.jpg را در images/ آپلود کنید ===== -->
       <a href="series/hamase-zandian/index.html" class="series-item">
 
         <span class="series-number">۰۴</span>
 
         <div class="series-cover">
           <img
-            src="کریم.jpg"
+            src="images/کریم.jpg"
             alt="جلد سریال حماسه زندیان"
             loading="lazy"
             decoding="async"
@@ -3336,7 +3337,7 @@
 
         <div class="series-cover">
           <img
-            src="ساده دل.jpg"
+            src="images/ساده دل.jpg"
             alt="جلد مجموعه نمایشی مرد ساده‌دل روستا"
             loading="lazy"
             decoding="async"
@@ -3388,7 +3389,7 @@
 </section>
 
 <!-- =====================================================
-     POEMS GATEWAY | درگاه ورود به اشعار (بخش جدید)
+     POEMS GATEWAY | درگاه ورود به اشعار
 ===================================================== -->
 <section
   class="poems-gateway"
@@ -3843,7 +3844,6 @@
 
       const motionQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
 
-      // اشعار پیش‌فرض در صورت عدم دسترسی به فایل JSON
       const FALLBACK_POEMS = [
         {
           title: 'کوچه‌های بی‌نام',
