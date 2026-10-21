@@ -1,0 +1,166 @@
+
+---
+layout: none
+title: "حسین محمدی آمیرزا"
+permalink: /
+---
+
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{ site.title | escape }}</title>
+  <meta name="description" content="{{ site.description | escape }}">
+  <meta name="author" content="حسین محمدی آمیرزا">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="{{ '/' | absolute_url }}">
+  <link rel="stylesheet" href="{{ '/style.css' | relative_url }}">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="{{ '/' | relative_url }}">
+        حسین محمدی آمیرزا
+        <span>نویسنده، شاعر و پژوهشگر</span>
+      </a>
+      <nav class="main-nav" aria-label="ناوبری اصلی">
+        <a href="#works">آثار</a>
+        <a href="#about">دربارهٔ من</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero container">
+      <p class="eyebrow">وب‌سایت رسمی</p>
+      <h1>جهانی از واژه‌ها، روایت‌ها و اندیشه‌ها</h1>
+      <p class="hero-description">
+        مجموعهٔ آثار ادبی، داستانی، پژوهشی و نمایشی
+        حسین محمدی آمیرزا
+      </p>
+      <a class="primary-link" href="#works">مطالعهٔ آثار</a>
+    </section>
+
+    <section class="container works-section" id="works">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">کتابخانهٔ آثار</p>
+          <h2>آثار منتشرشده</h2>
+        </div>
+        <span class="work-count" id="work-count">
+          {{ site.posts.size }} نوشته
+        </span>
+      </div>
+
+      <div class="search-panel">
+        <label for="work-search">جست‌وجو در آثار</label>
+        <input
+          id="work-search"
+          type="search"
+          placeholder="عنوان یا بخشی از متن را بنویسید..."
+          autocomplete="off"
+        >
+      </div>
+
+      <div class="category-list" aria-label="دسته‌بندی آثار">
+        <button class="category-button active" data-category="all"
+                type="button" aria-pressed="true">همهٔ آثار</button>
+        <button class="category-button" data-category="story"
+                type="button" aria-pressed="false">داستان کوتاه</button>
+        <button class="category-button" data-category="poetry"
+                type="button" aria-pressed="false">شعر</button>
+        <button class="category-button" data-category="blog"
+                type="button" aria-pressed="false">وبلاگ</button>
+        <button class="category-button" data-category="screenplay"
+                type="button" aria-pressed="false">فیلمنامه</button>
+        <button class="category-button" data-category="serial"
+                type="button" aria-pressed="false">آثار سریالی</button>
+        <button class="category-button" data-category="book"
+                type="button" aria-pressed="false">کتاب‌ها</button>
+        <button class="category-button" data-category="research"
+                type="button" aria-pressed="false">مقالات پژوهشی</button>
+      </div>
+
+      <div class="works-grid" id="works-grid">
+        {% assign ordered_posts = site.posts | sort: "date" | reverse %}
+        {% for post in ordered_posts %}
+          {% assign category_key = post.work_type | default: post.categories.first | default: "blog" %}
+          {% assign category_label = category_key %}
+          {% case category_key %}
+            {% when "story" %}{% assign category_label = "داستان کوتاه" %}
+            {% when "poetry" %}{% assign category_label = "شعر" %}
+            {% when "blog" %}{% assign category_label = "وبلاگ" %}
+            {% when "screenplay" %}{% assign category_label = "فیلمنامه" %}
+            {% when "serial" %}{% assign category_label = "اثر سریالی" %}
+            {% when "book" %}{% assign category_label = "کتاب" %}
+            {% when "research" %}{% assign category_label = "مقالهٔ پژوهشی" %}
+          {% endcase %}
+
+          <article
+            class="work-card"
+            data-category="{{ category_key | escape }}"
+            data-search="{{ post.title | downcase | escape }} {{ post.excerpt | strip_html | normalize_whitespace | downcase | escape }}"
+          >
+            <div class="card-topline">
+              <span class="work-category">{{ category_label | escape }}</span>
+              {% if post.date %}
+                <time datetime="{{ post.date | date_to_xmlschema }}">
+                  {{ post.date | date: "%Y/%m/%d" }}
+                </time>
+              {% endif %}
+            </div>
+
+            <h3>
+              <a href="{{ post.url | relative_url }}">
+                {{ post.title | escape }}
+              </a>
+            </h3>
+
+            <p class="work-excerpt">
+              {{ post.excerpt | default: post.content | strip_html | normalize_whitespace | truncate: 180 }}
+            </p>
+
+            <a class="read-more" href="{{ post.url | relative_url }}">
+              ادامهٔ مطالعه ←
+            </a>
+          </article>
+        {% endfor %}
+      </div>
+
+      <p class="empty-message" id="empty-message" hidden>
+        اثری با این عنوان یا دسته‌بندی پیدا نشد.
+      </p>
+
+      {% if site.posts.size == 0 %}
+        <div class="empty-library">
+          <h3>کتابخانه در انتظار نخستین اثر است</h3>
+          <p>
+            نوشته‌های جدید پس از انتشار در مخزن، در این بخش نمایش داده می‌شوند.
+          </p>
+        </div>
+      {% endif %}
+    </section>
+
+    <section class="about-section" id="about">
+      <div class="container about-inner">
+        <p class="eyebrow">دربارهٔ نویسنده</p>
+        <h2>حسین محمدی آمیرزا</h2>
+        <p>
+          این وب‌سایت برای گردآوری و انتشار آثار ادبی،
+          شعر، داستان، فیلمنامه و پژوهش‌ها ایجاد شده است.
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>© {{ site.time | date: "%Y" }} حسین محمدی آمیرزا</p>
+      <p>تمام آثار این وب‌سایت متعلق به نویسنده یا صاحبان حقوق آن‌هاست.</p>
+    </div>
+  </footer>
+
+  <script src="{{ '/script.js' | relative_url }}" defer></script>
+</body>
+</html>
