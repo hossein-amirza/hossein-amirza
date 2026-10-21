@@ -1,166 +1,4188 @@
-
----
-layout: none
-title: "حسین محمدی آمیرزا"
-permalink: /
----
-
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>{{ site.title | escape }}</title>
-  <meta name="description" content="{{ site.description | escape }}">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="dark light">
+  <meta name="theme-color" content="#120f0d">
   <meta name="author" content="حسین محمدی آمیرزا">
-  <meta name="robots" content="index, follow">
-  <link rel="canonical" href="{{ '/' | absolute_url }}">
-  <link rel="stylesheet" href="{{ '/style.css' | relative_url }}">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <meta name="format-detection" content="telephone=no">
+  <title>حسین محمدی آمیرزا | نویسنده، شاعر، پژوهشگر تاریخ و فیلمنامه‌نویس</title>
+  <meta name="description" content="وب‌سایت رسمی حسین محمدی آمیرزا؛ نویسنده، شاعر، پژوهشگر تاریخ و فیلمنامه‌نویس. معرفی کتاب‌ها، پژوهش‌های تاریخی، فیلمنامه‌ها، مجموعه‌های نمایشی و نوشته‌ها.">
+  <meta name="keywords" content="حسین محمدی آمیرزا، نویسنده، شاعر، پژوهشگر تاریخ، فیلمنامه نویس، تاریخ ایران، تاریخ ادیان، قوم زند، زندیان، کتاب، فیلمنامه، سریال، ادبیات، پژوهش تاریخی">
+  <link rel="canonical" href="https://hossein-amirza.github.io/hossein-mohammadi-amirza/">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="fa_IR">
+  <meta property="og:site_name" content="حسین محمدی آمیرزا">
+  <meta property="og:title" content="حسین محمدی آمیرزا | نویسنده، شاعر، پژوهشگر تاریخ و فیلمنامه‌نویس">
+  <meta property="og:description" content="خانه رسمی آثار، کتاب‌ها، پژوهش‌ها، فیلمنامه‌ها و نوشته‌های حسین محمدی آمیرزا.">
+  <meta property="og:url" content="https://hossein-amirza.github.io/hossein-mohammadi-amirza/">
+  <meta property="og:image" content="https://hossein-amirza.github.io/hossein-mohammadi-amirza/ChatGPT%20Image%20Aug%202%2C%202026%2C%2004_56_13%20AM.png">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="حسین محمدی آمیرزا">
+  <meta name="twitter:description" content="نویسنده، شاعر، پژوهشگر تاریخ و فیلمنامه‌نویس">
+  <meta name="twitter:image" content="https://hossein-amirza.github.io/hossein-mohammadi-amirza/ChatGPT%20Image%20Aug%202%2C%202026%2C%2004_56_13%20AM.png">
+
+  <!-- Performance -->
+  <link rel="preload" as="image" href="ChatGPT%20Image%20Aug%202%2C%202026%2C%2004_56_13%20AM.png" fetchpriority="high">
+  <link rel="stylesheet" href="style.css">
+
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "حسین محمدی آمیرزا",
+    "url": "https://hossein-amirza.github.io/hossein-mohammadi-amirza/",
+    "image": "https://hossein-amirza.github.io/hossein-mohammadi-amirza/ChatGPT%20Image%20Aug%202%2C%202026%2C%2004_56_13%20AM.png",
+    "jobTitle": ["نویسنده", "شاعر", "پژوهشگر تاریخ", "فیلمنامه‌نویس"],
+    "description": "نویسنده، شاعر، پژوهشگر تاریخ و فیلمنامه‌نویس",
+    "email": "hosseinmohammadi.writer@gmail.com",
+    "telephone": "09199379791",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "پاکدشت",
+      "addressCountry": "IR"
+    }
+  }
+  </script>
+
+  <style>
+    /* =========================================================
+       CSS VARIABLES & RESET
+    ========================================================== */
+    @import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700;800;900&family=Playfair+Display:wght@600;700;800&display=swap');
+
+    :root {
+      --gold: #b78a3b;
+      --gold-light: #d8b76d;
+      --gold-pale: rgba(183, 138, 59, 0.12);
+      --dark: #120f0d;
+      --dark-2: #1c1714;
+      --cream: #f5efe5;
+      --paper: #fcf8f2;
+      --text: #2a221d;
+      --muted: #766960;
+      --line: #dfd1c0;
+      --shadow: 0 20px 60px rgba(18, 15, 13, 0.12);
+      --shadow-glow: 0 30px 80px rgba(183, 138, 59, 0.15), 0 0 40px rgba(183, 138, 59, 0.04);
+      --radius: 20px;
+      --transition: 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 80px;
+    }
+
+    body {
+      background: var(--cream);
+      color: var(--text);
+      font-family: 'Vazirmatn', Tahoma, sans-serif;
+      line-height: 2;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      transition: background 0.5s ease, color 0.5s ease;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      width: min(1180px, calc(100% - 40px));
+      margin-inline: auto;
+    }
+
+    /* =========================================================
+       SKIP LINK
+    ========================================================== */
+    .skip-link {
+      position: fixed;
+      top: -999px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--gold);
+      color: #fff;
+      padding: 12px 24px;
+      border-radius: 0 0 12px 12px;
+      font-weight: 700;
+      z-index: 9999;
+      transition: top 0.3s ease;
+    }
+
+    .skip-link:focus {
+      top: 0;
+    }
+
+    /* =========================================================
+       READING PROGRESS BAR
+    ========================================================== */
+    .reading-progress {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      z-index: 999;
+      background: transparent;
+    }
+
+    .reading-progress-bar {
+      height: 100%;
+      width: 0%;
+      background: linear-gradient(90deg, var(--gold), var(--gold-light));
+      transition: width 0.1s ease;
+    }
+
+    /* =========================================================
+       HEADER
+    ========================================================== */
+    .site-header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      background: rgba(18, 15, 13, 0.85);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+      transition: background 0.5s ease, box-shadow 0.5s ease;
+    }
+
+    .site-header.is-scrolled {
+      background: rgba(18, 15, 13, 0.96);
+      box-shadow: 0 4px 40px rgba(0, 0, 0, 0.3);
+    }
+
+    .nav-container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      min-height: 72px;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      color: #fff;
+      font-weight: 800;
+      font-size: 1.2rem;
+      transition: transform 0.3s ease;
+    }
+
+    .logo:hover {
+      transform: scale(1.02);
+    }
+
+    .logo-mark {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--gold), var(--gold-light));
+      color: #1a1512;
+      font-size: 1.4rem;
+      font-weight: 900;
+      flex-shrink: 0;
+    }
+
+    .logo-text {
+      display: flex;
+      flex-direction: column;
+      line-height: 1.2;
+    }
+
+    .logo-text strong {
+      font-size: 1rem;
+      letter-spacing: 0.5px;
+    }
+
+    .logo-text small {
+      font-size: 0.7rem;
+      font-weight: 400;
+      color: #b9aaa0;
+    }
+
+    /* ===== NAV ===== */
+    .main-nav {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .main-nav a {
+      color: #e9ddd0;
+      padding: 6px 14px;
+      border-radius: 30px;
+      font-size: 0.85rem;
+      font-weight: 500;
+      transition: all 0.3s ease;
+      position: relative;
+    }
+
+    .main-nav a:hover,
+    .main-nav a:focus-visible {
+      background: rgba(255, 255, 255, 0.07);
+      color: #fff;
+    }
+
+    .main-nav a.nav-contact {
+      background: linear-gradient(135deg, var(--gold), var(--gold-light));
+      color: #1a1512;
+      font-weight: 700;
+      padding: 6px 18px;
+    }
+
+    .main-nav a.nav-contact:hover {
+      transform: scale(1.05);
+      box-shadow: 0 4px 20px rgba(183, 138, 59, 0.3);
+    }
+
+    /* ===== MENU TOGGLE ===== */
+    .menu-toggle {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 8px;
+      border-radius: 8px;
+      transition: background 0.3s ease;
+    }
+
+    .menu-toggle:hover {
+      background: rgba(255, 255, 255, 0.05);
+    }
+
+    .menu-toggle span {
+      display: block;
+      width: 26px;
+      height: 2px;
+      background: #fff;
+      border-radius: 4px;
+      transition: all 0.3s ease;
+    }
+
+    .menu-toggle[aria-expanded="true"] span:nth-child(1) {
+      transform: translateY(7px) rotate(45deg);
+    }
+
+    .menu-toggle[aria-expanded="true"] span:nth-child(2) {
+      opacity: 0;
+      transform: scaleX(0);
+    }
+
+    .menu-toggle[aria-expanded="true"] span:nth-child(3) {
+      transform: translateY(-7px) rotate(-45deg);
+    }
+
+    /* ===== THEME TOGGLE ===== */
+    .theme-toggle {
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      color: #e9ddd0;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      cursor: pointer;
+      font-size: 1.1rem;
+      transition: all 0.3s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .theme-toggle:hover {
+      background: rgba(255, 255, 255, 0.12);
+      transform: rotate(20deg);
+    }
+
+    /* =========================================================
+       HERO
+    ========================================================== */
+    .hero {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+      background: radial-gradient(circle at 70% 30%, rgba(183, 138, 59, 0.08), transparent 40%),
+        radial-gradient(circle at 20% 80%, rgba(183, 138, 59, 0.04), transparent 30%),
+        linear-gradient(135deg, #0f0c0a, #1c1714 45%, #2a221d);
+      color: #fff;
+      padding: 120px 0 80px;
+    }
+
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23b78a3b' fill-opacity='0.04'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    .hero-container {
+      position: relative;
+      z-index: 2;
+      display: grid;
+      grid-template-columns: 1fr 0.9fr;
+      align-items: center;
+      gap: 60px;
+    }
+
+    /* ===== HERO CONTENT ===== */
+    .hero-content {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .hero-eyebrow {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--gold-light);
+      letter-spacing: 1.5px;
+    }
+
+    .eyebrow-line {
+      display: block;
+      width: 40px;
+      height: 1px;
+      background: linear-gradient(90deg, var(--gold-light), transparent);
+    }
+
+    .hero-pretitle {
+      font-size: 1.1rem;
+      color: #cbbfb5;
+      font-weight: 300;
+      letter-spacing: 0.5px;
+      margin-bottom: 4px;
+    }
+
+    .hero-pretitle span {
+      color: var(--gold-light);
+      font-weight: 600;
+    }
+
+    .hero h1 {
+      font-family: 'Playfair Display', 'Vazirmatn', serif;
+      font-size: clamp(2.8rem, 7vw, 5.5rem);
+      line-height: 1.1;
+      font-weight: 800;
+      letter-spacing: -1px;
+    }
+
+    .hero h1 span {
+      color: var(--gold-light);
+    }
+
+    .hero h2 {
+      font-size: clamp(1.1rem, 2vw, 1.5rem);
+      font-weight: 500;
+      color: #dfd1c0;
+      margin-bottom: 4px;
+    }
+
+    .hero h2 span {
+      color: var(--gold-light);
+    }
+
+    .hero-lead {
+      font-size: 1.1rem;
+      color: #cbbfb5;
+      max-width: 560px;
+      line-height: 2;
+      margin-top: 4px;
+    }
+
+    .hero-description {
+      font-size: 0.95rem;
+      color: #a8988a;
+      max-width: 520px;
+    }
+
+    /* ===== HERO ACTIONS ===== */
+    .hero-actions {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-top: 8px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 12px 28px;
+      border-radius: 999px;
+      font-weight: 700;
+      font-size: 0.95rem;
+      transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+      border: none;
+      cursor: pointer;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--gold), var(--gold-light));
+      color: #1a1512;
+      box-shadow: 0 8px 30px rgba(183, 138, 59, 0.25);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-3px) scale(1.02);
+      box-shadow: 0 12px 45px rgba(183, 138, 59, 0.35);
+    }
+
+    .btn-ghost {
+      background: rgba(255, 255, 255, 0.06);
+      color: #fff;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+    }
+
+    .btn-ghost:hover {
+      background: rgba(255, 255, 255, 0.12);
+      transform: translateY(-3px);
+    }
+
+    .btn-arrow {
+      transition: transform 0.3s ease;
+    }
+
+    .btn:hover .btn-arrow {
+      transform: translateX(-4px);
+    }
+
+    /* ===== HERO META ===== */
+    .hero-meta {
+      display: flex;
+      gap: 30px;
+      margin-top: 12px;
+      padding-top: 16px;
+      border-top: 1px solid rgba(255, 255, 255, 0.06);
+    }
+
+    .hero-meta-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.85rem;
+      color: #b9aaa0;
+    }
+
+    .meta-number {
+      font-weight: 800;
+      color: var(--gold-light);
+      font-family: 'Playfair Display', serif;
+      font-size: 1.1rem;
+    }
+
+    /* ===== HERO PORTRAIT ===== */
+    .hero-visual {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 16px;
+      position: relative;
+    }
+
+    .portrait-wrapper {
+      position: relative;
+      width: fit-content;
+    }
+
+    .portrait-shadow {
+      position: absolute;
+      inset: 20px;
+      background: radial-gradient(ellipse, rgba(183, 138, 59, 0.15), transparent 70%);
+      filter: blur(40px);
+      z-index: 0;
+      animation: pulse-shadow 4s ease-in-out infinite;
+    }
+
+    @keyframes pulse-shadow {
+      0%,
+      100% {
+        transform: scale(1);
+        opacity: 0.6;
+      }
+      50% {
+        transform: scale(1.1);
+        opacity: 1;
+      }
+    }
+
+    .portrait-border {
+      position: relative;
+      padding: 6px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--gold), var(--gold-light), var(--gold));
+      background-size: 300% 300%;
+      animation: rotate-border 6s linear infinite;
+      z-index: 1;
+    }
+
+    @keyframes rotate-border {
+      0% {
+        background-position: 0% 50%;
+      }
+      50% {
+        background-position: 100% 50%;
+      }
+      100% {
+        background-position: 0% 50%;
+      }
+    }
+
+    .portrait-image {
+      width: clamp(240px, 28vw, 360px);
+      height: clamp(240px, 28vw, 360px);
+      border-radius: 50%;
+      overflow: hidden;
+      background: #2a221d;
+    }
+
+    .portrait-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .portrait-seal {
+      position: absolute;
+      bottom: -10px;
+      right: -10px;
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--gold), var(--gold-light));
+      color: #1a1512;
+      font-size: 1.4rem;
+      font-weight: 900;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 2;
+      box-shadow: 0 4px 20px rgba(183, 138, 59, 0.3);
+    }
+
+    .portrait-caption {
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .portrait-caption span {
+      font-weight: 700;
+      font-size: 1.1rem;
+      color: #fff;
+    }
+
+    .portrait-caption small {
+      font-size: 0.8rem;
+      color: #b9aaa0;
+      letter-spacing: 0.5px;
+    }
+
+    /* ===== HERO SCROLL ===== */
+    .hero-scroll {
+      position: absolute;
+      bottom: 30px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 6px;
+      color: #b9aaa0;
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 1px;
+      transition: all 0.3s ease;
+      z-index: 5;
+    }
+
+    .hero-scroll:hover {
+      color: #fff;
+      transform: translateX(-50%) translateY(-4px);
+    }
+
+    .hero-scroll i {
+      display: block;
+      width: 1px;
+      height: 30px;
+      background: linear-gradient(180deg, var(--gold-light), transparent);
+      animation: scroll-line 2s ease-in-out infinite;
+    }
+
+    @keyframes scroll-line {
+      0% {
+        transform: scaleY(0.2);
+        opacity: 0.3;
+      }
+      50% {
+        transform: scaleY(1);
+        opacity: 1;
+      }
+      100% {
+        transform: scaleY(0.2);
+        opacity: 0.3;
+      }
+    }
+
+    /* =========================================================
+       IDENTITY STRIP
+    ========================================================== */
+    .identity-strip {
+      padding: 30px 0;
+      background: var(--dark-2);
+      border-top: 1px solid rgba(255, 255, 255, 0.04);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+    }
+
+    .identity-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+    }
+
+    .identity-item {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      color: #e9ddd0;
+      padding: 8px 12px;
+      border-radius: 12px;
+      transition: background 0.3s ease;
+    }
+
+    .identity-item:hover {
+      background: rgba(255, 255, 255, 0.04);
+    }
+
+    .identity-index {
+      font-size: 0.7rem;
+      font-weight: 700;
+      color: var(--gold);
+      opacity: 0.6;
+      font-family: 'Playfair Display', serif;
+    }
+
+    .identity-item strong {
+      display: block;
+      font-size: 0.95rem;
+      font-weight: 700;
+    }
+
+    .identity-item span {
+      font-size: 0.75rem;
+      color: #b9aaa0;
+    }
+
+    /* =========================================================
+       MANIFESTO
+    ========================================================== */
+    .manifesto-section {
+      padding: 70px 0;
+      background: var(--paper);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .manifesto-grid {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 40px;
+    }
+
+    .manifesto-label {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 4px;
+      padding-top: 4px;
+    }
+
+    .manifesto-label span {
+      font-size: 0.7rem;
+      font-weight: 600;
+      color: var(--muted);
+      letter-spacing: 1px;
+    }
+
+    .manifesto-label strong {
+      font-size: 2.4rem;
+      font-weight: 800;
+      color: var(--gold);
+      font-family: 'Playfair Display', serif;
+      opacity: 0.3;
+    }
+
+    .manifesto-content {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .manifesto-kicker {
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--gold);
+    }
+
+    .manifesto-content h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+      line-height: 1.5;
+      font-weight: 700;
+    }
+
+    .manifesto-content h2 em {
+      color: var(--gold);
+      font-style: normal;
+    }
+
+    .manifesto-content p {
+      color: var(--muted);
+      font-size: 1.05rem;
+      max-width: 700px;
+    }
+
+    /* =========================================================
+       STATS
+    ========================================================== */
+    .stats-section {
+      padding: 50px 0;
+      background: linear-gradient(135deg, var(--dark), var(--dark-2));
+      border-top: 1px solid rgba(255, 255, 255, 0.04);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+    }
+
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 30px;
+      text-align: center;
+    }
+
+    .stat-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .stat-number {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.4rem, 4vw, 3.8rem);
+      font-weight: 800;
+      color: var(--gold-light);
+      line-height: 1.1;
+    }
+
+    .stat-label {
+      font-size: 0.85rem;
+      color: #b9aaa0;
+      font-weight: 500;
+      letter-spacing: 1px;
+    }
+
+    /* =========================================================
+       SECTION COMMON
+    ========================================================== */
+    .section {
+      padding: 80px 0;
+    }
+
+    .section-heading {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      margin-bottom: 40px;
+    }
+
+    .section-heading-split {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+    }
+
+    .section-heading-split > div {
+      flex: 1;
+    }
+
+    .section-kicker {
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: var(--gold);
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+    }
+
+    .section-heading h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+      font-weight: 700;
+      line-height: 1.3;
+    }
+
+    .section-heading h2 em {
+      color: var(--gold);
+      font-style: normal;
+    }
+
+    .section-heading p {
+      color: var(--muted);
+      font-size: 1rem;
+      margin-top: 4px;
+    }
+
+    .section-index {
+      font-family: 'Playfair Display', serif;
+      font-size: 3.2rem;
+      font-weight: 800;
+      color: rgba(183, 138, 59, 0.1);
+      line-height: 1;
+      flex-shrink: 0;
+    }
+
+    /* =========================================================
+       ABOUT
+    ========================================================== */
+    .about-section {
+      background: var(--paper);
+    }
+
+    .about-layout {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 60px;
+    }
+
+    .about-lead {
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: var(--text);
+      line-height: 2;
+      margin-bottom: 16px;
+    }
+
+    .about-main p {
+      color: var(--muted);
+      margin-bottom: 12px;
+    }
+
+    .text-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-weight: 700;
+      color: var(--gold);
+      transition: gap 0.3s ease;
+    }
+
+    .text-link:hover {
+      gap: 14px;
+    }
+
+    .about-profile {
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 30px;
+      box-shadow: var(--shadow);
+    }
+
+    .profile-monogram {
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--gold), var(--gold-light));
+      color: #1a1512;
+      font-size: 1.8rem;
+      font-weight: 900;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 12px;
+    }
+
+    .profile-heading span {
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: var(--muted);
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    .profile-heading h3 {
+      font-size: 1.3rem;
+      font-weight: 700;
+      margin-top: 2px;
+    }
+
+    .profile-divider {
+      width: 40px;
+      height: 2px;
+      background: var(--gold);
+      margin: 16px 0;
+    }
+
+    .profile-details {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .profile-details div {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    .profile-details dt {
+      font-size: 0.7rem;
+      font-weight: 700;
+      color: var(--muted);
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+    }
+
+    .profile-details dd {
+      font-size: 0.95rem;
+      font-weight: 500;
+    }
+
+    .profile-footer {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 16px;
+      padding-top: 16px;
+      border-top: 1px solid var(--line);
+      font-size: 0.7rem;
+      font-weight: 600;
+      color: var(--muted);
+      letter-spacing: 1px;
+    }
+
+    /* =========================================================
+       QUOTE
+    ========================================================== */
+    .quote-section {
+      position: relative;
+      padding: 80px 0;
+      background: linear-gradient(135deg, #1a1512, #2a221d);
+      color: #fff;
+      overflow: hidden;
+    }
+
+    .quote-bg-pattern {
+      position: absolute;
+      inset: 0;
+      background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23b78a3b' fill-opacity='0.04'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+      pointer-events: none;
+      opacity: 0.3;
+    }
+
+    .quote-inner {
+      position: relative;
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      max-width: 800px;
+      margin-inline: auto;
+    }
+
+    .quote-mark {
+      font-size: 5rem;
+      font-family: 'Playfair Display', serif;
+      color: var(--gold-light);
+      opacity: 0.2;
+      line-height: 1;
+      margin-top: -20px;
+    }
+
+    .quote-inner .section-kicker {
+      color: var(--gold-light);
+    }
+
+    .quote-inner h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.8rem, 3vw, 2.6rem);
+      font-weight: 700;
+      color: #fff;
+      margin: 8px 0 16px;
+    }
+
+    .quote-inner blockquote {
+      font-size: clamp(1.1rem, 1.8vw, 1.4rem);
+      line-height: 2.2;
+      color: #e4d6c8;
+      max-width: 700px;
+      font-weight: 300;
+    }
+
+    .quote-author {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-top: 20px;
+    }
+
+    .quote-author span {
+      display: block;
+      width: 30px;
+      height: 1px;
+      background: var(--gold-light);
+      opacity: 0.3;
+    }
+
+    .quote-author small {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--gold-light);
+      letter-spacing: 0.5px;
+    }
+
+    /* =========================================================
+       BOOKS
+    ========================================================== */
+    .books-section {
+      background: var(--paper);
+    }
+
+    .books-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+    }
+
+    .book-card {
+      display: block;
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+
+    .book-card:hover {
+      transform: translateY(-8px) scale(1.01);
+      box-shadow: var(--shadow-glow);
+      border-color: var(--gold);
+    }
+
+    .book-cover {
+      position: relative;
+      height: 340px;
+      overflow: hidden;
+      background: linear-gradient(145deg, #d9c3a0, #eee5d8);
+    }
+
+    .book-cover img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      transition: transform 0.6s ease;
+    }
+
+    .book-card:hover .book-cover img {
+      transform: scale(1.05);
+    }
+
+    .book-overlay {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      background: rgba(18, 15, 13, 0.75);
+      backdrop-filter: blur(4px);
+      opacity: 0;
+      transition: opacity 0.4s ease;
+      color: #fff;
+    }
+
+    .book-card:hover .book-overlay {
+      opacity: 1;
+    }
+
+    .book-overlay span {
+      font-size: 0.8rem;
+      font-weight: 500;
+      letter-spacing: 1px;
+    }
+
+    .book-overlay strong {
+      font-size: 1.6rem;
+      font-weight: 300;
+      opacity: 0.6;
+    }
+
+    .book-number {
+      position: absolute;
+      top: 14px;
+      right: 14px;
+      font-family: 'Playfair Display', serif;
+      font-size: 1.2rem;
+      font-weight: 800;
+      color: rgba(255, 255, 255, 0.6);
+      background: rgba(0, 0, 0, 0.4);
+      padding: 4px 12px;
+      border-radius: 30px;
+      backdrop-filter: blur(4px);
+    }
+
+    .book-info {
+      padding: 18px 22px 22px;
+    }
+
+    .book-type {
+      font-size: 0.7rem;
+      font-weight: 700;
+      color: var(--gold);
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    .book-info h3 {
+      font-size: 1.15rem;
+      font-weight: 700;
+      margin: 4px 0 2px;
+    }
+
+    .book-info p {
+      font-size: 0.9rem;
+      color: var(--muted);
+      margin: 0;
+    }
+
+    .section-closing {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 20px;
+      margin-top: 40px;
+      font-size: 0.85rem;
+      color: var(--muted);
+    }
+
+    .closing-line {
+      display: block;
+      width: 40px;
+      height: 1px;
+      background: var(--line);
+    }
+
+    /* =========================================================
+       FEATURED
+    ========================================================== */
+    .featured-work {
+      padding: 80px 0;
+      background: linear-gradient(135deg, var(--dark), var(--dark-2));
+      color: #fff;
+      border-top: 1px solid rgba(255, 255, 255, 0.04);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+    }
+
+    .featured-grid {
+      display: grid;
+      grid-template-columns: 0.8fr 1fr;
+      gap: 50px;
+      align-items: center;
+    }
+
+    .featured-frame {
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+    }
+
+    .featured-frame img {
+      width: 100%;
+      height: auto;
+      max-height: 500px;
+      object-fit: contain;
+      background: linear-gradient(145deg, #2a221d, #1c1714);
+    }
+
+    .featured-content {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .featured-content .section-kicker {
+      color: var(--gold-light);
+    }
+
+    .featured-number {
+      font-family: 'Playfair Display', serif;
+      font-size: 0.9rem;
+      font-weight: 700;
+      color: var(--gold-light);
+      opacity: 0.4;
+    }
+
+    .featured-content h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2rem, 3.5vw, 3rem);
+      font-weight: 700;
+      line-height: 1.2;
+    }
+
+    .featured-content h3 {
+      font-size: 1.2rem;
+      font-weight: 500;
+      color: #dfd1c0;
+    }
+
+    .featured-content p {
+      color: #b9aaa0;
+      font-size: 1rem;
+      max-width: 540px;
+    }
+
+    .featured-content .btn {
+      align-self: flex-start;
+      margin-top: 8px;
+    }
+
+    /* =========================================================
+       SCREENPLAYS
+    ========================================================== */
+    .screenplay-section {
+      background: var(--paper);
+    }
+
+    .screenplay-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .screenplay-card {
+      display: block;
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      overflow: hidden;
+      transition: all 0.4s ease;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+    }
+
+    .screenplay-card:hover {
+      transform: translateY(-6px);
+      box-shadow: var(--shadow);
+      border-color: var(--gold);
+    }
+
+    .screenplay-cover {
+      position: relative;
+      height: 220px;
+      overflow: hidden;
+      background: linear-gradient(145deg, #d9c3a0, #eee5d8);
+    }
+
+    .screenplay-cover img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      transition: transform 0.4s ease;
+    }
+
+    .screenplay-card:hover .screenplay-cover img {
+      transform: scale(1.04);
+    }
+
+    .screenplay-cover span {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      font-family: 'Playfair Display', serif;
+      font-size: 1rem;
+      font-weight: 700;
+      color: rgba(255, 255, 255, 0.5);
+      background: rgba(0, 0, 0, 0.3);
+      padding: 2px 10px;
+      border-radius: 30px;
+      backdrop-filter: blur(4px);
+    }
+
+    .screenplay-info {
+      padding: 16px 20px 20px;
+    }
+
+    .screenplay-info small {
+      font-size: 0.7rem;
+      font-weight: 600;
+      color: var(--gold);
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+    }
+
+    .screenplay-info h3 {
+      font-size: 1.05rem;
+      font-weight: 700;
+      margin: 2px 0 2px;
+    }
+
+    .screenplay-info p {
+      font-size: 0.85rem;
+      color: var(--muted);
+      margin: 0;
+    }
+
+    /* =========================================================
+       SERIES
+    ========================================================== */
+    .series-section {
+      background: var(--paper);
+    }
+
+    .series-intro {
+      max-width: 680px;
+      margin-bottom: 32px;
+    }
+
+    .series-intro p {
+      color: var(--muted);
+      font-size: 1.05rem;
+    }
+
+    .series-list {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+
+    .series-item {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      padding: 16px 20px;
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      transition: all 0.3s ease;
+      cursor: default;
+    }
+
+    .series-item:hover {
+      border-color: var(--gold);
+      box-shadow: var(--shadow);
+      transform: translateX(-4px);
+    }
+
+    .series-number {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.2rem;
+      font-weight: 800;
+      color: var(--gold);
+      opacity: 0.4;
+      flex-shrink: 0;
+      width: 36px;
+    }
+
+    .series-content {
+      flex: 1;
+    }
+
+    .series-content h3 {
+      font-size: 1.05rem;
+      font-weight: 700;
+      margin: 0;
+    }
+
+    .series-content p {
+      font-size: 0.8rem;
+      color: var(--muted);
+      margin: 0;
+    }
+
+    .series-arrow {
+      color: var(--muted);
+      opacity: 0.3;
+      transition: all 0.3s ease;
+      font-size: 1.2rem;
+    }
+
+    .series-item:hover .series-arrow {
+      opacity: 0.8;
+      transform: translateX(-4px);
+    }
+
+    /* =========================================================
+       BLOG
+    ========================================================== */
+    .blog-section {
+      background: var(--paper);
+    }
+
+    .blog-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 28px;
+    }
+
+    .post-card {
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 28px 30px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+      transition: all 0.4s ease;
+    }
+
+    .post-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow);
+      border-color: var(--gold);
+    }
+
+    .post-number {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.6rem;
+      font-weight: 800;
+      color: var(--gold);
+      opacity: 0.15;
+      line-height: 1;
+    }
+
+    .post-category {
+      font-size: 0.7rem;
+      font-weight: 700;
+      color: var(--gold);
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+    }
+
+    .post-card h3 {
+      font-size: 1.2rem;
+      font-weight: 700;
+      line-height: 1.6;
+      margin: 6px 0 8px;
+    }
+
+    .post-card p {
+      color: var(--muted);
+      font-size: 0.95rem;
+      margin-bottom: 12px;
+    }
+
+    .post-card a {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-weight: 700;
+      color: var(--gold);
+      transition: gap 0.3s ease;
+    }
+
+    .post-card a:hover {
+      gap: 12px;
+    }
+
+    .post-card a span {
+      transition: transform 0.3s ease;
+    }
+
+    .post-card a:hover span {
+      transform: translateX(-4px);
+    }
+
+    .featured-post {
+      grid-row: span 2;
+      background: linear-gradient(135deg, #1a1512, #2a221d);
+      color: #fff;
+      border-color: rgba(255, 255, 255, 0.06);
+    }
+
+    .featured-post .post-category {
+      color: var(--gold-light);
+    }
+
+    .featured-post h3 {
+      color: #fff;
+    }
+
+    .featured-post p {
+      color: #b9aaa0;
+    }
+
+    .featured-post a {
+      color: var(--gold-light);
+    }
+
+    .blog-more {
+      text-align: center;
+      margin-top: 40px;
+    }
+
+    .btn-dark {
+      background: var(--dark);
+      color: #fff;
+      border: 1px solid rgba(255, 255, 255, 0.06);
+    }
+
+    .btn-dark:hover {
+      background: var(--dark-2);
+      transform: translateY(-3px);
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+    }
+
+    /* =========================================================
+       PHILOSOPHY
+    ========================================================== */
+    .philosophy-section {
+      padding: 70px 0;
+      background: var(--paper);
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .philosophy-grid {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 40px;
+    }
+
+    .philosophy-label {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 4px;
+      padding-top: 4px;
+    }
+
+    .philosophy-label span {
+      font-size: 0.7rem;
+      font-weight: 600;
+      color: var(--muted);
+      letter-spacing: 1px;
+    }
+
+    .philosophy-label strong {
+      font-size: 2.4rem;
+      font-weight: 800;
+      color: var(--gold);
+      font-family: 'Playfair Display', serif;
+      opacity: 0.3;
+    }
+
+    .philosophy-content {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .philosophy-content .section-kicker {
+      color: var(--gold);
+    }
+
+    .philosophy-content h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+      line-height: 1.5;
+      font-weight: 700;
+    }
+
+    .philosophy-content h2 em {
+      color: var(--gold);
+      font-style: normal;
+    }
+
+    .philosophy-content p {
+      color: var(--muted);
+      font-size: 1.05rem;
+      max-width: 680px;
+    }
+
+    /* =========================================================
+       NEW WORK
+    ========================================================== */
+    .new-work-section {
+      padding: 70px 0;
+      background: linear-gradient(135deg, var(--dark), var(--dark-2));
+      color: #fff;
+    }
+
+    .new-work-content {
+      max-width: 800px;
+      margin-inline: auto;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .new-work-content .section-kicker {
+      color: var(--gold-light);
+    }
+
+    .new-work-content h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2rem, 3.5vw, 3rem);
+      font-weight: 700;
+    }
+
+    .new-work-content p {
+      color: #b9aaa0;
+      font-size: 1.05rem;
+      max-width: 620px;
+    }
+
+    .new-work-items {
+      display: flex;
+      gap: 30px;
+      margin-top: 16px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .new-work-item {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      padding: 16px 24px;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      border-radius: 14px;
+      min-width: 180px;
+      transition: all 0.3s ease;
+    }
+
+    .new-work-item:hover {
+      background: rgba(255, 255, 255, 0.08);
+      transform: translateY(-4px);
+    }
+
+    .new-work-item span {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: var(--gold-light);
+      opacity: 0.4;
+    }
+
+    .new-work-item strong {
+      display: block;
+      font-size: 0.95rem;
+      font-weight: 700;
+    }
+
+    .new-work-item small {
+      font-size: 0.75rem;
+      color: #b9aaa0;
+    }
+
+    /* =========================================================
+       CONTACT
+    ========================================================== */
+    .contact-section {
+      background: var(--paper);
+    }
+
+    .contact-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 50px;
+      align-items: start;
+    }
+
+    .contact-message {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .contact-symbol {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--gold), var(--gold-light));
+      color: #1a1512;
+      font-size: 1.4rem;
+      font-weight: 900;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .contact-kicker {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--gold);
+      letter-spacing: 0.5px;
+    }
+
+    .contact-message h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.6rem;
+      font-weight: 700;
+    }
+
+    .contact-message p {
+      color: var(--muted);
+      font-size: 1rem;
+    }
+
+    .contact-details {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .contact-item {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+      padding: 16px 20px;
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      transition: all 0.3s ease;
+    }
+
+    .contact-item:hover {
+      border-color: var(--gold);
+      box-shadow: var(--shadow);
+    }
+
+    .contact-item span {
+      font-size: 0.7rem;
+      font-weight: 600;
+      color: var(--muted);
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+    }
+
+    .contact-item a,
+    .contact-item strong {
+      font-size: 1rem;
+      font-weight: 500;
+    }
+
+    .contact-item a {
+      color: var(--gold);
+      transition: color 0.3s ease;
+    }
+
+    .contact-item a:hover {
+      color: var(--text);
+    }
+
+    /* =========================================================
+       FOOTER
+    ========================================================== */
+    .site-footer {
+      padding: 40px 0 30px;
+      background: var(--dark);
+      color: #b9aaa0;
+      border-top: 1px solid rgba(255, 255, 255, 0.04);
+    }
+
+    .footer-container {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+
+    .footer-brand {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .footer-monogram {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--gold), var(--gold-light));
+      color: #1a1512;
+      font-size: 1.2rem;
+      font-weight: 900;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .footer-brand strong {
+      display: block;
+      font-size: 1rem;
+      color: #fff;
+    }
+
+    .footer-brand span {
+      font-size: 0.8rem;
+      color: #b9aaa0;
+    }
+
+    .footer-nav {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .footer-nav a {
+      font-size: 0.85rem;
+      color: #b9aaa0;
+      transition: color 0.3s ease;
+    }
+
+    .footer-nav a:hover {
+      color: #fff;
+    }
+
+    .footer-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-top: 20px;
+      border-top: 1px solid rgba(255, 255, 255, 0.04);
+      font-size: 0.8rem;
+    }
+
+    .footer-bottom p {
+      margin: 0;
+    }
+
+    .footer-top {
+      color: var(--gold-light);
+      transition: all 0.3s ease;
+    }
+
+    .footer-top:hover {
+      color: #fff;
+      transform: translateY(-2px);
+    }
+
+    /* =========================================================
+       BACK TO TOP
+    ========================================================== */
+    .scroll-top {
+      position: fixed;
+      bottom: 30px;
+      left: 30px;
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--gold), var(--gold-light));
+      color: #1a1512;
+      border: none;
+      font-size: 1.4rem;
+      font-weight: 700;
+      cursor: pointer;
+      z-index: 999;
+      box-shadow: 0 8px 30px rgba(183, 138, 59, 0.25);
+      opacity: 0;
+      transform: translateY(30px) scale(0.8);
+      transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+
+    .scroll-top.visible {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+
+    .scroll-top:hover {
+      transform: scale(1.08) translateY(-4px);
+      box-shadow: 0 12px 40px rgba(183, 138, 59, 0.35);
+    }
+
+    /* =========================================================
+       NOTIFICATION
+    ========================================================== */
+    .notification {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      padding: 16px 24px;
+      background: var(--dark-2);
+      color: #f5efe5;
+      border-radius: 14px;
+      border: 1px solid var(--gold);
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      transform: translateY(120px);
+      opacity: 0;
+      transition: all 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+      z-index: 9999;
+      max-width: 400px;
+    }
+
+    .notification.show {
+      transform: translateY(0);
+      opacity: 1;
+    }
+
+    .notification button {
+      background: none;
+      border: none;
+      color: #b9aaa0;
+      font-size: 1.2rem;
+      cursor: pointer;
+      padding: 0 4px;
+      transition: color 0.3s ease;
+    }
+
+    .notification button:hover {
+      color: #fff;
+    }
+
+    /* =========================================================
+       POEMS GATEWAY (بخش جدید اشعار)
+    ========================================================== */
+    .poems-gateway {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 80px 24px;
+      overflow: hidden;
+      isolation: isolate;
+      background: linear-gradient(135deg, #1a1512 0%, #2a221d 60%, #1c1714 100%);
+      color: #e9ddd0;
+    }
+
+    .poems-gateway .poems-particles {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+      overflow: hidden;
+      pointer-events: none;
+    }
+
+    .poems-gateway .poem-particle {
+      position: absolute;
+      bottom: -10px;
+      width: 3px;
+      height: 3px;
+      border-radius: 50%;
+      background: var(--gold-light);
+      opacity: 0.35;
+      animation: poemFloatUp linear infinite;
+    }
+
+    @keyframes poemFloatUp {
+      from { transform: translateY(0); }
+      to { transform: translateY(-110vh); }
+    }
+
+    .poems-gateway-inner {
+      position: relative;
+      z-index: 1;
+      width: 100%;
+      max-width: 900px;
+      margin-inline: auto;
+      text-align: center;
+    }
+
+    .poems-kicker {
+      display: inline-block;
+      margin-bottom: 20px;
+      padding: 6px 16px;
+      font-size: 0.8rem;
+      letter-spacing: 0.08em;
+      border: 1px solid var(--gold-light);
+      border-radius: 999px;
+      opacity: 0.85;
+      color: var(--gold-light);
+    }
+
+    .poems-gateway-title {
+      margin: 0 0 28px;
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.8rem, 4vw, 2.8rem);
+      line-height: 1.5;
+      font-weight: 700;
+      color: #fff;
+    }
+
+    .poems-gateway-title span {
+      display: block;
+      margin-top: 14px;
+      font-size: 0.55em;
+      font-weight: 400;
+      line-height: 1.9;
+      opacity: 0.75;
+      color: #cbbfb5;
+      font-family: 'Vazirmatn', sans-serif;
+    }
+
+    .poems-divider {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 14px;
+      margin: 32px 0;
+      opacity: 0.6;
+    }
+
+    .poems-divider-line {
+      flex: 1;
+      max-width: 120px;
+      height: 1px;
+      background: var(--gold-light);
+      opacity: 0.4;
+    }
+
+    .poems-divider-mark {
+      font-size: 0.8rem;
+      color: var(--gold-light);
+    }
+
+    /* ===== نمایشگر شعر تصادفی ===== */
+    .poem-showcase {
+      margin: 32px 0 40px;
+    }
+
+    .poem-showcase-card {
+      min-height: 200px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 28px 24px;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(216, 183, 109, 0.25);
+      border-radius: 20px;
+      backdrop-filter: blur(6px);
+      transition: opacity 0.4s ease;
+    }
+
+    .poem-showcase-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.1rem, 2.5vw, 1.4rem);
+      font-weight: 700;
+      color: var(--gold-light);
+      margin: 0 0 12px;
+    }
+
+    .poem-showcase-text {
+      margin: 0 0 18px;
+      font-size: clamp(0.95rem, 2vw, 1.15rem);
+      line-height: 2.2;
+      font-weight: 400;
+      color: #e9ddd0;
+      white-space: pre-line;
+      overflow-wrap: anywhere;
+    }
+
+    .poem-showcase-meta {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 12px;
+      font-size: 0.85rem;
+      opacity: 0.7;
+      color: #cbbfb5;
+    }
+
+    .poem-showcase-number {
+      font-variant-numeric: tabular-nums;
+      color: var(--gold-light);
+    }
+
+    .poem-showcase-source::before {
+      content: "— ";
+      opacity: 0.5;
+    }
+
+    .poem-showcase-loading {
+      opacity: 0.65;
+      font-style: italic;
+    }
+
+    /* ===== دکمه‌های اقدام ===== */
+    .poems-actions {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      margin: 32px 0 24px;
+    }
+
+    .poem-action {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 12px 22px;
+      border: 1px solid var(--gold-light);
+      border-radius: 999px;
+      color: #e9ddd0;
+      font-size: 0.95rem;
+      line-height: 1.7;
+      text-decoration: none;
+      cursor: pointer;
+      background: transparent;
+      font-family: inherit;
+      transition: background 0.25s ease, color 0.25s ease, transform 0.2s ease;
+    }
+
+    .poem-action:hover {
+      transform: translateY(-2px);
+      background: rgba(216, 183, 109, 0.12);
+    }
+
+    .poem-action-primary {
+      background: linear-gradient(135deg, var(--gold), var(--gold-light));
+      color: #1a1512;
+      border-color: transparent;
+      font-weight: 700;
+    }
+
+    .poem-action-primary:hover {
+      background: linear-gradient(135deg, var(--gold-light), var(--gold));
+      color: #1a1512;
+    }
+
+    .poem-action:focus-visible {
+      outline: 2px solid var(--gold-light);
+      outline-offset: 4px;
+    }
+
+    /* ===== فیلتر موضوعی ===== */
+    .poems-filters {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      margin: 16px 0 0;
+    }
+
+    .poem-filter-btn {
+      padding: 6px 16px;
+      border-radius: 999px;
+      border: 1px solid rgba(216, 183, 109, 0.35);
+      background: transparent;
+      color: #cbbfb5;
+      font-family: inherit;
+      font-size: 0.8rem;
+      cursor: pointer;
+      transition: all 0.25s ease;
+    }
+
+    .poem-filter-btn:hover {
+      border-color: var(--gold-light);
+      color: #fff;
+    }
+
+    .poem-filter-btn.is-active {
+      background: var(--gold);
+      color: #1a1512;
+      border-color: var(--gold);
+      font-weight: 700;
+    }
+
+    /* ===== نوار جست‌وجو ===== */
+    .poems-search {
+      margin: 28px auto 0;
+      max-width: 420px;
+      position: relative;
+    }
+
+    .poems-search input {
+      width: 100%;
+      padding: 12px 18px 12px 44px;
+      border-radius: 999px;
+      border: 1px solid rgba(216, 183, 109, 0.35);
+      background: rgba(255, 255, 255, 0.04);
+      color: #f5efe5;
+      font-family: inherit;
+      font-size: 0.9rem;
+      outline: none;
+      transition: border-color 0.25s ease, background 0.25s ease;
+    }
+
+    .poems-search input::placeholder {
+      color: #8d7f74;
+    }
+
+    .poems-search input:focus {
+      border-color: var(--gold-light);
+      background: rgba(255, 255, 255, 0.07);
+    }
+
+    .poems-search-icon {
+      position: absolute;
+      top: 50%;
+      left: 16px;
+      transform: translateY(-50%);
+      color: var(--gold-light);
+      font-size: 0.9rem;
+      pointer-events: none;
+    }
+
+    /* ===== شبکه کارت‌های شعر ===== */
+    .poems-grid-section {
+      padding: 70px 0;
+      background: var(--paper);
+    }
+
+    .poems-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .poem-card {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      padding: 26px 24px;
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+      transition: all 0.4s ease;
+      text-decoration: none;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .poem-card:hover {
+      transform: translateY(-6px);
+      border-color: var(--gold);
+      box-shadow: var(--shadow);
+    }
+
+    .poem-card::before {
+      content: "❝";
+      position: absolute;
+      top: 10px;
+      left: 16px;
+      font-size: 3rem;
+      line-height: 1;
+      color: var(--gold);
+      opacity: 0.08;
+      font-family: 'Playfair Display', serif;
+    }
+
+    .poem-card-number {
+      font-family: 'Playfair Display', serif;
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--gold);
+      opacity: 0.55;
+    }
+
+    .poem-card-category {
+      font-size: 0.7rem;
+      font-weight: 700;
+      color: var(--gold);
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    .poem-card h3 {
+      font-size: 1.1rem;
+      font-weight: 700;
+      line-height: 1.6;
+      margin: 0;
+    }
+
+    .poem-card-excerpt {
+      font-size: 0.9rem;
+      color: var(--muted);
+      line-height: 2;
+      margin: 0;
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+
+    .poem-card-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: 6px;
+      padding-top: 12px;
+      border-top: 1px solid var(--line);
+      font-size: 0.78rem;
+      color: var(--muted);
+    }
+
+    .poem-card-footer span:last-child {
+      color: var(--gold);
+      font-weight: 700;
+      transition: transform 0.3s ease;
+    }
+
+    .poem-card:hover .poem-card-footer span:last-child {
+      transform: translateX(-4px);
+    }
+
+    .poems-empty {
+      grid-column: 1 / -1;
+      text-align: center;
+      padding: 40px 20px;
+      color: var(--muted);
+      font-size: 1rem;
+    }
+
+    .poems-grid-closing {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 20px;
+      margin-top: 40px;
+      font-size: 0.85rem;
+      color: var(--muted);
+    }
+
+    /* =========================================================
+       RESPONSIVE
+    ========================================================== */
+    @media (max-width: 1024px) {
+      .books-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .screenplay-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .poems-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 900px) {
+      .hero-container {
+        grid-template-columns: 1fr;
+        text-align: center;
+        gap: 40px;
+      }
+
+      .hero-visual {
+        order: -1;
+      }
+
+      .hero-lead,
+      .hero-description {
+        max-width: 100%;
+        margin-inline: auto;
+      }
+
+      .hero-actions {
+        justify-content: center;
+      }
+
+      .hero-meta {
+        justify-content: center;
+      }
+
+      .hero-scroll {
+        display: none;
+      }
+
+      .about-layout {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+
+      .featured-grid {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+
+      .featured-content .btn {
+        align-self: center;
+      }
+
+      .contact-layout {
+        grid-template-columns: 1fr;
+        gap: 30px;
+      }
+
+      .manifesto-grid,
+      .philosophy-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+      }
+
+      .manifesto-label,
+      .philosophy-label {
+        flex-direction: row;
+        gap: 12px;
+      }
+
+      .blog-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .featured-post {
+        grid-row: span 1;
+      }
+
+      .series-list {
+        grid-template-columns: 1fr;
+      }
+
+      .identity-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .new-work-items {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .new-work-item {
+        width: 100%;
+        max-width: 300px;
+      }
+    }
+
+    @media (max-width: 650px) {
+      .nav-container {
+        min-height: 64px;
+      }
+
+      .menu-toggle {
+        display: flex;
+      }
+
+      .main-nav {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        flex-direction: column;
+        background: rgba(18, 15, 13, 0.98);
+        backdrop-filter: blur(20px);
+        padding: 20px 24px;
+        gap: 4px;
+        border-top: 1px solid rgba(255, 255, 255, 0.04);
+        transform: translateY(-10px);
+        opacity: 0;
+        pointer-events: none;
+        transition: all 0.4s ease;
+      }
+
+      .main-nav.is-open {
+        transform: translateY(0);
+        opacity: 1;
+        pointer-events: all;
+      }
+
+      .main-nav a {
+        padding: 10px 16px;
+        width: 100%;
+        text-align: center;
+      }
+
+      .main-nav a.nav-contact {
+        margin-top: 8px;
+      }
+
+      .logo-text small {
+        display: none;
+      }
+
+      .hero h1 {
+        font-size: clamp(2.2rem, 10vw, 3.2rem);
+      }
+
+      .books-grid {
+        grid-template-columns: 1fr;
+        max-width: 400px;
+        margin-inline: auto;
+      }
+
+      .screenplay-grid {
+        grid-template-columns: 1fr;
+        max-width: 360px;
+        margin-inline: auto;
+      }
+
+      .poems-grid {
+        grid-template-columns: 1fr;
+        max-width: 400px;
+        margin-inline: auto;
+      }
+
+      .section-heading-split {
+        flex-direction: column;
+        gap: 8px;
+      }
+
+      .section-index {
+        font-size: 2.4rem;
+      }
+
+      .identity-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+      }
+
+      .identity-item {
+        padding: 8px 10px;
+      }
+
+      .identity-item strong {
+        font-size: 0.85rem;
+      }
+
+      .identity-item span {
+        font-size: 0.65rem;
+      }
+
+      .stats-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 20px;
+      }
+
+      .stat-number {
+        font-size: 2.2rem;
+      }
+
+      .footer-bottom {
+        flex-direction: column;
+        gap: 12px;
+        text-align: center;
+      }
+
+      .footer-nav {
+        justify-content: center;
+      }
+
+      .scroll-top {
+        bottom: 16px;
+        left: 16px;
+        width: 42px;
+        height: 42px;
+        font-size: 1.2rem;
+      }
+
+      .notification {
+        bottom: 16px;
+        right: 16px;
+        left: 16px;
+        max-width: none;
+        padding: 14px 18px;
+        font-size: 0.9rem;
+      }
+
+      .poems-gateway {
+        min-height: auto;
+        padding: 56px 18px;
+      }
+
+      .poems-actions {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .poem-action {
+        width: 100%;
+      }
+    }
+
+    /* =========================================================
+       DARK MODE OVERRIDES
+    ========================================================== */
+    body.dark-mode {
+      --cream: #1a1512;
+      --paper: #1f1a16;
+      --text: #f0e8dc;
+      --muted: #b9aaa0;
+      --line: #3d322a;
+      --shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+      --shadow-glow: 0 30px 80px rgba(183, 138, 59, 0.08), 0 0 40px rgba(183, 138, 59, 0.02);
+    }
+
+    body.dark-mode .about-profile,
+    body.dark-mode .book-card,
+    body.dark-mode .screenplay-card,
+    body.dark-mode .post-card,
+    body.dark-mode .series-item,
+    body.dark-mode .contact-item,
+    body.dark-mode .poem-card {
+      background: #2a221d;
+      border-color: #3d322a;
+    }
+
+    body.dark-mode .profile-details dd {
+      color: #dfd1c0;
+    }
+
+    body.dark-mode .stat-number {
+      color: var(--gold-light);
+    }
+
+    /* =========================================================
+       REDUCE MOTION
+    ========================================================== */
+    .reduce-motion *,
+    .reduce-motion *::before,
+    .reduce-motion *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .poems-gateway .poem-particle {
+        display: none !important;
+        animation: none !important;
+      }
+    }
+
+    @media print {
+      .poems-gateway {
+        min-height: auto;
+        padding: 40px 20px;
+        color: #000;
+        background: #fff;
+      }
+
+      .poems-actions,
+      .poems-filters,
+      .poems-search,
+      .poems-particles {
+        display: none !important;
+      }
+    }
+  </style>
+
 </head>
+
 <body>
-  <header class="site-header">
-    <div class="container header-inner">
-      <a class="brand" href="{{ '/' | relative_url }}">
-        حسین محمدی آمیرزا
-        <span>نویسنده، شاعر و پژوهشگر</span>
-      </a>
-      <nav class="main-nav" aria-label="ناوبری اصلی">
-        <a href="#works">آثار</a>
-        <a href="#about">دربارهٔ من</a>
-      </nav>
-    </div>
-  </header>
 
-  <main>
-    <section class="hero container">
-      <p class="eyebrow">وب‌سایت رسمی</p>
-      <h1>جهانی از واژه‌ها، روایت‌ها و اندیشه‌ها</h1>
-      <p class="hero-description">
-        مجموعهٔ آثار ادبی، داستانی، پژوهشی و نمایشی
-        حسین محمدی آمیرزا
-      </p>
-      <a class="primary-link" href="#works">مطالعهٔ آثار</a>
-    </section>
+  <!-- ===== READING PROGRESS ===== -->
+  <div class="reading-progress" aria-hidden="true">
+    <div class="reading-progress-bar" id="readingProgressBar"></div>
+  </div>
 
-    <section class="container works-section" id="works">
-      <div class="section-heading">
-        <div>
-          <p class="eyebrow">کتابخانهٔ آثار</p>
-          <h2>آثار منتشرشده</h2>
+  <!-- ===== SKIP LINK ===== -->
+  <a class="skip-link" href="#main-content">پرش به محتوای اصلی</a>
+
+  <!-- ===== NOTIFICATION ===== -->
+  <div class="notification" id="notification" role="alert" aria-live="polite">
+    <span>📚</span>
+    <span id="notificationMessage">پیشنهاد شما با موفقیت ثبت شد!</span>
+    <button onclick="this.parentElement.classList.remove('show')" aria-label="بستن اعلان">✕</button>
+  </div>
+
+<!-- ===== HEADER ===== -->
+<header class="site-header" id="siteHeader">
+  <div class="container nav-container">
+    <a href="#home" class="logo" aria-label="صفحه اصلی حسین محمدی آمیرزا">
+      <span class="logo-mark" aria-hidden="true">ح</span>
+      <span class="logo-text">
+        <strong>حسین محمدی آمیرزا</strong>
+        <small>نویسنده · پژوهشگر · روایتگر</small>
+      </span>
+    </a>
+
+    <button
+      class="menu-toggle"
+      id="menuToggle"
+      type="button"
+      aria-label="باز کردن منوی اصلی"
+      aria-expanded="false"
+      aria-controls="mainNavigation"
+    >
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+    <nav
+      class="main-nav"
+      id="mainNavigation"
+      aria-label="ناوبری اصلی"
+    >      <a href="#about">درباره من</a>
+      <a href="#books">کتاب‌ها</a>
+      <a href="#screenplays">فیلمنامه‌ها</a>
+      <a href="#series">آثار نمایشی</a>
+      <a href="#poems">اشعار</a>
+      <a href="blog/index.html">وبلاگ</a>
+      <a href="blog/stories.html">داستانک‌ها</a>
+      <a href="comments.html">دیدگاه مخاطبان</a>
+      <a href="#contact" class="nav-contact">تماس</a>
+
+      <button
+        class="theme-toggle"
+        id="themeToggle"
+        type="button"
+        aria-label="تغییر حالت نمایش"
+        title="تغییر حالت نمایش"
+      >
+        <span class="theme-icon" aria-hidden="true">◐</span>
+      </button>
+    </nav>
+  </div>
+</header>
+  <!-- ===== MAIN ===== -->
+  <main id="main-content">
+
+    <!-- ===== HERO ===== -->
+    <section class="hero" id="home" aria-labelledby="hero-title">
+      <div class="hero-bg" aria-hidden="true"></div>
+
+      <div class="container hero-container">
+        <div class="hero-content">
+          <div class="hero-eyebrow">
+            <span class="eyebrow-line"></span>
+            <span>وب‌سایت رسمی</span>
+            <span class="eyebrow-line"></span>
+          </div>
+
+          <p class="hero-pretitle">روایت انسان، <span>در امتداد تاریخ</span></p>
+
+          <h1 id="hero-title">حسین محمدی <span>آمیرزا</span></h1>
+
+          <h2>نویسنده، شاعر، پژوهشگر تاریخ <span>و فیلمنامه‌نویس</span></h2>
+
+          <p class="hero-lead">اینجا خانه‌ی روایت است؛ جایی میان واژه، تاریخ و تصویر، برای آثاری که از گذشته می‌پرسند، از انسان می‌نویسند و به آینده نگاه می‌کنند.</p>
+
+          <p class="hero-description">مجموعه‌ای از کتاب‌ها، پژوهش‌های تاریخی، فیلمنامه‌ها، آثار نمایشی و نوشته‌هایی که بخشی از مسیر فکری و ادبی حسین محمدی آمیرزا را شکل داده‌اند.</p>
+
+          <div class="hero-actions">
+            <a href="#books" class="btn btn-primary"><span>ورود به کتابخانه</span><span class="btn-arrow" aria-hidden="true">←</span></a>
+            <a href="#about" class="btn btn-ghost">آشنایی با نویسنده</a>
+          </div>
+
+          <div class="hero-meta">
+            <div class="hero-meta-item"><span class="meta-number">۰۱</span><span>ادبیات</span></div>
+            <div class="hero-meta-item"><span class="meta-number">۰۲</span><span>تاریخ</span></div>
+            <div class="hero-meta-item"><span class="meta-number">۰۳</span><span>سینما</span></div>
+            <div class="hero-meta-item"><span class="meta-number">۰۴</span><span>روایت</span></div>
+          </div>
         </div>
-        <span class="work-count" id="work-count">
-          {{ site.posts.size }} نوشته
-        </span>
-      </div>
 
-      <div class="search-panel">
-        <label for="work-search">جست‌وجو در آثار</label>
-        <input
-          id="work-search"
-          type="search"
-          placeholder="عنوان یا بخشی از متن را بنویسید..."
-          autocomplete="off"
-        >
-      </div>
-
-      <div class="category-list" aria-label="دسته‌بندی آثار">
-        <button class="category-button active" data-category="all"
-                type="button" aria-pressed="true">همهٔ آثار</button>
-        <button class="category-button" data-category="story"
-                type="button" aria-pressed="false">داستان کوتاه</button>
-        <button class="category-button" data-category="poetry"
-                type="button" aria-pressed="false">شعر</button>
-        <button class="category-button" data-category="blog"
-                type="button" aria-pressed="false">وبلاگ</button>
-        <button class="category-button" data-category="screenplay"
-                type="button" aria-pressed="false">فیلمنامه</button>
-        <button class="category-button" data-category="serial"
-                type="button" aria-pressed="false">آثار سریالی</button>
-        <button class="category-button" data-category="book"
-                type="button" aria-pressed="false">کتاب‌ها</button>
-        <button class="category-button" data-category="research"
-                type="button" aria-pressed="false">مقالات پژوهشی</button>
-      </div>
-
-      <div class="works-grid" id="works-grid">
-        {% assign ordered_posts = site.posts | sort: "date" | reverse %}
-        {% for post in ordered_posts %}
-          {% assign category_key = post.work_type | default: post.categories.first | default: "blog" %}
-          {% assign category_label = category_key %}
-          {% case category_key %}
-            {% when "story" %}{% assign category_label = "داستان کوتاه" %}
-            {% when "poetry" %}{% assign category_label = "شعر" %}
-            {% when "blog" %}{% assign category_label = "وبلاگ" %}
-            {% when "screenplay" %}{% assign category_label = "فیلمنامه" %}
-            {% when "serial" %}{% assign category_label = "اثر سریالی" %}
-            {% when "book" %}{% assign category_label = "کتاب" %}
-            {% when "research" %}{% assign category_label = "مقالهٔ پژوهشی" %}
-          {% endcase %}
-
-          <article
-            class="work-card"
-            data-category="{{ category_key | escape }}"
-            data-search="{{ post.title | downcase | escape }} {{ post.excerpt | strip_html | normalize_whitespace | downcase | escape }}"
-          >
-            <div class="card-topline">
-              <span class="work-category">{{ category_label | escape }}</span>
-              {% if post.date %}
-                <time datetime="{{ post.date | date_to_xmlschema }}">
-                  {{ post.date | date: "%Y/%m/%d" }}
-                </time>
-              {% endif %}
+        <div class="hero-visual">
+          <div class="portrait-wrapper">
+            <div class="portrait-shadow" aria-hidden="true"></div>
+            <div class="portrait-border">
+              <div class="portrait-image">
+                <img src="ChatGPT%20Image%20Aug%202%2C%202026%2C%2004_56_13%20AM.png" alt="پرتره حسین محمدی آمیرزا" width="700" height="850" fetchpriority="high">
+              </div>
             </div>
-
-            <h3>
-              <a href="{{ post.url | relative_url }}">
-                {{ post.title | escape }}
-              </a>
-            </h3>
-
-            <p class="work-excerpt">
-              {{ post.excerpt | default: post.content | strip_html | normalize_whitespace | truncate: 180 }}
-            </p>
-
-            <a class="read-more" href="{{ post.url | relative_url }}">
-              ادامهٔ مطالعه ←
-            </a>
-          </article>
-        {% endfor %}
-      </div>
-
-      <p class="empty-message" id="empty-message" hidden>
-        اثری با این عنوان یا دسته‌بندی پیدا نشد.
-      </p>
-
-      {% if site.posts.size == 0 %}
-        <div class="empty-library">
-          <h3>کتابخانه در انتظار نخستین اثر است</h3>
-          <p>
-            نوشته‌های جدید پس از انتشار در مخزن، در این بخش نمایش داده می‌شوند.
-          </p>
+            <div class="portrait-seal" aria-hidden="true">ح</div>
+          </div>
+          <div class="portrait-caption">
+            <span>حسین محمدی آمیرزا</span>
+            <small>نویسنده · شاعر · پژوهشگر · فیلمنامه‌نویس</small>
+          </div>
         </div>
-      {% endif %}
+      </div>
+
+      <a href="#about" class="hero-scroll" aria-label="رفتن به بخش درباره نویسنده">
+        <span>کشف داستان</span>
+        <i aria-hidden="true"></i>
+      </a>
     </section>
 
-    <section class="about-section" id="about">
-      <div class="container about-inner">
-        <p class="eyebrow">دربارهٔ نویسنده</p>
-        <h2>حسین محمدی آمیرزا</h2>
-        <p>
-          این وب‌سایت برای گردآوری و انتشار آثار ادبی،
-          شعر، داستان، فیلمنامه و پژوهش‌ها ایجاد شده است.
-        </p>
+    <!-- ===== IDENTITY STRIP ===== -->
+    <section class="identity-strip" aria-label="حوزه‌های فعالیت">
+      <div class="container identity-grid">
+        <div class="identity-item"><span class="identity-index">۰۱</span><div><strong>ادبیات</strong><span>شعر و آثار مکتوب</span></div></div>
+        <div class="identity-item"><span class="identity-index">۰۲</span><div><strong>تاریخ</strong><span>پژوهش و روایت گذشته</span></div></div>
+        <div class="identity-item"><span class="identity-index">۰۳</span><div><strong>سینما</strong><span>فیلمنامه و آثار نمایشی</span></div></div>
+        <div class="identity-item"><span class="identity-index">۰۴</span><div><strong>اندیشه</strong><span>یادداشت و پژوهش</span></div></div>
       </div>
     </section>
-  </main>
 
+    <!-- ===== MANIFESTO ===== -->
+    <section class="manifesto-section" aria-labelledby="manifesto-title">
+      <div class="container manifesto-grid">
+        <div class="manifesto-label"><span>روایت</span><strong>۰۰</strong></div>
+        <div class="manifesto-content">
+          <p class="manifesto-kicker">هر اثر، تلاشی برای فهم انسان است.</p>
+          <h2 id="manifesto-title">گذشته فقط چیزی نیست که پشت سر گذاشته‌ایم؛ <em>چیزی است که هنوز با ما زندگی می‌کند.</em></h2>
+          <p>تاریخ، ادبیات و سینما سه راه متفاوت برای نزدیک شدن به یک پرسش مشترک‌اند: انسان چگونه زیسته، چه چیزی را باور کرده، برای چه چیزی جنگیده و چه چیزی را برای نسل‌های بعد به یادگار گذاشته است؟</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== STATS ===== -->
+    <section class="stats-section" aria-label="نمای کلی آثار">
+      <div class="container stats-grid">
+        <div class="stat-item"><span class="stat-number" data-count="6">۰</span><span class="stat-label">کتاب</span></div>
+        <div class="stat-item"><span class="stat-number" data-count="9">۰</span><span class="stat-label">فیلمنامه</span></div>
+        <div class="stat-item"><span class="stat-number" data-count="7">۰</span><span class="stat-label">اثر نمایشی</span></div>
+        <div class="stat-item"><span class="stat-number" data-count="4">۰</span><span class="stat-label">نوشته</span></div>
+      </div>
+    </section>
+
+    <!-- ===== ABOUT ===== -->
+    <section class="section about-section" id="about" aria-labelledby="about-title">
+      <div class="container">
+        <div class="section-heading section-heading-split">
+          <div>
+            <span class="section-kicker">درباره نویسنده</span>
+            <h2 id="about-title">میان واژه، <em>تاریخ</em> و تصویر</h2>
+            <p>مسیری میان پژوهش، ادبیات و روایت</p>
+          </div>
+          <div class="section-index">۰۱</div>
+        </div>
+
+        <div class="about-layout">
+          <div class="about-main">
+            <p class="about-lead">حسین محمدی آمیرزا نویسنده، شاعر، پژوهشگر تاریخ و فیلمنامه‌نویس است؛ نویسنده‌ای که بخشی از مسیر فکری و ادبی خود را در جست‌وجوی انسان، تاریخ و معنا دنبال کرده است.</p>
+            <p>در این نگاه، تاریخ فقط مجموعه‌ای از تاریخ‌ها، نام‌ها و رویدادها نیست. تاریخ، حافظه‌ی انسان است؛ ردپای تصمیم‌ها، امیدها، شکست‌ها، پیروزی‌ها و زندگی انسان‌هایی که پیش از ما در این جهان زیسته‌اند.</p>
+            <p>پژوهش تاریخی برای او فرصتی است برای بازخوانی گذشته و نزدیک شدن به واقعیت انسان‌هایی که در دل آن گذشته زندگی کرده‌اند.</p>
+            <p>ادبیات اما زبان دیگری برای این جست‌وجو فراهم می‌کند؛ زبانی که در آن واقعیت و تخیل، گذشته و امروز، انسان و روایت می‌توانند در کنار یکدیگر قرار بگیرند.</p>
+            <p>فیلمنامه نیز ادامه‌ی همین مسیر است: تبدیل اندیشه و روایت به تصویر، شخصیت، موقعیت و لحظه‌هایی که می‌توانند روی پرده جان بگیرند.</p>
+            <a href="#books" class="text-link">ورود به جهان آثار <span aria-hidden="true">←</span></a>
+          </div>
+
+          <aside class="about-profile">
+            <div class="profile-monogram">ح</div>
+            <div class="profile-heading"><span>پرونده نویسنده</span><h3>حسین محمدی آمیرزا</h3></div>
+            <div class="profile-divider"></div>
+            <dl class="profile-details">
+              <div><dt>حوزه فعالیت</dt><dd>ادبیات، تاریخ، فرهنگ و سینما</dd></div>
+              <div><dt>قالب آثار</dt><dd>کتاب، شعر، پژوهش، فیلمنامه و مجموعه نمایشی</dd></div>
+              <div><dt>دغدغه</dt><dd>انسان در بستر تاریخ و روایت</dd></div>
+              <div><dt>رویکرد</dt><dd>پژوهش، روایت و بازخوانی گذشته</dd></div>
+            </dl>
+            <div class="profile-footer"><span>OFFICIAL ARCHIVE</span><span>H.M.A</span></div>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== QUOTE ===== -->
+    <section class="quote-section" aria-labelledby="quote-title">
+      <div class="quote-bg-pattern" aria-hidden="true"></div>
+      <div class="container quote-inner">
+        <div class="quote-mark" aria-hidden="true">«</div>
+        <span class="section-kicker">نگاه نویسنده</span>
+        <h2 id="quote-title">تاریخ؛ حافظه زنده انسان‌ها</h2>
+        <blockquote>آنچه روایت نشود، در گذر زمان خاموش می‌شود؛ و آنچه با صداقت روایت شود، می‌تواند به بخشی از حافظه یک ملت بدل شود.</blockquote>
+        <div class="quote-author"><span></span><small>حسین محمدی آمیرزا</small><span></span></div>
+      </div>
+    </section>
+
+    <!-- ===== BOOKS ===== -->
+    <section class="section books-section" id="books" aria-labelledby="books-title">
+      <div class="container">
+        <div class="section-heading section-heading-split">
+          <div>
+            <span class="section-kicker">کتابخانه آثار</span>
+            <h2 id="books-title">کتاب‌ها و آثار مکتوب</h2>
+            <p>بخشی از آثار ادبی، پژوهشی و فکری نویسنده</p>
+          </div>
+          <div class="section-index">۰۲</div>
+        </div>
+
+        <div class="books-grid">
+          <!-- BOOK 01 -->
+          <a href="books/tarikh-adyan.html" class="book-card">
+            <div class="book-cover">
+              <img src="tarikh-adyan.jpg" alt="جلد کتاب تاریخ ادیان" loading="lazy" width="600" height="850" decoding="async">
+              <div class="book-overlay"><span>مشاهده اثر</span><strong>←</strong></div>
+              <span class="book-number">۰۱</span>
+            </div>
+            <div class="book-info"><span class="book-type">پژوهش</span><h3>تاریخ ادیان</h3><p>هفتاد هزار سال انسان در جست‌وجوی معنا</p></div>
+          </a>
+
+          <!-- BOOK 02 -->
+          <a href="books/faraz-va-forud.html" class="book-card">
+            <div class="book-cover">
+              <img src="ChatGPT%20Image%20Aug%2013%2C%202026%2C%2011_29_08%20AM.png" alt="جلد کتاب فراز و فرود سرنوشت قوم زند" loading="lazy" width="600" height="850" decoding="async">
+              <div class="book-overlay"><span>مشاهده اثر</span><strong>←</strong></div>
+              <span class="book-number">۰۲</span>
+            </div>
+            <div class="book-info"><span class="book-type">تاریخ</span><h3>فراز و فرود سرنوشت قوم زند</h3><p>پژوهشی در تاریخ و سرگذشت قوم زند</p></div>
+          </a>
+
+<!-- BOOK 03 -->
+<a href="books/ghoghnoos-ashegh.html" class="book-card">
+  <div class="book-cover">
+
+    <img
+      src="https://hossein-amirza.github.io/hossein-mohammadi-amirza/ghoghnoos-ashegh.jpg"
+      alt="جلد کتاب ققنوس عاشق"
+      loading="lazy"
+      width="600"
+      height="850"
+      decoding="async"
+    >
+
+    <div class="book-overlay">
+      <span>مشاهده اثر</span>
+      <strong>←</strong>
+    </div>
+
+    <span class="book-number">۰۳</span>
+
+  </div>
+
+  <div class="book-info">
+    <span class="book-type">ادبیات</span>
+    <h3>ققنوس عاشق</h3>
+    <p>اثری ادبی درباره عشق، انسان و زندگی</p>
+  </div>
+</a>
+
+<!-- BOOK 04 -->
+
+<a href="books/honar-razm.html" class="book-card">
+  <div class="book-cover">
+    <img src="covers/honar-razm.jpg" alt="جلد کتاب هنر رزم ایرانیان" loading="lazy" width="600" height="850" decoding="async">
+    <div class="book-overlay"><span>مشاهده اثر</span><strong>←</strong></div>
+    <span class="book-number">۰۴</span>
+  </div>
+  <div class="book-info"><span class="book-type">پژوهش تاریخی</span><h3>هنر رزم ایرانیان</h3><p>پژوهشی درباره تاریخ و فرهنگ رزم ایرانیان</p></div>
+</a>
+
+<!-- BOOK 05 -->
+
+<a href="books/tarikh-adyan-jeld-2.html" class="book-card">
+  <div class="book-cover">
+    <img src="ChatGPT%20Image%20Aug%2013%2C%202026%2C%2002_23_38%20AM.png"
+         alt="جلد کتاب روانشناسی انسان در عصر حیرت"
+         loading="lazy"
+         width="600"
+         height="850"
+         decoding="async">
+    <div class="book-overlay">
+      <span>مشاهده اثر</span>
+      <strong>←</strong>
+    </div>
+    <span class="book-number">۰۵</span>
+  </div>
+
+  <div class="book-info">
+    <span class="book-type">اندیشه</span>
+    <h3>روانشناسی انسان در عصر حیرت</h3>
+    <p>پژوهشی درباره انسان، ذهن و اندیشه</p>
+  </div>
+</a>
+
+<!-- BOOK 06 -->
+
+<a href="books/golshan.html" class="book-card">
+  <div class="book-cover">
+    <img src="1گلشن.jpg" alt="جلد کتاب گلشنی از قرآن کریم" loading="lazy" width="600" height="850" decoding="async">
+    <div class="book-overlay">
+      <span>مشاهده اثر</span>
+      <strong>←</strong>
+    </div>
+    <span class="book-number">۰۶</span>
+  </div>
+
+  <div class="book-info">
+    <span class="book-type">ادبی و معنوی</span>
+    <h3>گلشنی از قرآن کریم</h3>
+    <p>گزیده‌ای با رویکرد ادبی و معنوی</p>
+  </div>
+</a>
+
+        <div class="section-closing"><span>این کتابخانه همچنان در حال گسترش است.</span><span class="closing-line"></span><span>آثار تازه در راه‌اند.</span></div>
+      </div>
+    </section>
+
+    <!-- ===== FEATURED ===== -->
+    <section class="featured-work" aria-labelledby="featured-title">
+      <div class="container featured-grid">
+        <div class="featured-cover">
+          <div class="featured-frame">
+            <img src="tarikh-adyan.jpg" alt="جلد کتاب تاریخ ادیان" loading="lazy" width="600" height="850" decoding="async">
+          </div>
+        </div>
+        <div class="featured-content">
+          <span class="section-kicker">اثر شاخص</span>
+          <span class="featured-number">۰۱</span>
+          <h2 id="featured-title">تاریخ ادیان</h2>
+          <h3>هفتاد هزار سال انسان در جست‌وجوی معنا</h3>
+          <p>از نخستین نشانه‌های معنویت تا شکل‌گیری نظام‌های اعتقادی؛ تاریخ ادیان را می‌توان بخشی از تاریخ جست‌وجوی انسان برای فهم جهان، زندگی و جایگاه خویش دانست.</p>
+          <p>این اثر تلاشی است برای نگاه کردن به ادیان نه فقط به‌عنوان مجموعه‌ای از باورها، بلکه به‌عنوان بخشی از داستان بزرگ انسان؛ داستانی که در طول هزاران سال ادامه یافته است.</p>
+          <a href="books/tarikh-adyan.html" class="btn btn-primary"><span>ورود به صفحه کتاب</span><span aria-hidden="true">←</span></a>
+        </div>
+      </div>
+    </section>
+
+<!-- ===== SCREENPLAYS ===== -->
+
+<section class="section screenplay-section" id="screenplays" aria-labelledby="screenplays-title">
+  <div class="container">
+
+<div class="section-heading section-heading-split">
+  <div>
+    <span class="section-kicker">سینما و تصویر</span>
+    <h2 id="screenplays-title">فیلمنامه‌ها</h2>
+    <p>روایت‌هایی که برای دیده شدن نوشته شده‌اند</p>
+  </div>
+  <div class="section-index">۰۳</div>
+</div>
+
+<div class="screenplay-grid">
+
+  <!-- SCREENPLAY 01 -->
+  <a href="screenplays/akharin-nabard-sorena.html" class="screenplay-card">
+    <div class="screenplay-cover">
+      <img src="covers/%D8%A2%D8%AE%D8%B1%DB%8C%D9%86%20%D9%86%D8%A8%D8%B1%D8%AF%20%D8%B3%D9%88%D8%B1%D9%86%D8%A7.jpg"
+           alt="آخرین نبرد سورنا"
+           loading="lazy"
+           decoding="async">
+      <span>۰۱</span>
+    </div>
+
+    <div class="screenplay-info">
+      <small>فیلمنامه بلند</small>
+      <h3>آخرین نبرد سورنا</h3>
+      <p>روایتی تاریخی از نبرد و سرنوشت</p>
+    </div>
+  </a>
+
+  <!-- SCREENPLAY 02 -->
+  <a href="screenplays/miras-atesh.html" class="screenplay-card">
+    <div class="screenplay-cover">
+      <img src="covers/%D9%85%DB%8C%D8%B1%D8%A7%D8%AB%20%D8%A2%D8%AA%D8%B4.jpg"
+           alt="سه‌گانه میراث آتش"
+           loading="lazy"
+           decoding="async">
+      <span>۰۲</span>
+    </div>
+
+    <div class="screenplay-info">
+      <small>فیلمنامه بلند</small>
+      <h3>سه‌گانه میراث آتش</h3>
+      <p>روایتی درباره تاریخ، میراث و انسان</p>
+    </div>
+  </a><!-- SCREENPLAY 03 -->
+<!-- SCREENPLAY 03 -->
+<a href="screenplays/dej-shirzanan.html" class="screenplay-card">
+  <div class="screenplay-cover">
+    <img src="covers/%D8%AF%DA%98%20%D8%B4%DB%8C%D8%B1%20%D8%B2%D9%86%D8%A7%D9%86.png"
+         alt="دژ شیرزنان"
+         loading="lazy"
+         decoding="async">
+    <span>۰۳</span>
+  </div>
+  <div class="screenplay-info">
+    <small>فیلمنامه بلند</small>
+    <h3>دژ شیرزنان</h3>
+    <p>روایتی تاریخی از ایستادگی و مقاومت</p>
+  </div>
+</a>
+  <!-- SCREENPLAY 04 -->
+  <a href="screenplays/darookhane-hakim.html" class="screenplay-card">
+    <div class="screenplay-cover">
+      <img src="ChatGPT%20Image%20Aug%2013%2C%202026%2C%2011_22_41%20AM.png"
+         alt="داروخانه حکیم"
+         loading="lazy"
+         decoding="async">
+      <span>۰۴</span>
+    </div>
+
+    <div class="screenplay-info">
+      <small>فیلمنامه بلند</small>
+      <h3>داروخانه حکیم</h3>
+      <p>روایتی انسانی در فضای تاریخی</p>
+    </div>
+  </a>
+<a href="series/cheragh-rah/index.html" class="screenplay-card">
+  <div class="screenplay-cover">
+    <img
+      src="چراغ راه.jpg"
+      alt="چراغ راه"
+      loading="lazy"
+      decoding="async"
+    >
+    <span>۰۵</span>
+  </div>
+
+  <div class="screenplay-info">
+    <small>فیلمنامه کوتاه</small>
+    <h3>چراغ راه</h3>
+    <p>روایتی درباره انتخاب و امید</p>
+  </div>
+</a>
+
+<a href="series/atr-shirin/index.html" class="screenplay-card">
+  <div class="screenplay-cover">
+    <img
+      src="عطر%20شیرین.png"
+      alt="عطر شیرین"
+      loading="lazy"
+      decoding="async"
+    >
+    <span>۰۶</span>
+  </div>
+
+  <div class="screenplay-info">
+    <small>فیلمنامه کوتاه</small>
+    <h3>عطر شیرین</h3>
+    <p>روایتی انسانی و عاطفی</p>
+  </div>
+</a>
+  <a href="series/maro-koozeh/index.html" class="screenplay-card">
+  <div class="screenplay-cover">
+    <img
+      src="کوزه%20و%20مار.jpg"
+      alt="کوزه و مار"
+      loading="lazy"
+      decoding="async"
+    >
+    <span>۰۷</span>
+  </div>
+
+  <div class="screenplay-info">
+    <small>فیلمنامه کوتاه</small>
+    <h3>کوزه و مار</h3>
+    <p>روایتی تلخ و نمادین درباره تشنگی، قدرت و تقسیم</p>
+  </div>
+</a>
+  <a href="screenplays/baran-va-sang.html" class="screenplay-card">
+  <div class="screenplay-cover">
+    <img
+      src="covers/baran-va-sang.jpg"
+      alt="باران و سنگ"
+      loading="lazy"
+      decoding="async"
+    >
+    <span>۰۸</span>
+  </div>
+  <div class="screenplay-info">
+    <small>فیلم‌نامه کوتاه</small>
+    <h3>باران و سنگ</h3>
+    <p>روایتی شاعرانه و انسانی</p>
+  </div>
+</a>
+<a href="series/series/sor-o-sat/index.html" class="screenplay-card">
+  <div class="screenplay-cover">
+    <img
+      src="سور%20و%20سات.jpg"
+      alt="سور و سات"
+      loading="lazy"
+      decoding="async"
+    >
+    <span>۰۹</span>
+  </div>
+
+  <div class="screenplay-info">
+    <small>فیلمنامه کوتاه</small>
+    <h3>سور و سات</h3>
+    <p>روایتی طنزآمیز و انسانی درباره خانواده و انسانیت</p>
+  </div>
+</a>
+</div>
+</section>
+
+<!-- ===== SERIES ===== -->
+<section class="section series-section" id="series" aria-labelledby="series-title">
+  <div class="container">
+
+    <div class="section-heading section-heading-split">
+      <div>
+        <span class="section-kicker">جهان نمایش</span>
+        <h2 id="series-title">سریال‌ها و مجموعه‌های نمایشی</h2>
+        <p>داستان‌هایی برای پرده، صفحه و حافظه</p>
+      </div>
+
+      <div class="section-index">۰۴</div>
+    </div>
+
+
+    <div class="series-intro">
+      <p>
+        بعضی داستان‌ها در یک کتاب تمام نمی‌شوند. شخصیت‌ها و جهان‌هایی وجود دارند
+        که برای ادامه یافتن، به تصویر، زمان و زندگی روی پرده نیاز دارند.
+      </p>
+    </div>
+
+    <div class="series-list">
+<!-- ===== ۰۱ | دهوپادان ===== -->
+<a href="series/dehopadan/index.html" class="series-item">
+
+  <span class="series-number">۰۱</span>
+
+  <div class="series-cover">
+    <img
+      src="ChatGPT%20Image%20Aug%201%2C%202026%2C%2009_52_09%20AM.png"
+      alt="جلد سریال دهوپادان"
+      loading="lazy"
+      decoding="async"
+    >
+  </div>
+
+  <div class="series-content">
+    <h3>دهوپادان</h3>
+    <p>سریال سی قسمتی</p>
+  </div>
+
+  <span class="series-arrow" aria-hidden="true">↙</span>
+
+</a>
+      <!-- ===== ۰۲ | ققنوس زاگرس ===== -->
+      <a href="series/ghoghnoos-zagros/index.html" class="series-item">
+
+        <span class="series-number">۰۲</span>
+
+        <div class="series-cover">
+          <img
+            src="ChatGPT%20Image%20Aug%201%2C%202026%2C%2007_35_58%20PM.png"
+            alt="جلد سریال ققنوس زاگرس"
+            loading="lazy"
+            decoding="async"
+          >
+        </div>
+
+        <div class="series-content">
+          <h3>ققنوس زاگرس</h3>
+          <p>سریال سی قسمتی</p>
+        </div>
+
+        <span class="series-arrow" aria-hidden="true">↙</span>
+
+      </a>
+
+
+      <!-- ===== ۰۳ | بازی سرنوشت قوم زند ===== -->
+      <a href="series/bazi-sarnevesht-ghom-zand/index.html" class="series-item">
+
+        <span class="series-number">۰۳</span>
+
+        <div class="series-cover">
+          <img
+            src="ChatGPT%20Image%20Aug%2013%2C%202026%2C%2011_22_41%20AM.png"
+            alt="جلد سریال بازی سرنوشت قوم زند"
+            loading="lazy"
+            decoding="async"
+          >
+        </div>
+
+        <div class="series-content">
+          <h3>بازی سرنوشت قوم زند</h3>
+          <p>مجموعه نمایشی تاریخی</p>
+        </div>
+
+        <span class="series-arrow" aria-hidden="true">↙</span>
+
+      </a>
+
+
+      <!-- ===== ۰۴ | حماسه زندیان ===== -->
+      <a href="series/hamase-zandian/index.html" class="series-item">
+
+        <span class="series-number">۰۴</span>
+
+        <div class="series-cover">
+          <img
+            src="کریم.jpg"
+            alt="جلد سریال حماسه زندیان"
+            loading="lazy"
+            decoding="async"
+          >
+        </div>
+
+        <div class="series-content">
+          <h3>حماسه زندیان</h3>
+          <p>سریال تاریخی</p>
+        </div>
+
+        <span class="series-arrow" aria-hidden="true">↙</span>
+
+      </a>
+
+
+      <!-- ===== ۰۵ | مرد ساده‌دل روستا ===== -->
+      <a href="series/mard-sade-del-roosta/index.html" class="series-item">
+
+        <span class="series-number">۰۵</span>
+
+        <div class="series-cover">
+          <img
+            src="ساده دل.jpg"
+            alt="جلد مجموعه نمایشی مرد ساده‌دل روستا"
+            loading="lazy"
+            decoding="async"
+          >
+        </div>
+
+        <div class="series-content">
+          <h3>مرد ساده‌دل روستا</h3>
+          <p>مجموعه نمایشی</p>
+        </div>
+
+        <span class="series-arrow" aria-hidden="true">↙</span>
+
+      </a>
+
+
+      <!-- ===== ۰۶ | تولدی دوباره ===== -->
+      <article class="series-item">
+
+        <span class="series-number">۰۶</span>
+
+        <div class="series-content">
+          <h3>تولدی دوباره</h3>
+          <p>مجموعه نمایشی</p>
+        </div>
+
+        <span class="series-arrow" aria-hidden="true">↙</span>
+
+      </article>
+
+
+      <!-- ===== ۰۷ | برخاستن شیران زند ===== -->
+      <article class="series-item">
+
+        <span class="series-number">۰۷</span>
+
+        <div class="series-content">
+          <h3>برخاستن شیران زند</h3>
+          <p>مجموعه نمایشی</p>
+        </div>
+
+        <span class="series-arrow" aria-hidden="true">↙</span>
+
+      </article>
+
+
+    </div>
+  </div>
+</section>
+
+<!-- =====================================================
+     POEMS GATEWAY | درگاه ورود به اشعار (بخش جدید)
+===================================================== -->
+<section
+  class="poems-gateway"
+  id="poems"
+  aria-labelledby="poemsTitle"
+>
+  <div
+    class="poems-particles"
+    id="poemsParticles"
+    aria-hidden="true"
+  ></div>
+
+  <div class="poems-gateway-inner">
+
+    <div class="poems-kicker">
+      <span>دفتر شعر</span>
+    </div>
+
+    <h2 class="poems-gateway-title" id="poemsTitle">
+      اشعار حسین محمدی آمیرزا
+      <span>
+        واژه‌هایی که از دل تاریخ، عشق و انسان برآمده‌اند
+      </span>
+    </h2>
+
+    <div class="poems-divider" aria-hidden="true">
+      <span class="poems-divider-line"></span>
+      <span class="poems-divider-mark">✦</span>
+      <span class="poems-divider-line"></span>
+    </div>
+
+    <!-- نمایشگر شعر تصادفی -->
+    <div class="poem-showcase">
+      <div class="poem-showcase-card" id="poemShowcaseCard">
+        <h3 class="poem-showcase-title" id="poemShowcaseTitle">
+          <span class="poem-showcase-loading">در حال گشودن دفتر شعر...</span>
+        </h3>
+
+        <p class="poem-showcase-text" id="poemShowcaseText">
+          <span class="poem-showcase-loading">لطفاً کمی صبر کنید...</span>
+        </p>
+
+        <div class="poem-showcase-meta">
+          <span class="poem-showcase-number" id="poemShowcaseNumber"></span>
+          <span class="poem-showcase-source" id="poemShowcaseSource"></span>
+        </div>
+      </div>
+    </div>
+
+    <!-- دکمه‌های اقدام -->
+    <nav class="poems-actions" aria-label="مسیرهای شعر">
+      <a
+        class="poem-action poem-action-primary"
+        href="poems/index.html"
+        aria-label="ورود به فهرست اشعار"
+      >
+        <span>ورود به دفتر شعر</span>
+        <span aria-hidden="true">←</span>
+      </a>
+
+      <button
+        type="button"
+        class="poem-action"
+        id="poemRandomBtn"
+        aria-label="نمایش یک شعر تصادفی"
+      >
+        <span aria-hidden="true">🎲</span>
+        <span>شعر تصادفی</span>
+      </button>
+    </nav>
+
+    <!-- فیلتر موضوعی -->
+    <div
+      class="poems-filters"
+      id="poemsFilters"
+      role="group"
+      aria-label="فیلتر موضوعی اشعار"
+    >
+      <button type="button" class="poem-filter-btn is-active" data-filter="all">همه</button>
+      <button type="button" class="poem-filter-btn" data-filter="عاشقانه">عاشقانه</button>
+      <button type="button" class="poem-filter-btn" data-filter="تاریخی">تاریخی</button>
+      <button type="button" class="poem-filter-btn" data-filter="مذهبی">مذهبی</button>
+      <button type="button" class="poem-filter-btn" data-filter="اجتماعی">اجتماعی</button>
+      <button type="button" class="poem-filter-btn" data-filter="طبیعت">طبیعت</button>
+    </div>
+
+    <!-- نوار جست‌وجو -->
+    <div class="poems-search">
+      <span class="poems-search-icon" aria-hidden="true">🔍</span>
+      <input
+        type="search"
+        id="poemsSearchInput"
+        placeholder="جست‌وجو در عنوان یا متن اشعار..."
+        aria-label="جست‌وجو در اشعار"
+      >
+    </div>
+
+  </div>
+</section>
+
+<!-- ===== POEMS GRID | فهرست اشعار ===== -->
+<section class="poems-grid-section" id="poemsGridSection" aria-labelledby="poemsGridTitle">
+  <div class="container">
+    <div class="section-heading section-heading-split">
+      <div>
+        <span class="section-kicker">گزیده اشعار</span>
+        <h2 id="poemsGridTitle">از دفترهای شعری</h2>
+        <p>نگاهی به بخشی از سروده‌ها</p>
+      </div>
+      <div class="section-index">۰۵</div>
+    </div>
+
+    <div class="poems-grid" id="poemsGrid" aria-live="polite">
+      <!-- کارت‌های شعر توسط جاوااسکریپت پر می‌شوند -->
+    </div>
+
+    <div class="poems-grid-closing">
+      <span>دفتر شعر همچنان گشوده است.</span>
+      <span class="closing-line"></span>
+      <span>سروده‌های تازه در راه‌اند.</span>
+    </div>
+  </div>
+</section>
+
+      <!-- ===== PHILOSOPHY ===== -->
+    <section class="philosophy-section" aria-labelledby="philosophy-title">
+      <div class="container philosophy-grid">
+        <div class="philosophy-label"><span>اندیشه</span><strong>۰۶</strong></div>
+        <div class="philosophy-content">
+          <span class="section-kicker">جهان فکری آثار</span>
+          <h2 id="philosophy-title">روایت، فقط بازگویی گذشته نیست؛ <em>راهی برای فهم امروز است.</em></h2>
+          <p>در میان تاریخ، ادبیات و سینما، یک عنصر مشترک وجود دارد: انسان. انسانی که در زمان زندگی می‌کند، انتخاب می‌کند، می‌ترسد، امیدوار می‌شود، می‌جنگد، شکست می‌خورد و دوباره از نو آغاز می‌کند.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== NEW WORK ===== -->
+    <section class="new-work-section" aria-labelledby="new-work-title">
+      <div class="container">
+        <div class="new-work-content">
+          <span class="section-kicker">در مسیر خلق</span>
+          <h2 id="new-work-title">داستان‌ها هنوز ادامه دارند...</h2>
+          <p>هیچ آرشیوی پایان یک مسیر نیست. بخشی از هر زندگی ادبی و پژوهشی در آثاری نوشته می‌شود که هنوز به پایان نرسیده‌اند. این بخش جایگاه پروژه‌ها، کتاب‌های تازه، پژوهش‌های جدید، فیلمنامه‌ها و ایده‌هایی است که در ادامه این مسیر شکل خواهند گرفت.</p>
+          <div class="new-work-items">
+            <div class="new-work-item"><span>۰۱</span><div><strong>کتاب‌های تازه</strong><small>در حال نگارش و آماده‌سازی</small></div></div>
+            <div class="new-work-item"><span>۰۲</span><div><strong>پژوهش‌های جدید</strong><small>تاریخ، فرهنگ و انسان</small></div></div>
+            <div class="new-work-item"><span>۰۳</span><div><strong>آثار نمایشی</strong><small>فیلمنامه و سریال</small></div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+<!-- ===== CONTACT ===== -->
+<section class="section contact-section" id="contact" aria-labelledby="contact-title">
+  <div class="container">
+    <div class="section-heading">
+      <span class="section-kicker">ارتباط</span>
+      <h2 id="contact-title">با نویسنده در ارتباط باشید</h2>
+      <p>برای گفت‌وگو، همکاری، پیشنهاد یا پرسش درباره آثار</p>
+    </div>
+
+    <div class="contact-layout">
+      <div class="contact-message">
+        <div class="contact-symbol" aria-hidden="true">ح</div>
+
+        <span class="contact-kicker">
+          یک گفت‌وگو می‌تواند آغاز یک روایت تازه باشد.
+        </span>
+
+        <h3>خانه‌ای برای گفت‌وگو</h3>
+
+        <p>
+          اگر درباره کتاب‌ها، پژوهش‌ها، فیلمنامه‌ها، اشعار یا دیگر آثار پرسشی دارید،
+          یا برای همکاری و گفت‌وگو درباره یک پروژه مایل به ارتباط هستید،
+          می‌توانید از راه‌های زیر با نویسنده در تماس باشید.
+        </p>
+
+        <!-- ===== دکمه دیدگاه مخاطبان ===== -->
+        <div style="margin-top: 25px; display: flex; flex-wrap: wrap; gap: 12px;">
+          <a
+            href="comments.html"
+            style="
+              display: inline-block;
+              padding: 12px 26px;
+              border-radius: 10px;
+              background: #4d3b28;
+              color: #ffffff;
+              text-decoration: none;
+              font-weight: 700;
+              transition: opacity 0.2s ease, transform 0.2s ease;
+            "
+          >
+            دیدگاه مخاطبان
+          </a>
+
+          <a
+            href="poems/index.html"
+            style="
+              display: inline-block;
+              padding: 12px 26px;
+              border-radius: 10px;
+              background: transparent;
+              border: 1px solid #b78a3b;
+              color: #b78a3b;
+              text-decoration: none;
+              font-weight: 700;
+              transition: opacity 0.2s ease, transform 0.2s ease;
+            "
+          >
+            ورود به دفتر شعر
+          </a>
+        </div>
+        <!-- ===== پایان دکمه دیدگاه مخاطبان ===== -->
+
+      </div>
+
+      <div class="contact-details">
+        <div class="contact-item">
+          <span>ایمیل</span>
+          <a href="mailto:hosseinmohammadi.writer@gmail.com">
+            hosseinmohammadi.writer@gmail.com
+          </a>
+        </div>
+
+        <div class="contact-item">
+          <span>تلفن</span>
+          <a href="tel:09199379791">۰۹۱۹۹۳۷۹۷۹۱</a>
+        </div>
+
+        <div class="contact-item">
+          <span>محل</span>
+          <strong>پاکدشت، روبه‌روی دانشگاه ابو ریحان</strong>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+  <!-- ===== FOOTER ===== -->
   <footer class="site-footer">
-    <div class="container">
-      <p>© {{ site.time | date: "%Y" }} حسین محمدی آمیرزا</p>
-      <p>تمام آثار این وب‌سایت متعلق به نویسنده یا صاحبان حقوق آن‌هاست.</p>
+    <div class="container footer-container">
+      <div class="footer-brand">
+        <div class="footer-monogram" aria-hidden="true">ح</div>
+        <div><strong>حسین محمدی آمیرزا</strong><span>نویسنده، شاعر، پژوهشگر تاریخ و فیلمنامه‌نویس</span></div>
+      </div>
+
+      <nav class="footer-nav" aria-label="پیوندهای پایین صفحه">
+        <a href="#about">درباره من</a>
+        <a href="#books">کتاب‌ها</a>
+        <a href="#screenplays">فیلمنامه‌ها</a>
+        <a href="#series">آثار نمایشی</a>
+        <a href="#poems">اشعار</a>
+        <a href="blog/index.html">وبلاگ</a>
+        <a href="blog/stories.html">داستانک‌ها</a>
+        <a href="comments.html">دیدگاه مخاطبان</a>
+        <a href="#contact">تماس</a>
+      </nav>
+
+      <div class="footer-bottom">
+        <div><p>© ۱۴۰۵ حسین محمدی آمیرزا</p><p>تمامی حقوق این وب‌سایت محفوظ است.</p></div>
+        <a href="#home" class="footer-top">بازگشت به بالا ↑</a>
+      </div>
     </div>
   </footer>
 
-  <script src="{{ '/script.js' | relative_url }}" defer></script>
+  <!-- ===== BACK TO TOP ===== -->
+  <button class="scroll-top" id="scrollTopBtn" type="button" aria-label="بازگشت به بالای صفحه">↑</button>
+
+  <!-- ===== JAVASCRIPT ===== -->
+  <script src="script.js" defer></script>
+
+  <!-- ===== FALLBACK / BASE INTERACTION ===== -->
+  <script>
+    (function() {
+      "use strict";
+
+      const body = document.body;
+      const header = document.getElementById('siteHeader');
+      const menuToggle = document.getElementById('menuToggle');
+      const mainNavigation = document.getElementById('mainNavigation');
+      const scrollTopBtn = document.getElementById('scrollTopBtn');
+      const themeToggle = document.getElementById('themeToggle');
+      const themeIcon = themeToggle ? themeToggle.querySelector('.theme-icon') : null;
+      const progressBar = document.getElementById('readingProgressBar');
+
+      function closeMenu() {
+        if (!menuToggle || !mainNavigation) return;
+        menuToggle.setAttribute('aria-expanded', 'false');
+        mainNavigation.classList.remove('is-open');
+        body.classList.remove('menu-open');
+      }
+
+      if (menuToggle && mainNavigation) {
+        menuToggle.addEventListener('click', function() {
+          const isOpen = menuToggle.getAttribute('aria-expanded') === 'true';
+          menuToggle.setAttribute('aria-expanded', String(!isOpen));
+          mainNavigation.classList.toggle('is-open', !isOpen);
+          body.classList.toggle('menu-open', !isOpen);
+        });
+
+        mainNavigation.querySelectorAll('a').forEach(function(link) {
+          link.addEventListener('click', closeMenu);
+        });
+      }
+
+      document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') closeMenu();
+      });
+
+      document.querySelectorAll('a[href^="#"]').forEach(function(link) {
+        link.addEventListener('click', function(e) {
+          const targetId = this.getAttribute('href');
+          if (!targetId || targetId === '#') return;
+          const target = document.querySelector(targetId);
+          if (!target) return;
+          e.preventDefault();
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        });
+      });
+
+      function updateHeader() {
+        if (!header) return;
+        header.classList.toggle('is-scrolled', window.scrollY > 60);
+      }
+
+      function updateProgress() {
+        if (!progressBar) return;
+        const scrollTop = window.scrollY;
+        const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+        const progress = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+        progressBar.style.width = progress + '%';
+      }
+
+      function updateScrollButton() {
+        if (!scrollTopBtn) return;
+        scrollTopBtn.classList.toggle('visible', window.scrollY > 700);
+      }
+
+      window.addEventListener('scroll', function() {
+        updateHeader();
+        updateProgress();
+        updateScrollButton();
+      }, { passive: true });
+
+      updateHeader();
+      updateProgress();
+      updateScrollButton();
+
+      if (scrollTopBtn) {
+        scrollTopBtn.addEventListener('click', function() {
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+      }
+
+      const savedTheme = localStorage.getItem('hma-theme');
+      if (savedTheme === 'dark') {
+        body.classList.add('dark-mode');
+      }
+
+      function updateThemeIcon() {
+        if (!themeIcon) return;
+        themeIcon.textContent = body.classList.contains('dark-mode') ? '☀' : '◐';
+      }
+
+      updateThemeIcon();
+
+      if (themeToggle) {
+        themeToggle.addEventListener('click', function() {
+          const isDark = body.classList.toggle('dark-mode');
+          localStorage.setItem('hma-theme', isDark ? 'dark' : 'light');
+          updateThemeIcon();
+        });
+      }
+
+      const statNumbers = document.querySelectorAll('.stat-number');
+
+      function toPersianNumber(value) {
+        return String(value).replace(/\d/g, function(d) {
+          return '۰۱۲۳۴۵۶۷۸۹'[d];
+        });
+      }
+
+      function animateStats() {
+        statNumbers.forEach(function(element) {
+          const target = parseInt(element.dataset.count, 10);
+          if (isNaN(target)) return;
+          let current = 0;
+          const duration = 1000;
+          const startTime = performance.now();
+
+          function tick(now) {
+            const progress = Math.min((now - startTime) / duration, 1);
+            const eased = 1 - Math.pow(1 - progress, 3);
+            current = Math.round(target * eased);
+            element.textContent = toPersianNumber(current);
+            if (progress < 1) {
+              requestAnimationFrame(tick);
+            }
+          }
+          requestAnimationFrame(tick);
+        });
+      }
+
+      const statsSection = document.querySelector('.stats-section');
+      let statsAnimated = false;
+
+      if (statsSection && 'IntersectionObserver' in window) {
+        const observer = new IntersectionObserver(function(entries) {
+          entries.forEach(function(entry) {
+            if (entry.isIntersecting && !statsAnimated) {
+              statsAnimated = true;
+              animateStats();
+              observer.unobserve(statsSection);
+            }
+          });
+        }, { threshold: 0.25 });
+        observer.observe(statsSection);
+      }
+
+      if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        document.documentElement.classList.add('reduce-motion');
+      }
+
+    })();
+  </script>
+
+  <!-- ===== POEMS INTERACTION | منطق بخش اشعار ===== -->
+  <script>
+    (function() {
+      "use strict";
+
+      const gateway = document.getElementById('poems');
+      if (!gateway || gateway.dataset.initialized === 'true') return;
+      gateway.dataset.initialized = 'true';
+
+      const POEMS_URL = './poems.json';
+      const AUTO_PLAY_DELAY = 8000;
+      const MAX_POEMS = 60;
+
+      const particlesEl = document.getElementById('poemsParticles');
+      const showcaseCard = document.getElementById('poemShowcaseCard');
+      const showcaseTitle = document.getElementById('poemShowcaseTitle');
+      const showcaseText = document.getElementById('poemShowcaseText');
+      const showcaseNumber = document.getElementById('poemShowcaseNumber');
+      const showcaseSource = document.getElementById('poemShowcaseSource');
+      const randomBtn = document.getElementById('poemRandomBtn');
+      const filtersEl = document.getElementById('poemsFilters');
+      const searchInput = document.getElementById('poemsSearchInput');
+      const gridEl = document.getElementById('poemsGrid');
+
+      const motionQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
+
+      // اشعار پیش‌فرض در صورت عدم دسترسی به فایل JSON
+      const FALLBACK_POEMS = [
+        {
+          title: 'کوچه‌های بی‌نام',
+          category: 'عاشقانه',
+          excerpt: 'در کوچه‌های بی‌نام شهر،\nبه دنبال ردّ پای تو می‌گردم؛\nو هر شب، ماه را به جان می‌خرم\nتا شاید از پنجره‌ات سرک بکشم.',
+          text: 'در کوچه‌های بی‌نام شهر،\nبه دنبال ردّ پای تو می‌گردم؛\nو هر شب، ماه را به جان می‌خرم\nتا شاید از پنجره‌ات سرک بکشم.'
+        },
+        {
+          title: 'سنگ‌نوشته',
+          category: 'تاریخی',
+          excerpt: 'بر سنگ‌نوشته‌های کهن،\nنامی از من نیست؛\nاما در هر حرف فرسوده،\nدست‌های تو را می‌بینم.',
+          text: 'بر سنگ‌نوشته‌های کهن،\nنامی از من نیست؛\nاما در هر حرف فرسوده،\nدست‌های تو را می‌بینم.'
+        },
+        {
+          title: 'سجادهٔ سپیده',
+          category: 'مذهبی',
+          excerpt: 'سجاده‌ام را در سپیده پهن می‌کنم\nو نام تو را\nدر هر نفسِ سردِ صبح\nزمزمه می‌کنم.',
+          text: 'سجاده‌ام را در سپیده پهن می‌کنم\nو نام تو را\nدر هر نفسِ سردِ صبح\nزمزمه می‌کنم.'
+        },
+        {
+          title: 'شهر بی‌صدا',
+          category: 'اجتماعی',
+          excerpt: 'در شهری که فریادها را\nدر گلو می‌شکنند،\nمن شعری می‌نویسم\nکه هر شب، بی‌صدا فریاد می‌زند.',
+          text: 'در شهری که فریادها را\nدر گلو می‌شکنند،\nمن شعری می‌نویسم\nکه هر شب، بی‌صدا فریاد می‌زند.'
+        },
+        {
+          title: 'باران بر کویر',
+          category: 'طبیعت',
+          excerpt: 'باران که بر کویر می‌بارد،\nهر سنگ، سبزه می‌شود؛\nو من در آستانهٔ تو،\nدوباره زنده می‌شوم.',
+          text: 'باران که بر کویر می‌بارد،\nهر سنگ، سبزه می‌شود؛\nو من در آستانهٔ تو،\nدوباره زنده می‌شوم.'
+        }
+      ];
+
+      let poems = [];
+      let filteredPoems = [];
+      let currentIndex = 0;
+      let autoPlayTimer = null;
+      let isPaused = false;
+      let activeFilter = 'all';
+      let searchTerm = '';
+
+      function setText(el, value) {
+        if (el) el.textContent = value == null ? '' : String(value);
+      }
+
+      function cleanText(value) {
+        if (typeof value !== 'string') return '';
+        return value.replace(/<[^>]*>/g, ' ').replace(/\s+/g, ' ').trim();
+      }
+
+      function shuffle(items) {
+        const result = [...items];
+        for (let i = result.length - 1; i > 0; i--) {
+          const j = Math.floor(Math.random() * (i + 1));
+          [result[i], result[j]] = [result[j], result[i]];
+        }
+        return result;
+      }
+
+      function poemToQuote(poem) {
+        if (!poem || typeof poem !== 'object') return null;
+        if (poem.published === false || poem.draft === true || poem.status === 'draft') return null;
+
+        const text = cleanText(poem.excerpt || poem.text || poem.summary || poem.description);
+        if (!text) return null;
+
+        return {
+          title: cleanText(poem.title || 'شعر بی‌نام'),
+          category: cleanText(poem.category || 'شعر'),
+          excerpt: text,
+          fullText: cleanText(poem.text || poem.excerpt || text),
+          link: poem.link || '',
+          source: cleanText(poem.source || 'دفتر شعر')
+        };
+      }
+
+      function extractPoems(data) {
+        if (Array.isArray(data)) return data;
+        if (!data || typeof data !== 'object') return [];
+        if (Array.isArray(data.poems)) return data.poems;
+        if (Array.isArray(data.items)) return data.items;
+        if (Array.isArray(data.poetry)) return data.poetry;
+        return [];
+      }
+
+      function useFallbackPoems() {
+        poems = FALLBACK_POEMS.map((p, i) => ({
+          ...poemToQuote(p),
+          number: String(i + 1).padStart(2, '0'),
+          index: i
+        }));
+      }
+
+      async function loadPoems() {
+        try {
+          const response = await fetch(POEMS_URL, {
+            cache: 'no-cache',
+            headers: { Accept: 'application/json' }
+          });
+          if (!response.ok) throw new Error('HTTP ' + response.status);
+          const data = await response.json();
+          const eligible = extractPoems(data).map(poemToQuote).filter(Boolean);
+          const selected = shuffle(eligible).slice(0, MAX_POEMS);
+          poems = selected.map((p, i) => ({
+            ...p,
+            number: String(i + 1).padStart(2, '0'),
+            index: i
+          }));
+          if (poems.length === 0) useFallbackPoems();
+        } catch (error) {
+          console.warn('[PoemsGateway] بارگذاری اشعار ناموفق بود:', error);
+          useFallbackPoems();
+        }
+      }
+
+      function getFilteredPoems() {
+        return poems.filter(function(p) {
+          const matchesFilter = activeFilter === 'all' || p.category === activeFilter;
+          const matchesSearch = !searchTerm || (
+            p.title + ' ' + p.excerpt + ' ' + p.fullText
+          ).toLowerCase().includes(searchTerm.toLowerCase());
+          return matchesFilter && matchesSearch;
+        });
+      }
+
+      function renderGrid() {
+        if (!gridEl) return;
+        filteredPoems = getFilteredPoems();
+        gridEl.replaceChildren();
+
+        if (!filteredPoems.length) {
+          const empty = document.createElement('p');
+          empty.className = 'poems-empty';
+          empty.textContent = 'شعری با این مشخصات یافت نشد.';
+          gridEl.appendChild(empty);
+          return;
+        }
+
+        const fragment = document.createDocumentFragment();
+
+        filteredPoems.forEach(function(poem, idx) {
+          const card = document.createElement('a');
+          card.className = 'poem-card';
+          card.href = poem.link || 'poems/index.html';
+          card.setAttribute('aria-label', 'مشاهده شعر ' + poem.title);
+
+          const number = document.createElement('span');
+          number.className = 'poem-card-number';
+          number.textContent = 'شعر ' + String(idx + 1).padStart(2, '۰');
+
+          const category = document.createElement('span');
+          category.className = 'poem-card-category';
+          category.textContent = poem.category;
+
+          const title = document.createElement('h3');
+          title.textContent = poem.title;
+
+          const excerpt = document.createElement('p');
+          excerpt.className = 'poem-card-excerpt';
+          excerpt.textContent = poem.excerpt;
+
+          const footer = document.createElement('div');
+          footer.className = 'poem-card-footer';
+          footer.innerHTML = '<span>' + poem.source + '</span><span>ادامه شعر ←</span>';
+
+          card.append(number, category, title, excerpt, footer);
+          fragment.appendChild(card);
+        });
+
+        gridEl.appendChild(fragment);
+      }
+
+      function renderShowcase(poem) {
+        if (!poem) return;
+        setText(showcaseTitle, poem.title);
+        setText(showcaseText, poem.excerpt);
+        setText(showcaseNumber, 'شعر ' + poem.number);
+        setText(showcaseSource, poem.source);
+
+        if (showcaseCard) {
+          showcaseCard.style.opacity = '0';
+          window.requestAnimationFrame(function() {
+            showcaseCard.style.opacity = '1';
+          });
+        }
+      }
+
+      function showRandomPoem() {
+        const pool = getFilteredPoems();
+        if (!pool.length) return;
+        const pick = pool[Math.floor(Math.random() * pool.length)];
+        const realIndex = poems.indexOf(pick);
+        currentIndex = realIndex >= 0 ? realIndex : 0;
+        renderShowcase(pick);
+      }
+
+      function nextPoem() {
+        if (isPaused || document.hidden || motionQuery.matches || poems.length < 2) return;
+        const pool = getFilteredPoems();
+        if (!pool.length) return;
+        const currentReal = poems[currentIndex];
+        let nextIndex = pool.indexOf(currentReal);
+        nextIndex = (nextIndex + 1) % pool.length;
+        const nextPoem = pool[nextIndex];
+        const realIndex = poems.indexOf(nextPoem);
+        currentIndex = realIndex >= 0 ? realIndex : 0;
+        renderShowcase(poems[currentIndex]);
+      }
+
+      function startAutoPlay() {
+        stopAutoPlay();
+        if (isPaused || document.hidden || motionQuery.matches || poems.length < 2) return;
+        autoPlayTimer = window.setInterval(nextPoem, AUTO_PLAY_DELAY);
+      }
+
+      function stopAutoPlay() {
+        if (autoPlayTimer !== null) {
+          window.clearInterval(autoPlayTimer);
+          autoPlayTimer = null;
+        }
+      }
+
+      function pauseAutoPlay() {
+        isPaused = true;
+        stopAutoPlay();
+      }
+
+      function resumeAutoPlay() {
+        isPaused = false;
+        startAutoPlay();
+      }
+
+      if (showcaseCard) {
+        showcaseCard.addEventListener('mouseenter', pauseAutoPlay);
+        showcaseCard.addEventListener('mouseleave', resumeAutoPlay);
+        showcaseCard.addEventListener('focusin', pauseAutoPlay);
+        showcaseCard.addEventListener('focusout', function(event) {
+          if (!showcaseCard.contains(event.relatedTarget)) resumeAutoPlay();
+        });
+      }
+
+      document.addEventListener('visibilitychange', function() {
+        if (document.hidden) stopAutoPlay();
+        else startAutoPlay();
+      });
+
+      if (randomBtn) {
+        randomBtn.addEventListener('click', function() {
+          showRandomPoem();
+          startAutoPlay();
+        });
+      }
+
+      if (filtersEl) {
+        filtersEl.addEventListener('click', function(event) {
+          const btn = event.target.closest('.poem-filter-btn');
+          if (!btn) return;
+          filtersEl.querySelectorAll('.poem-filter-btn').forEach(function(b) {
+            b.classList.toggle('is-active', b === btn);
+          });
+          activeFilter = btn.dataset.filter || 'all';
+          renderGrid();
+
+          const pool = getFilteredPoems();
+          if (pool.length) {
+            currentIndex = poems.indexOf(pool[0]);
+            renderShowcase(pool[0]);
+          } else {
+            setText(showcaseTitle, 'شعری یافت نشد');
+            setText(showcaseText, 'با این فیلتر شعری موجود نیست.');
+            setText(showcaseNumber, '');
+            setText(showcaseSource, '');
+          }
+        });
+      }
+
+      if (searchInput) {
+        searchInput.addEventListener('input', function() {
+          searchTerm = this.value.trim();
+          renderGrid();
+        });
+      }
+
+      function initParticles() {
+        if (!particlesEl) return;
+        particlesEl.replaceChildren();
+        if (motionQuery.matches) return;
+        const width = window.innerWidth;
+        const count = width < 600 ? 12 : width < 1024 ? 20 : 30;
+        const fragment = document.createDocumentFragment();
+        for (let i = 0; i < count; i++) {
+          const particle = document.createElement('span');
+          particle.className = 'poem-particle';
+          particle.style.left = Math.random() * 100 + '%';
+          particle.style.animationDelay = Math.random() * 8 + 's';
+          particle.style.animationDuration = 8 + Math.random() * 8 + 's';
+          particle.style.opacity = String(0.2 + Math.random() * 0.5);
+          fragment.appendChild(particle);
+        }
+        particlesEl.appendChild(fragment);
+      }
+
+      window.addEventListener('resize', function() {
+        window.clearTimeout(window.__poemsResizeTimer);
+        window.__poemsResizeTimer = window.setTimeout(initParticles, 200);
+      });
+
+      if (typeof motionQuery.addEventListener === 'function') {
+        motionQuery.addEventListener('change', function() {
+          initParticles();
+          startAutoPlay();
+        });
+      } else if (typeof motionQuery.addListener === 'function') {
+        motionQuery.addListener(function() {
+          initParticles();
+          startAutoPlay();
+        });
+      }
+
+      async function init() {
+        useFallbackPoems();
+        renderGrid();
+        if (poems.length) {
+          currentIndex = 0;
+          renderShowcase(poems[0]);
+        }
+        initParticles();
+        await loadPoems();
+        currentIndex = 0;
+        renderGrid();
+        if (poems.length) {
+          renderShowcase(poems[0]);
+        }
+        startAutoPlay();
+      }
+
+      init();
+    })();
+  </script>
+
 </body>
 </html>
