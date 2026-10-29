@@ -1,21 +1,90 @@
+# ═══════════════════════════════════════════
+# اطلاعات پایه سایت
+# ═══════════════════════════════════════════
 title: "حسین محمدی آمیرزا"
-description: "وب‌سایت رسمی حسین محمدی آمیرزا؛ نویسنده، پژوهشگر، شاعر و فیلمنامه‌نویس"
+tagline: "روایت انسان، در امتداد تاریخ"
+description: "وب‌سایت رسمی حسین محمدی آمیرزا؛ نویسنده، شاعر، پژوهشگر تاریخ و فیلمنامه‌نویس"
 lang: "fa"
 locale: "fa_IR"
 timezone: "Asia/Tehran"
+date_format: "%Y/%m/%d"
 
 url: "https://hossein-amirza.github.io"
 baseurl: "/hossein-amirza"
 
+# ═══════════════════════════════════════════
+# نویسنده
+# ═══════════════════════════════════════════
+author:
+  name: "حسین محمدی آمیرزا"
+  bio: "نویسنده، شاعر، پژوهشگر تاریخ و فیلمنامه‌نویس"
+
+# ═══════════════════════════════════════════
+# شبکه‌های اجتماعی (فعلاً خالی)
+# ═══════════════════════════════════════════
+social: {}
+
+# ═══════════════════════════════════════════
+# منوی سایت (متمرکز)
+# ═══════════════════════════════════════════
+navigation:
+  - title: "خانه"
+    url: "/"
+  - title: "درباره من"
+    url: "/about/"
+  - title: "کتاب‌ها"
+    url: "/books/"
+  - title: "فیلمنامه‌ها"
+    url: "/screenplays/"
+  - title: "آثار نمایشی"
+    url: "/series/"
+  - title: "اشعار"
+    url: "/poetry/"
+  - title: "خاطره و داستان"
+    url: "/stories/"
+  - title: "وبلاگ"
+    url: "/blog/"
+  - title: "تماس"
+    url: "/contact/"
+
+# ═══════════════════════════════════════════
+# Markdown و لینک‌ها
+# ═══════════════════════════════════════════
 markdown: kramdown
+kramdown:
+  input: GFM
+  hard_wrap: false
+
 permalink: /articles/:categories/:title/
 
-# تنظیمات انتشار مطالب
+relative_links:
+  enabled: true
+  collections: true
+
+# ═══════════════════════════════════════════
+# انتشار مطالب
+# ═══════════════════════════════════════════
 future: false
 show_excerpts: true
 excerpt_separator: "<!--more-->"
 
-# دسته‌بندی مطالب
+paginate: 10
+paginate_path: "/page/:num/"
+
+# ═══════════════════════════════════════════
+# مجموعه‌های محتوایی
+# ═══════════════════════════════════════════
+collections:
+  poetry:
+    output: true
+    permalink: /poetry/:name/
+  stories:
+    output: true
+    permalink: /stories/:name/
+
+# ═══════════════════════════════════════════
+# پیش‌فرض قالب‌ها
+# ═══════════════════════════════════════════
 defaults:
   - scope:
       path: ""
@@ -25,9 +94,39 @@ defaults:
       lang: fa
       comments: false
 
-# فایل‌ها و پوشه‌هایی که نباید پردازش شوند
+  - scope:
+      path: ""
+      type: poetry
+    values:
+      layout: poetry
+      lang: fa
+
+  - scope:
+      path: ""
+      type: stories
+    values:
+      layout: story
+      lang: fa
+
+# ═══════════════════════════════════════════
+# افزونه‌ها
+# ═══════════════════════════════════════════
+plugins:
+  - jekyll-seo-tag
+  - jekyll-sitemap
+  - jekyll-feed
+  - jekyll-relative-links
+  - jekyll-paginate
+
+# ═══════════════════════════════════════════
+# فایل‌های مستثنی
+# ═══════════════════════════════════════════
 exclude:
   - README.md
   - LICENSE
   - Gemfile
   - Gemfile.lock
+  - node_modules
+  - vendor
+  - .pages.yml
+  - .gitignore
