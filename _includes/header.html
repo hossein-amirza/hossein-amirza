@@ -1,0 +1,64 @@
+<header class="site-header" id="siteHeader">
+  <div class="container nav-container">
+
+    <!-- Brand -->
+    <a
+      href="{{ '/' | relative_url }}"
+      class="logo"
+      aria-label="صفحه اصلی {{ site.author.name | escape }}"
+    >
+      <span class="logo-mark" aria-hidden="true">ح</span>
+
+      <span class="logo-text">
+        <strong>{{ site.author.name | escape }}</strong>
+        <small>نویسنده · پژوهشگر · روایتگر</small>
+      </span>
+    </a>
+
+    <!-- Mobile menu toggle -->
+    <button
+      class="menu-toggle"
+      id="menuToggle"
+      type="button"
+      aria-label="باز کردن منوی اصلی"
+      aria-expanded="false"
+      aria-controls="mainNavigation"
+    >
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+    <!-- Navigation -->
+    <nav
+      class="main-nav"
+      id="mainNavigation"
+      aria-label="ناوبری اصلی"
+    >
+      {% for item in site.navigation %}
+        {% assign nav_url = item.url | relative_url %}
+
+        <a
+          href="{{ nav_url | escape }}"
+          class="{% if item.url == '/contact/' %}nav-contact{% endif %}"
+          {% if page.url == item.url %}aria-current="page"{% endif %}
+        >
+          {{ item.title | escape }}
+        </a>
+      {% endfor %}
+
+      <!-- Appearance control -->
+      <button
+        class="theme-toggle"
+        id="themeToggle"
+        type="button"
+        aria-label="تغییر به حالت تاریک"
+        title="تغییر حالت نمایش"
+        aria-pressed="false"
+      >
+        <span class="theme-icon" aria-hidden="true">◐</span>
+      </button>
+    </nav>
+
+  </div>
+</header>
