@@ -1,117 +1,158 @@
----
-layout: default
-title: "خانه"
----
 
-<style>
-  /* =========================================================
-     CSS VARIABLES & RESET
-  ========================================================== */
-  @import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700;800;900&family=Playfair+Display:wght@600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700;800&family=Playfair+Display:wght@500;600;700&display=swap');
 
-  :root {
-    --gold: #b78a3b;
-    --gold-light: #d8b76d;
-    --gold-pale: rgba(183, 138, 59, 0.12);
-    --dark: #120f0d;
-    --dark-2: #1c1714;
-    --cream: #f5efe5;
-    --paper: #fcf8f2;
-    --text: #2a221d;
-    --muted: #766960;
-    --line: #dfd1c0;
-    --shadow: 0 20px 60px rgba(18, 15, 13, 0.12);
-    --shadow-glow: 0 30px 80px rgba(183, 138, 59, 0.15), 0 0 40px rgba(183, 138, 59, 0.04);
-    --radius: 20px;
-    --transition: 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
-    --font-nastaliq: 'Noto Nastaliq Urdu', 'IranNastaliq', 'Vazirmatn', serif;
-  }
+:root {
+  /* Luxury Color Palette */
+  --gold: #b78a3b;
+  --gold-light: #d8b76d;
+  --gold-dark: #8e682d;
 
-  * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
+  --dark: #17120f;
+  --dark-soft: #241b16;
 
-  html {
-    scroll-behavior: smooth;
-    scroll-padding-top: 80px;
+  --cream: #f5efe5;
+  --paper: #fcf9f4;
+
+  --text: #29211b;
+  --muted: #82766c;
+  --line: rgba(183, 138, 59, 0.22);
+
+  /* Design System */
+  --radius-sm: 10px;
+  --radius-md: 20px;
+  --radius-lg: 32px;
+
+  --shadow-soft:
+    0 12px 35px rgba(35, 25, 15, .07);
+
+  --shadow-luxury:
+    0 25px 70px rgba(18, 15, 13, .13);
+
+  --transition:
+    .35s cubic-bezier(.22, 1, .36, 1);
+
+  --container: 1180px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 90px;
+}
+
+body {
+  direction: rtl;
+  background: var(--cream);
+  color: var(--text);
+
+  font-family: 'Vazirmatn', sans-serif;
+  line-height: 2;
+
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+  transition: var(--transition);
+}
+
+button {
+  font: inherit;
+  cursor: pointer;
+}
+
+.container {
+  width: min(
+    var(--container),
+    calc(100% - 40px)
+  );
+
+  margin-inline: auto;
+}
+
+/* Selection */
+::selection {
+  background: var(--gold);
+  color: white;
+}
+
+/* Elegant scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--cream);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--gold);
+  border-radius: 20px;
+}
+
+/* Elegant buttons */
+.btn-luxury {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 10px;
+  padding: 13px 30px;
+
+  background: var(--gold);
+  color: white;
+
+  border: 1px solid var(--gold);
+  border-radius: 50px;
+
+  font-weight: 600;
+
+  transition: var(--transition);
+}
+
+.btn-luxury:hover {
+  background: var(--dark);
+  border-color: var(--dark);
+  transform: translateY(-3px);
+
+  box-shadow: var(--shadow-soft);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .container {
+    width: min(100% - 30px, var(--container));
   }
 
   body {
-    background: var(--cream);
-    color: var(--text);
-    font-family: 'Vazirmatn', Tahoma, sans-serif;
-    line-height: 2;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    transition: background 0.5s ease, color 0.5s ease;
+    font-size: 14px;
   }
+}
 
-  img {
-    max-width: 100%;
-    display: block;
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: .01ms !important;
+    transition-duration: .01ms !important;
   }
+}
 
-  a {
-    color: inherit;
-    text-decoration: none;
-  }
-
-  .container {
-    width: min(1180px, calc(100% - 40px));
-    margin-inline: auto;
-  }
-
-  /* =========================================================
-     SKIP LINK
-  ========================================================== */
-  .skip-link {
-    position: fixed;
-    top: -999px;
-    left: 50%;
-    transform: translateX(-50%);
-    background: var(--gold);
-    color: #fff;
-    padding: 12px 24px;
-    border-radius: 0 0 12px 12px;
-    font-weight: 700;
-    z-index: 9999;
-    transition: top 0.3s ease;
-  }
-
-  .skip-link:focus {
-    top: 0;
-  }
-
-  /* =========================================================
-     READING PROGRESS BAR
-  ========================================================== */
-  .reading-progress {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 3px;
-    z-index: 999;
-    background: transparent;
-  }
-
-  .reading-progress-bar {
-    height: 100%;
-    width: 0%;
-    background: linear-gradient(90deg, var(--gold), var(--gold-light));
-    transition: width 0.1s ease;
-  }
-
-  /* =========================================================
-     HEADER
-  ========================================================== */
-  /* ⚠️ اینجا باید بقیه CSS خودتان را که از خط HEADER به بعد بود، کپی کنید */
-  /* ⚠️ من فقط تا اینجا را دارم. بقیه CSS را از فایل فعلی خودتان بردارید و اینجا بچسبانید. */
-</style>
-
-<!-- ===== MAIN ===== -->
     .site-header {
       position: fixed;
       top: 0;
