@@ -1,91 +1,157 @@
-# ═══════════════════════════════════════════
-# اطلاعات پایه سایت
-# ═══════════════════════════════════════════
+# =====================================================
+# تنظیمات اصلی وب‌سایت حسین محمدی آمیرزا
+# =====================================================
+
 title: "حسین محمدی آمیرزا"
 tagline: "روایت انسان، در امتداد تاریخ"
 description: "وب‌سایت رسمی حسین محمدی آمیرزا؛ نویسنده، شاعر، پژوهشگر تاریخ و فیلمنامه‌نویس"
+
+# برای SEO و پیش‌نمایش شبکه‌های اجتماعی
+keywords: "حسین محمدی آمیرزا, نویسنده, شاعر, پژوهشگر تاریخ, فیلمنامه‌نویس, کتاب, شعر, داستانک, وبلاگ"
+logo: "/assets/images/logo.png"
+image: "/assets/images/og-cover.jpg"
+
 lang: "fa"
 locale: "fa_IR"
 timezone: "Asia/Tehran"
+encoding: "utf-8"
 date_format: "%Y/%m/%d"
 
 url: "https://hossein-amirza.github.io"
 baseurl: "/hossein-amirza"
 
-# ═══════════════════════════════════════════
+# =====================================================
 # نویسنده
-# ═══════════════════════════════════════════
+# =====================================================
+
 author:
   name: "حسین محمدی آمیرزا"
   bio: "نویسنده، شاعر، پژوهشگر تاریخ و فیلمنامه‌نویس"
+  # در صورت تمایل ایمیل یا آواتار را اضافه کنید:
+  # email: "info@example.com"
+  # avatar: "/assets/images/author.jpg"
 
-# ═══════════════════════════════════════════
-# شبکه‌های اجتماعی (فعلاً خالی)
-# ═══════════════════════════════════════════
-social: {}
+# شبکه‌های اجتماعی — در صورت نیاز لینک‌ها را پر کنید
+social:
+  name: "حسین محمدی آمیرزا"
+  links: []
+  # links:
+  #   - "https://t.me/username"
+  #   - "https://instagram.com/username"
+  #   - "https://twitter.com/username"
 
-# ═══════════════════════════════════════════
-# منوی سایت (متمرکز)
-# ═══════════════════════════════════════════
+# =====================================================
+# منوی اصلی
+# =====================================================
+
 navigation:
   - title: "خانه"
     url: "/"
+
   - title: "درباره من"
     url: "/about/"
+
   - title: "کتاب‌ها"
     url: "/books/"
+
   - title: "فیلمنامه‌ها"
     url: "/screenplays/"
-  - title: "آثار نمایشی"
-    url: "/series/"
-  - title: "اشعار"
-    url: "/poetry/"
-  - title: "خاطره و داستان"
+
+  - title: "داستانک‌ها"
     url: "/stories/"
+
+  - title: "شعرها"
+    url: "/poetry/"
+
   - title: "وبلاگ"
     url: "/blog/"
+
+  - title: "مجموعه‌های نمایشی"
+    url: "/series/"
+
   - title: "تماس"
     url: "/contact/"
 
-# ═══════════════════════════════════════════
-# Markdown و لینک‌ها
-# ═══════════════════════════════════════════
+# =====================================================
+# موتور Markdown
+# =====================================================
+
 markdown: kramdown
+
 kramdown:
   input: GFM
   hard_wrap: false
+  auto_ids: true
+  footnote_nr: 1
+  entity_output: as_char
+  toc_levels: 1..6
+  smart_quotes: lsquo,rsquo,ldquo,rdquo
+  syntax_highlighter: rouge
+  syntax_highlighter_opts:
+    css_class: "highlight"
+    span:
+      line_numbers: false
 
+# آدرس مطالب وبلاگ فعلی حفظ می‌شود
 permalink: /articles/:categories/:title/
 
 relative_links:
   enabled: true
   collections: true
 
-# ═══════════════════════════════════════════
-# انتشار مطالب
-# ═══════════════════════════════════════════
+# =====================================================
+# انتشار محتوا
+# =====================================================
+
 future: false
 show_excerpts: true
 excerpt_separator: "<!--more-->"
 
+# صفحه‌بندی استاندارد مطالب وبلاگ
 paginate: 10
 paginate_path: "/page/:num/"
 
-# ═══════════════════════════════════════════
-# مجموعه‌های محتوایی
-# ═══════════════════════════════════════════
+# =====================================================
+# شش بخش محتوایی
+#
+# وبلاگ از سیستم استاندارد _posts استفاده می‌کند.
+# پنج مجموعه دیگر با پوشه‌های مستقل ساخته می‌شوند.
+# =====================================================
+
 collections:
-  poetry:
+
+  books:
     output: true
-    permalink: /poetry/:name/
+    permalink: /books/:name/
+    sort_by: "date"
+
+  screenplays:
+    output: true
+    permalink: /screenplays/:name/
+    sort_by: "date"
+
   stories:
     output: true
     permalink: /stories/:name/
+    sort_by: "date"
 
-# ═══════════════════════════════════════════
-# پیش‌فرض قالب‌ها
-# ═══════════════════════════════════════════
+  poetry:
+    output: true
+    permalink: /poetry/:name/
+    sort_by: "date"
+
+  series:
+    output: true
+    permalink: /series/:name/
+    sort_by: "date"
+
+# =====================================================
+# تنظیمات پیش‌فرض مطالب
+# =====================================================
+
 defaults:
+
+  # وبلاگ
   - scope:
       path: ""
       type: posts
@@ -93,24 +159,57 @@ defaults:
       layout: post
       lang: fa
       comments: false
+      share: true
 
+  # کتاب‌ها
   - scope:
       path: ""
-      type: poetry
+      type: books
     values:
-      layout: poetry
+      layout: work
       lang: fa
+      comments: false
 
+  # فیلمنامه‌ها
+  - scope:
+      path: ""
+      type: screenplays
+    values:
+      layout: work
+      lang: fa
+      comments: false
+
+  # داستانک‌ها
   - scope:
       path: ""
       type: stories
     values:
-      layout: story
+      layout: work
       lang: fa
+      comments: false
 
-# ═══════════════════════════════════════════
-# افزونه‌ها
-# ═══════════════════════════════════════════
+  # شعرها
+  - scope:
+      path: ""
+      type: poetry
+    values:
+      layout: work
+      lang: fa
+      comments: false
+
+  # مجموعه‌های نمایشی
+  - scope:
+      path: ""
+      type: series
+    values:
+      layout: work
+      lang: fa
+      comments: false
+
+# =====================================================
+# افزونه‌های سازگار با GitHub Pages
+# =====================================================
+
 plugins:
   - jekyll-seo-tag
   - jekyll-sitemap
@@ -118,9 +217,63 @@ plugins:
   - jekyll-relative-links
   - jekyll-paginate
 
-# ═══════════════════════════════════════════
-# فایل‌های مستثنی
-# ═══════════════════════════════════════════
+# =====================================================
+# تنظیمات تکمیلی افزونه‌ها
+# =====================================================
+
+# خوراک RSS
+feed:
+  path: "feed.xml"
+  posts_limit: 20
+  excerpt_only: false
+
+# نقشه سایت
+sitemap:
+  path: "sitemap.xml"
+  exclude:
+    - "/404.html"
+    - "/search/"
+
+# SEO — برای jekyll-seo-tag
+twitter:
+  username: ""          # در صورت وجود، پر کنید
+  card: summary_large_image
+
+# وب‌مستر (در صورت نیاز فعال کنید)
+# webmaster_verifications:
+#   google: "YOUR_GOOGLE_CODE"
+#   bing: "YOUR_BING_CODE"
+
+# =====================================================
+# فشرده‌سازی خروجی (سازگار با GitHub Pages)
+# =====================================================
+
+compress_html:
+  clippings: all
+  comments: ["<!--", "-->"]
+  endings: all
+  ignore:
+    envs: [development]
+  blanklines: false
+  profile: false
+  startings: [html, head, body]
+
+# =====================================================
+# تنظیمات محیط توسعه
+# =====================================================
+
+strict_front_matter: false
+liquid:
+  error_mode: warn
+
+sass:
+  sass_dir: _sass
+  style: compressed
+
+# =====================================================
+# فایل‌های مستثنی از انتشار
+# =====================================================
+
 exclude:
   - README.md
   - LICENSE
@@ -130,3 +283,8 @@ exclude:
   - vendor
   - .pages.yml
   - .gitignore
+  - .github
+  - .vscode
+  - .idea
+  - "*.log"
+  - "*.tmp"
