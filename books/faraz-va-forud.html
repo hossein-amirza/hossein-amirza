@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="dark light">
+  <meta name="theme-color" content="#120f0d">
+  <title>فراز و فرود سرنوشت قوم زند | حسین محمدی آمیرزا</title>
+  <meta name="description" content="فراز و فرود سرنوشت قوم زند؛ روایتی از هویت، فرهنگ، دلاوری و میراث مردمانی که نامشان در تاریخ ایران ماندگار شده است. نوشته حسین محمدی آمیرزا.">
+  <meta name="author" content="حسین محمدی آمیرزا">
+  <link rel="stylesheet" href="../style.css">
+  <style>
+    /* ===== استایل اختصاصی صفحه کتاب ===== */
+    .book-page {
+      background: var(--cream);
+      color: var(--text);
+    }
+
+    .book-hero {
+      padding: 120px 0 70px;
+      background: linear-gradient(135deg, #0f0c0a, #1c1714 45%, #2a221d);
+      color: #fff;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .book-hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at 70% 30%, rgba(183,138,59,.12), transparent 45%);
+      pointer-events: none;
+    }
+
+    .book-hero-grid {
+      position: relative;
+      display: grid;
+      grid-template-columns: 320px 1fr;
+      gap: 60px;
+      align-items: center;
+    }
+
+    .book-cover-large {
+      position: relative;
+      border-radius: 18px;
+      overflow: hidden;
+      box-shadow: 0 30px 80px rgba(0,0,0,.5);
+      border: 1px solid rgba(255,255,255,.08);
+    }
+
+    .book-cover-large img {
+      width: 100%;
+      height: auto;
+      display: block;
+      object-fit: cover;
+    }
+
+    .book-category {
+      display: inline-block;
+      padding: 5px 16px;
+      margin-bottom: 18px;
+      font-size: .75rem;
+      font-weight: 700;
+      letter-spacing: 1px;
+      border: 1px solid var(--gold-light);
+      border-radius: 999px;
+      color: var(--gold-light);
+    }
+
+    .book-meta h1 {
+      font-family: 'Playfair Display', 'Vazirmatn', serif;
+      font-size: clamp(2rem, 5vw, 3.4rem);
+      line-height: 1.2;
+      margin: 0 0 8px;
+      color: #fff;
+    }
+
+    .book-subtitle {
+      font-size: clamp(1rem, 1.6vw, 1.3rem);
+      color: #cbbfb5;
+      margin: 0 0 24px;
+      font-weight: 400;
+    }
+
+    .book-lead {
+      font-size: 1rem;
+      line-height: 2;
+      color: #b9aaa0;
+      margin: 0 0 28px;
+      max-width: 620px;
+    }
+
+    .book-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 28px;
+    }
+
+    .book-tags span {
+      padding: 4px 12px;
+      font-size: .75rem;
+      border-radius: 999px;
+      background: rgba(255,255,255,.06);
+      border: 1px solid rgba(255,255,255,.08);
+      color: #dfd1c0;
+    }
+
+    .book-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .book-actions .btn {
+      text-decoration: none;
+    }
+
+    /* ===== بدنه کتاب ===== */
+    .book-content {
+      padding: 70px 0;
+    }
+
+    .book-content-inner {
+      max-width: 820px;
+      margin-inline: auto;
+      padding: 0 20px;
+    }
+
+    .book-section {
+      margin-bottom: 60px;
+    }
+
+    .book-section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.5rem, 3vw, 2rem);
+      color: var(--text);
+      margin: 0 0 8px;
+      position: relative;
+      padding-bottom: 12px;
+    }
+
+    .book-section-title::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      width: 60px;
+      height: 2px;
+      background: var(--gold);
+    }
+
+    .book-section-sub {
+      font-size: .75rem;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      color: var(--gold);
+      text-transform: uppercase;
+      margin: 0 0 6px;
+    }
+
+    .book-section p {
+      color: var(--muted);
+      font-size: 1rem;
+      line-height: 2.1;
+      margin: 0 0 16px;
+      text-align: justify;
+    }
+
+    .book-section p:last-child {
+      margin-bottom: 0;
+    }
+
+    .book-section p strong {
+      color: var(--text);
+    }
+
+    /* پیش‌گفتار بلند */
+    .book-preface p {
+      font-size: 1rem;
+      line-height: 2.2;
+      color: #5a4f45;
+    }
+
+    /* نقل‌قول */
+    .book-quote {
+      margin: 50px 0;
+      padding: 28px 32px;
+      border-right: 3px solid var(--gold);
+      background: var(--paper);
+      border-radius: 4px;
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.1rem, 2vw, 1.3rem);
+      line-height: 2;
+      color: var(--text);
+      font-style: italic;
+    }
+
+    /* مشخصات */
+    .book-specs {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+      margin-top: 20px;
+    }
+
+    .book-spec-item {
+      padding: 18px 20px;
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+    }
+
+    .book-spec-item dt {
+      font-size: .7rem;
+      font-weight: 700;
+      letter-spacing: 1px;
+      color: var(--muted);
+      text-transform: uppercase;
+      margin-bottom: 4px;
+    }
+
+    .book-spec-item dd {
+      font-size: .95rem;
+      font-weight: 600;
+      color: var(--text);
+      margin: 0;
+    }
+
+    /* ناوبری بین کتاب‌ها */
+    .book-nav {
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      margin-top: 60px;
+      padding-top: 30px;
+      border-top: 1px solid var(--line);
+    }
+
+    .book-nav a {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--gold);
+      font-weight: 700;
+      text-decoration: none;
+      font-size: .9rem;
+      transition: gap .3s ease;
+    }
+
+    .book-nav a:hover {
+      gap: 14px;
+    }
+
+    /* ===== واکنش‌گرا ===== */
+    @media (max-width: 900px) {
+      .book-hero-grid {
+        grid-template-columns: 1fr;
+        gap: 36px;
+        text-align: center;
+      }
+
+      .book-cover-large {
+        max-width: 280px;
+        margin-inline: auto;
+      }
+
+      .book-tags,
+      .book-actions {
+        justify-content: center;
+      }
+
+      .book-specs {
+        grid-template-columns: 1fr;
+      }
+
+      .book-nav {
+        flex-direction: column;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .book-hero {
+        padding: 100px 0 50px;
+      }
+
+      .book-content {
+        padding: 50px 0;
+      }
+
+      .book-quote {
+        padding: 22px 24px;
+      }
+    }
+  </style>
+</head>
+<body class="book-page">
+
+  <!-- ===== HEADER ===== -->
+  <header class="site-header" id="siteHeader">
+    <div class="container nav-container">
+      <a href="../index.html" class="logo" aria-label="صفحه اصلی">
+        <span class="logo-mark" aria-hidden="true">ح</span>
+        <span class="logo-text">
+          <strong>حسین محمدی آمیرزا</strong>
+          <small>نویسنده · پژوهشگر · روایتگر</small>
+        </span>
+      </a>
+
+      <button class="menu-toggle" id="menuToggle" type="button" aria-label="باز کردن منو" aria-expanded="false" aria-controls="mainNavigation">
+        <span></span><span></span><span></span>
+      </button>
+
+      <nav class="main-nav" id="mainNavigation" aria-label="ناوبری اصلی">
+        <a href="../index.html#about">درباره من</a>
+        <a href="../index.html#books">کتاب‌ها</a>
+        <a href="../index.html#screenplays">فیلمنامه‌ها</a>
+        <a href="../index.html#series">آثار نمایشی</a>
+        <a href="../index.html#poems">اشعار</a>
+        <a href="../index.html#blog">وبلاگ</a>
+        <a href="../index.html#stories">داستانک‌ها</a>
+        <a href="../index.html#contact" class="nav-contact">تماس</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ===== BOOK HERO ===== -->
+  <section class="book-hero">
+    <div class="container book-hero-grid">
+      <div class="book-cover-large">
+        <img src="../images/فراز و فرود سرنوشت قوم زند.jpg" alt="جلد کتاب فراز و فرود سرنوشت قوم زند" width="600" height="850">
+      </div>
+
+      <div class="book-meta">
+        <span class="book-category">روایت تاریخی · ایران · زندیه</span>
+        <h1>فراز و فرود سرنوشت قوم زند</h1>
+        <p class="book-subtitle">در گذر تاریخ</p>
+        <p class="book-lead">
+          روایتی از هویت، فرهنگ، دلاوری، میراث و فراز و فرودهای مردمانی که نامشان در بخشی از تاریخ ایران ماندگار شده است.
+        </p>
+        <div class="book-tags">
+          <span>تاریخ ایران</span>
+          <span>قوم زند</span>
+          <span>زندیه</span>
+          <span>هویت و فرهنگ</span>
+        </div>
+        <div class="book-actions">
+          <a href="#preface" class="btn btn-primary">خواندن پیشگفتار <span aria-hidden="true">↓</span></a>
+          <a href="../index.html#books" class="btn btn-ghost">همه کتاب‌ها</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== BOOK CONTENT ===== -->
+  <main class="book-content">
+    <div class="book-content-inner">
+
+      <!-- درباره اثر -->
+      <section class="book-section">
+        <p class="book-section-sub">About the book</p>
+        <h2 class="book-section-title">دربارهٔ این اثر</h2>
+        <p>
+          تاریخ ایران، تنها مجموعه‌ای از نام شاهان، جنگ‌ها و دگرگونی‌های سیاسی نیست؛ تاریخ، روایت انسان‌هایی است که در بزنگاه‌های زمان، با اندیشه، شجاعت، وفاداری و کوشش خود در ساختن سرنوشت این سرزمین سهم داشته‌اند.
+        </p>
+        <p>
+          «فراز و فرود سرنوشت قوم زند» به بخشی از همین روایت می‌پردازد؛ روایتی که از میراث فرهنگی و هویت ایرانی آغاز می‌شود و از مردمانی سخن می‌گوید که در میان کوه‌ها و دشت‌های ملایر و در گذر حوادث تاریخی، نام و خاطرهٔ خود را حفظ کردند.
+        </p>
+        <p>
+          در این روایت، شکوه و فروتنی در کنار یکدیگر قرار می‌گیرند؛ از چهره‌های تاریخی و سرداران و حاکمان گرفته تا انسان‌هایی که پس از فروپاشی قدرت، زندگی ساده و روزمرهٔ خود را ادامه دادند. از همین منظر، تاریخ نه تنها گذشته، بلکه حافظه‌ای زنده از انسان و هویت اوست.
+        </p>
+      </section>
+
+      <!-- پیشگفتار -->
+      <section class="book-section book-preface" id="preface">
+        <p class="book-section-sub">Preface</p>
+        <h2 class="book-section-title">پیشگفتار</h2>
+
+        <p>
+          تاریخ ایران، همچون دریایی بی‌کران، امواجی از دانش و خرد و حماسه و فداکاری را در دل خود جای داده است. که درین میان دردانه‌هایی در دل این دریا خود نمایی می‌کنند. مانند کتاب گران‌سنگ اوستا و سرنوشت اقوامی که با این کتاب ارزشمند، ارتباطی تنگاتنگ داشته‌اند.
+        </p>
+        <p>
+          اوستا نه تنها به پرستش اهورامزدا و ایزدان مرتبط با طبیعت اختصاص دارد، بلکه راهنمایی عملی برای زندگی روزمره انسان‌ها نیز ارائه می‌دهد. از یسنا، که قلب پرستش و نیایش است، تا ویسپرد و جشن‌های آیینی، از وندیداد و قوانین پاکیزگی گرفته تا یشت‌ها و خرده اوستا، همه این بخش‌ها با هدف ایجاد زندگی هماهنگ با خرد، راستی و پاکی تدوین شده‌اند.
+        </p>
+        <p>
+          این کتاب نشان می‌دهد که جهان، صحنه‌ای از نبرد میان نیروهای نور و تاریکی است، و هر انسان می‌تواند با پندار نیک، گفتار راست و کردار درست، سهمی در پیروزی نور داشته باشد. اوستا به ما یادآوری می‌کند که احترام به طبیعت، همبستگی جمعی و درستکاری فردی پایه‌های زندگی پاک و معنادار هستند.
+        </p>
+        <p>
+          خواندن اوستا، حتی در دنیای مدرن، همچنان تجربه‌ای الهام‌بخش و معنوی است. این کتاب، چراغی است که مسیر انسان را روشن می‌سازد، روح را با خرد و امید پیوند می‌دهد و یادآور می‌شود که زندگی هر فرد، با انتخاب‌های درست و پیوند با نیروهای الهی، می‌تواند جهانی روشن‌تر و پرنورتر بسازد.
+        </p>
+        <p>
+          آموزه‌های اوستا نه تنها در کتاب‌ها و آتشکده‌ها زنده ماندند، بلکه در دل مردم، و فرهنگ‌های مختلف و اقوام ایران زمین، نیز جریان یافتند. «قوم زند»، با پیوندی ژرف با طبیعت و آتشکده نوشیجان در اطراف ملایر و کتاب مقدس اوستا و پس از آن با نگارش «کتاب زند»، جلوه‌ای زنده از این ارزش‌ها را به خود اختصاص دادند؛ مردمانی که در دل کوه‌ها و دشت‌های ملایر زندگی می‌کردند و هر روز، با پندار نیک، گفتار راست و کردار درست، چراغ راستی و روشنایی را در جامعه خود فروزان نگاه می‌داشتند.
+        </p>
+        <p>
+          داستان زندیان، داستان مردمانی است که با جان و دل، سرزمین و فرهنگ خود را، از گزند طوفان‌های تاریخ محافظت کردند و رد پایشان تا امروز در خاک و فرهنگ این دیار باقی مانده است. آبادی‌های پری، زنگنه و کمازان، و روستاهای دره جوزان، نه تنها پناهگاه آنان، بلکه صحنهٔ رخدادهای پرشور و دلاورانه‌ای بودند که شکوه و شجاعت این قوم را در تاریخ ایران ثبت کردند.
+        </p>
+        <p>
+          در روزگاران کهن، هنگامی که سایهٔ مهاجمان بر این سرزمین گسترده بود، مردی از نیاکان زندیان «هوارم شیردل» برخاست. او نه تنها جنگجویی بی‌باک بود، بلکه نگهبانی دانا و باوفا برای مردمش بود. هوارم در دل روزهای تاریک و در گرداب حوادث بی‌رحم، با تیزچنگی و با شمشیری بران و دلی آکنده از وفاداری و ایمان، در برابر کسانی ایستاد که می‌خواستند آرامش این دیار را برهم زنند و آئین و فرهنگش را به آتش بکشند.
+        </p>
+        <p>
+          اما حفاظت از سرزمین تنها بخشی از نبرد این قوم بود؛ میراث فرهنگی نیز برای زندیان همچون شاهرگ زندگی بود. کهزاد دهوپاد و همسر دلیرش، ماهانای تیزچنگ، داستانی فراتر از شجاعت و شهامت آفریدند. آنان نسخه‌های گران‌بهای یسنا از کتاب اوستا را، که نماد دانش و فرهنگ هزاران سالهٔ ایرانیان بود، از خطر نابودی نجات دادند و با جمع‌آوری و بازنویسی دیگر بخش‌های اوستا پس از شکست سلوکیان از دانش و فرهنگ این مرز و بوم حفاظت و حراست کردند.
+        </p>
+        <p>
+          با گذر روزگار، در عصر ساسانیان شاهد ظهور دانشمندی برجسته از این خاندان هستیم: به نام مهراسپندان آذرپاد. او با قلمی توانمند و ذهنی ژرف، شرح و تفسیر اوستا را در «کتاب زند اوستا» نوشت و با این اثر ماندگار، میراث زندیان را جاودانه کرد و به این قوم هویتی تازه بخشید «قوم زند». از آن پس، فراتر از یک قوم، به نمادی از حافظ دانش، هویت و فرهنگ ایرانی بدل شد.
+        </p>
+        <p>
+          با این حال، داستان زندیان تنها در میراث فرهنگی و دانش نیز خلاصه نمی‌شود. آنان مردمانی بودند که در دل کوه‌ها و دشت‌ها، زندگی را با همهٔ سختی‌ها، فراز و فرودها و طوفان‌های روزگار تجربه کردند. که در قرون بعد، چهره‌هایی سترگ چون کریم‌خان زند، حاکمی دادگر و خدامرادخان زند سردار قدرتمند زندیه، ظهور کردند.
+        </p>
+        <p>
+          کریم‌خان، با دلی آکنده از عدالت و چشمانی نافذ، به دنبال خدمت به مردم قدم در مسیر حکومت گذاشت. او با تدبیری کم‌نظیر و دلیرانی وفادار چون خدامرادخان، خان‌های ستمگر را سرکوب کرد و دولتی بر پایه مردم‌سالاری و عدالت برپا نمود. در دل شب‌های ظلمت، فانوس امیدی روشن کرد و نشان داد که حکمرانی می‌تواند با عشق به مردم و عدالت اجتماعی معنا یابد.
+        </p>
+        <p>
+          اما حتی درخشان‌ترین ستاره‌ها نیز در برابر تاریکی گاه به زانو درمی‌آیند. دولت زندیه، باوجود عظمتش، از تفرقه و خیانت در امان نماند. درگیری‌های درونی و رقابت‌های خونین، پایه‌های حکومت کریم‌خان را لرزاند و نهایتاً فروپاشی اجتناب‌ناپذیر شد. این شکست، یادآوری تلخی است برای همه کسانی که تاریخ را می‌نگرند: حتی نیکوترین حکومت‌ها، اگر انسجام و اتحاد نداشته باشند، در برابر طوفان زمانه دوام نمی‌آورند.
+        </p>
+        <p>
+          اما داستان زندیان با سقوط دولتشان نیز به پایان نرسید. نسل‌های بعدی، زندگی را در مسیرهایی ساده‌تر ادامه دادند و نشان دادند که شکوه و بزرگی یک قوم تنها در تاج و تخت نیست، بلکه در زندگی روزمره، کار و تلاش و حفظ ارزش‌های انسانی نیز جاری است.
+        </p>
+        <p>
+          داستان پدربزرگ من، «میرزا احمد» که از تبار خدامرادخان زند است، نمونه‌ای روشن از این حقیقت بود؛ مردی که ریشه‌های خانی و شاهزادگی داشت، اما در مغازه‌ای کوچک شاگردی را برگزید و با فروتنی و صبوری، زندگی‌ ساده و عادی اما پر معنایی ساخت. این گذار از شکوه به ساده‌زیستی، جوهره تاریخ ایران را در قالبی ملموس نشان می‌دهد: تاریخ تنها روایت شاهان و جنگ‌ها نیست، بلکه داستان زیستن انسان‌هایی است که هرکدام به نحوی در سرنوشت این سرزمین سهیم‌اند.
+        </p>
+        <p>
+          این بخش از تاریخ، یادآور آن است که هر نسلی می‌تواند میراثی ماندگار خلق کند، اگر شجاعت و عشق به مردم را در دل خود پرورش دهد. هوارم، کهزاد، ماهانا، مهراسپندان، کریم‌خان و خدامرادخان تنها نام‌ها نیستند؛ آنان نماد انسان‌هایی هستند که در بزنگاه‌های تاریخ، به سهم خود ایران را ساخته و محافظت کردند. این دوگانگی، یعنی تقابل شکوه و فروتنی، جوهرهٔ تاریخ ایران را به تصویر می‌کشد: مردمانی که هم در میدان جنگ و هم در دل کوچه‌ها و بازارها، ایران را می‌سازند و حفظ می‌کنند.
+        </p>
+        <p>
+          کتاب حاضر، روایت گوشه‌ای از تلاش‌های مردمانی است که با وفاداری به هویت و فرهنگ خود، حتی در سایه سقوط دولت، تاریخ را ساختند. «بازی سرنوشت»، عنوانی است که نه تنها وقایع تاریخی را بازگو می‌کند، بلکه تلاش می‌کند روحیه، دلاوری و استقامت یک قوم را به تصویر بکشد. این اثر نشان می‌دهد که تاریخ ایران، ساخته انسان‌های معمولی است، نه فقط شاهان و سرداران. انسان‌هایی که در بزنگاه‌های تاریخ، همت و خرد خود را به کار گرفتند تا ایران و فرهنگش زنده بماند.
+        </p>
+
+        <p style="margin-top: 30px; font-weight: 700; color: var(--text);">با احترام<br>حسین محمدی</p>
+      </section>
+
+      <!-- نقل‌قول -->
+      <blockquote class="book-quote">
+        «شاید سرنوشت، بازیِ زمان با انسان باشد؛ اما فراموشی، همیشه پایان ناگزیر این بازی نیست. گاهی یک خاطره، یک نام یا یک پرسش کافی است تا چراغی در تاریکی روشن شود و گذشته، بار دیگر راهی به سوی امروز بگشاید.»
+      </blockquote>
+
+      <!-- مشخصات -->
+      <section class="book-section">
+        <p class="book-section-sub">Details</p>
+        <h2 class="book-section-title">مشخصات کتاب</h2>
+        <dl class="book-specs">
+          <div class="book-spec-item">
+            <dt>نویسنده</dt>
+            <dd>حسین محمدی آمیرزا</dd>
+          </div>
+          <div class="book-spec-item">
+            <dt>موضوع</dt>
+            <dd>تاریخ ایران · زندیه</dd>
+          </div>
+          <div class="book-spec-item">
+            <dt>قالب</dt>
+            <dd>پژوهش تاریخی</dd>
+          </div>
+          <div class="book-spec-item">
+            <dt>زبان</dt>
+            <dd>فارسی</dd>
+          </div>
+        </dl>
+      </section>
+
+      <!-- ناوبری -->
+      <nav class="book-nav" aria-label="ناوبری کتاب‌ها">
+        <a href="tarikh-adyan.html">→ کتاب قبلی: تاریخ ادیان</a>
+        <a href="ghoghnoos-ashegh.html">کتاب بعدی: ققنوس عاشق ←</a>
+      </nav>
+
+    </div>
+  </main>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="site-footer">
+    <div class="container footer-container">
+      <div class="footer-brand">
+        <div class="footer-monogram" aria-hidden="true">ح</div>
+        <div><strong>حسین محمدی آمیرزا</strong><span>نویسنده، شاعر، پژوهشگر تاریخ و فیلمنامه‌نویس</span></div>
+      </div>
+
+      <nav class="footer-nav" aria-label="پیوندهای پایین صفحه">
+        <a href="../index.html#about">درباره من</a>
+        <a href="../index.html#books">کتاب‌ها</a>
+        <a href="../index.html#screenplays">فیلمنامه‌ها</a>
+        <a href="../index.html#series">آثار نمایشی</a>
+        <a href="../index.html#poems">اشعار</a>
+        <a href="../index.html#blog">وبلاگ</a>
+        <a href="../index.html#contact">تماس</a>
+      </nav>
+
+      <div class="footer-bottom">
+        <div><p>© ۱۴۰۵ حسین محمدی آمیرزا</p><p>تمامی حقوق این وب‌سایت محفوظ است.</p></div>
+        <a href="#top" class="footer-top">بازگشت به بالا ↑</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    (function() {
+      "use strict";
+      const body = document.body;
+      const menuToggle = document.getElementById('menuToggle');
+      const mainNavigation = document.getElementById('mainNavigation');
+
+      if (menuToggle && mainNavigation) {
+        menuToggle.addEventListener('click', function() {
+          const isOpen = menuToggle.getAttribute('aria-expanded') === 'true';
+          menuToggle.setAttribute('aria-expanded', String(!isOpen));
+          mainNavigation.classList.toggle('is-open', !isOpen);
+        });
+      }
+    })();
+  </script>
+
+</body>
+</html>
