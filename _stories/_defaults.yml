@@ -1,0 +1,8 @@
+defaults:
+  - scope:
+      path: ""
+      type: stories
+    values:
+      layout: post
+      lang: fa
+      comments: false
