@@ -1,114 +1,148 @@
-<!doctype html>
-<html lang="fa" dir="rtl">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="theme-color" content="#0a0a0c">
-<title>داستانک‌ها | حسین محمدی آمیرزا</title>
-<meta name="description" content="داستانک‌ها و خاطرات کوتاه از حسین محمدی آمیرزا.">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../style.css">
-</head>
-<body>
 
-<header class="site-header">
-  <div class="container nav-wrap">
-    <a class="brand" href="../index.html">
-      <span class="brand-mark">ح‌م‌آ</span>
-      <span class="brand-copy">
-        <strong class="brand-name">حسین محمدی آمیرزا</strong>
-        <small class="brand-caption">داستانک‌ها</small>
-      </span>
-    </a>
-    <button class="menu-toggle" aria-expanded="false" aria-controls="main-nav" aria-label="منو">
-      <span></span><span></span><span></span>
-    </button>
-    <nav class="main-nav" id="main-nav">
-      <a href="../index.html">خانه</a>
-      <a href="../index.html#books">کتاب‌ها</a>
-      <a href="../index.html#screenplays">فیلمنامه‌ها</a>
-      <a href="../index.html#series">سریال‌ها</a>
-      <a href="../index.html#poetry">شعر</a>
-      <a href="index.html" aria-current="page">داستانک‌ها</a>
-      <a href="../index.html#blog">وبلاگ</a>
-      <a href="../index.html#contact" class="nav-cta">تماس</a>
-    </nav>
+---
+layout: default
+title: "داستانک‌ها"
+description: "داستانک‌ها و خاطرات کوتاه از حسین محمدی آمیرزا."
+permalink: /stories/
+---
+
+{%- assign story_items = site.stories | sort: "date" | reverse -%}
+{%- assign total = story_items.size -%}
+
+<section class="page-hero" aria-labelledby="stories-heading">
+  <div class="container">
+
+    <p class="eyebrow">روایت‌های کوتاه</p>
+
+    <h1 id="stories-heading" class="page-title">
+      داستانک‌ها و <em>خاطرات</em>
+    </h1>
+
+    <p class="page-lead">
+      قصه‌های کوتاه از انسان، زندگی و لحظه‌هایی که می‌مانند.
+    </p>
+
+    <p class="stories-count" aria-live="polite">
+      {{ total }} داستانک منتشر شده
+    </p>
+
   </div>
-</header>
+</section>
 
-<main>
+<section class="section" aria-labelledby="stories-heading">
+  <div class="container">
 
-  <section class="page-hero">
-    <div class="container">
-      <p class="eyebrow">روایت‌های کوتاه</p>
-      <h1 class="page-title">داستانک‌ها و <em>خاطرات</em></h1>
-      <p class="page-lead">قصه‌های کوتاه از انسان، زندگی و لحظه‌هایی که می‌مانند.</p>
-    </div>
-  </section>
+    {%- if total > 0 -%}
 
-  <section class="section">
-    <div class="container">
-      <div id="stories-list" class="stories-list"></div>
-      <p id="stories-empty" class="stories-empty" hidden>هنوز داستانی منتشر نشده است.</p>
-    </div>
-  </section>
+      <ol
+        class="stories-list"
+        role="list"
+        aria-label="فهرست داستانک‌های منتشرشده"
+      >
 
-</main>
+        {%- for story in story_items -%}
 
-<footer class="site-footer">
-  <div class="container footer-inner">
-    <a class="footer-brand" href="../index.html">حسین محمدی آمیرزا</a>
-    <p class="footer-tag">روایت انسان، در امتداد تاریخ</p>
-    <p class="footer-copy">© <span id="year">2026</span> تمامی حقوق محفوظ است.</p>
+          {%- assign num = forloop.index | prepend: "000" | slice: -3, 3 -%}
+
+          {%- assign summary = story.excerpt | default: story.description | strip_html | normalize_whitespace | strip -%}
+
+          {%- assign has_summary = false -%}
+          {%- if summary != "" -%}
+            {%- assign has_summary = true -%}
+          {%- endif -%}
+
+          {%- assign reading_time = story.reading_time | default: 0 -%}
+
+          {%- if reading_time <= 0 -%}
+            {%- assign word_count = story.content | strip_html | number_of_words -%}
+            {%- assign reading_time = word_count | divided_by: 200.0 | ceil -%}
+          {%- endif -%}
+
+          {%- if reading_time < 1 -%}
+            {%- assign reading_time = 1 -%}
+          {%- endif -%}
+
+          {%- assign has_date = false -%}
+          {%- if story.date -%}
+            {%- assign has_date = true -%}
+            {%- assign story_date = story.date | date: "%Y-%m-%d" -%}
+            {%- assign date_display = story.date | date: "%Y/%m/%d" -%}
+          {%- endif -%}
+
+          <li class="stories-item">
+
+            <a
+              class="story-card"
+              href="{{ story.url | relative_url }}"
+              aria-labelledby="story-title-{{ forloop.index }}"
+              {% if has_summary %}
+                aria-describedby="story-excerpt-{{ forloop.index }}"
+              {% endif %}
+            >
+
+              <span class="story-num" aria-hidden="true">
+                {{ num }}
+              </span>
+
+              <div class="story-body">
+
+                <h2
+                  id="story-title-{{ forloop.index }}"
+                  class="story-title"
+                >
+                  {{ story.title | escape }}
+                </h2>
+
+                {%- if has_summary -%}
+                  <p
+                    id="story-excerpt-{{ forloop.index }}"
+                    class="story-excerpt"
+                  >
+                    {{ summary | truncate: 170 | escape }}
+                  </p>
+                {%- endif -%}
+
+                <div class="story-meta">
+
+                  {%- if has_date -%}
+                    <time
+                      class="story-date"
+                      datetime="{{ story_date }}"
+                    >
+                      {{ date_display }}
+                    </time>
+                  {%- endif -%}
+
+                  <span class="story-reading-time">
+                    <span aria-hidden="true">◷</span>
+                    <span>
+                      {{ reading_time }} دقیقه مطالعه
+                    </span>
+                  </span>
+
+                </div>
+
+              </div>
+
+              <span class="story-arrow" aria-hidden="true">
+                ←
+              </span>
+
+            </a>
+
+          </li>
+
+        {%- endfor -%}
+
+      </ol>
+
+    {%- else -%}
+
+      <p class="stories-empty" role="status">
+        هنوز داستانی منتشر نشده است. به‌زودی...
+      </p>
+
+    {%- endif -%}
+
   </div>
-</footer>
-
-<script src="posts.js"></script>
-<script>
-  (function () {
-    var list = document.getElementById("stories-list");
-    var empty = document.getElementById("stories-empty");
-    var yearEl = document.getElementById("year");
-    var menuButton = document.querySelector(".menu-toggle");
-    var mainNav = document.querySelector("#main-nav");
-
-    if (yearEl) yearEl.textContent = new Date().getFullYear();
-
-    if (menuButton && mainNav) {
-      menuButton.addEventListener("click", function () {
-        var open = menuButton.getAttribute("aria-expanded") === "true";
-        menuButton.setAttribute("aria-expanded", String(!open));
-        mainNav.classList.toggle("is-open", !open);
-      });
-    }
-
-    if (!list) return;
-
-    var items = (typeof stories !== "undefined" && Array.isArray(stories)) ? stories : [];
-
-    if (!items.length) {
-      if (empty) empty.hidden = false;
-      return;
-    }
-
-    items.forEach(function (story) {
-      var card = document.createElement("a");
-      card.className = "story-card";
-      card.href = "story.html?id=" + encodeURIComponent(story.id);
-      card.innerHTML =
-        '<span class="story-num">' + story.id + '</span>' +
-        '<div class="story-body">' +
-          '<h2 class="story-title">' + story.title + '</h2>' +
-          '<p class="story-excerpt">' + story.excerpt + '</p>' +
-          '<span class="story-date">' + story.date + '</span>' +
-        '</div>' +
-        '<span class="story-arrow">←</span>';
-      list.appendChild(card);
-    });
-  })();
-</script>
-
-</body>
-</html>
+</section>
