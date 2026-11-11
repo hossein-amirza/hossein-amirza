@@ -1,4 +1,3 @@
-
 ---
 layout: default
 ---
@@ -25,161 +24,218 @@ layout: default
     {% assign collection_url = "/series/" %}
 {% endcase %}
 
-<article class="literary-page" lang="fa" dir="rtl"
-         itemscope itemtype="https://schema.org/CreativeWork">
+<div class="literary-shell">
+  <article class="literary-page" lang="fa" dir="rtl"
+           itemscope itemtype="https://schema.org/CreativeWork">
 
-  <nav class="literary-nav" aria-label="مسیر صفحه">
-    <a href="{{ collection_url | relative_url }}">
-      <span aria-hidden="true">←</span>
-      بازگشت به {{ collection_title | escape }}
-    </a>
-    <span>{{ collection_title | escape }}</span>
-  </nav>
+    <nav class="literary-nav" aria-label="مسیر صفحه">
+      <a href="{{ collection_url | relative_url }}">
+        <span aria-hidden="true">←</span>
+        بازگشت به {{ collection_title | escape }}
+      </a>
+      <span class="literary-nav-current">{{ collection_title | escape }}</span>
+    </nav>
 
-  <header class="literary-header">
-    <p class="literary-eyebrow">دفتر روایت‌ها</p>
+    <header class="literary-header">
+      <p class="literary-eyebrow">دفتر روایت‌ها</p>
 
-    <h1 class="literary-title" itemprop="name">
-      {{ page.title | escape }}
-    </h1>
+      <h1 class="literary-title" itemprop="name">
+        {{ page.title | escape }}
+      </h1>
 
-    {% if page.subtitle %}
-      <p class="literary-subtitle">
-        {{ page.subtitle | escape }}
-      </p>
-    {% endif %}
-
-    <div class="literary-meta">
-      {% if page.author %}
-        <span itemprop="author" itemscope itemtype="https://schema.org/Person">
-          <span class="meta-label">نویسنده</span>
-          <span itemprop="name">{{ page.author | escape }}</span>
-        </span>
+      {% if page.subtitle %}
+        <p class="literary-subtitle">{{ page.subtitle | escape }}</p>
       {% endif %}
 
-      {% if page.date %}
-        <span>
-          <span class="meta-label">تاریخ انتشار</span>
-          <time datetime="{{ page.date | date: '%Y-%m-%d' }}">
-            {{ page.date | date: "%Y/%m/%d" }}
-          </time>
-        </span>
-      {% endif %}
-    </div>
+      <div class="literary-meta">
+        {% if page.author %}
+          <span itemprop="author" itemscope itemtype="https://schema.org/Person">
+            <span class="meta-label">نویسنده</span>
+            <span itemprop="name">{{ page.author | escape }}</span>
+          </span>
+        {% endif %}
 
-    <div class="literary-ornament" aria-hidden="true">
-      <span></span><b>✦</b><span></span>
-    </div>
-  </header>
+        {% if page.date %}
+          <span>
+            <span class="meta-label">تاریخ انتشار</span>
+            <time datetime="{{ page.date | date: '%Y-%m-%d' }}">
+              {{ page.date | date: "%Y/%m/%d" }}
+            </time>
+          </span>
+        {% endif %}
+      </div>
 
-  {% if page.image %}
-    <figure class="literary-cover" itemprop="image">
-      <img
-        src="{{ page.image | relative_url }}"
-        alt="{{ page.image_alt | default: page.title | escape }}"
-        loading="eager"
-        decoding="async">
-      {% if page.image_caption %}
-        <figcaption>{{ page.image_caption | escape }}</figcaption>
+      <div class="literary-ornament" aria-hidden="true">
+        <span></span><b>✦</b><span></span>
+      </div>
+    </header>
+
+    {# ── جای تصویر شاخص (بعداً page.image را ست کنید) ── #}
+    <figure class="literary-cover{% unless page.image %} is-empty{% endunless %}" itemprop="image">
+      {% if page.image %}
+        <img
+          src="{{ page.image | relative_url }}"
+          alt="{{ page.image_alt | default: page.title | escape }}"
+          loading="eager"
+          decoding="async">
+        {% if page.image_caption %}
+          <figcaption>{{ page.image_caption | escape }}</figcaption>
+        {% endif %}
+      {% else %}
+        <div class="literary-cover-placeholder" aria-hidden="true">
+          <span>✦</span>
+          <small>تصویر شاخص این اثر</small>
+        </div>
       {% endif %}
     </figure>
-  {% endif %}
 
-  {% if page.excerpt %}
-    <div class="literary-intro">
-      {{ page.excerpt }}
+    {% if page.excerpt %}
+      <div class="literary-intro">{{ page.excerpt }}</div>
+    {% endif %}
+
+    <div class="literary-content" itemprop="text">
+      {{ content }}
     </div>
-  {% endif %}
 
-  <div class="literary-content" itemprop="text">
-    {{ content }}
-  </div>
+    <footer class="literary-footer">
+      <div class="literary-ornament" aria-hidden="true">
+        <span></span><b>❧</b><span></span>
+      </div>
+      <p>پایان یک روایت، آغاز ماندگاری آن در خاطر است.</p>
+      <a class="literary-return" href="{{ collection_url | relative_url }}">
+        بازگشت به {{ collection_title | escape }}
+      </a>
+    </footer>
 
-  <footer class="literary-footer">
-    <div class="literary-ornament" aria-hidden="true">
-      <span></span><b>❧</b><span></span>
-    </div>
-    <p>پایان یک روایت، آغاز ماندگاری آن در خاطر است.</p>
-    <a class="literary-return" href="{{ collection_url | relative_url }}">
-      بازگشت به {{ collection_title | escape }}
-    </a>
-  </footer>
-
-</article>
+  </article>
+</div>
 
 <style>
-.literary-page {
-  --gold: #c9a66b;
-  --gold-light: #e7d2a7;
-  --ink: #eee7dc;
-  --muted: #b9ad9b;
-  --line: rgba(201,166,107,.35);
+/* ═══════════════════════════════════════
+   متغیرها
+   ═══════════════════════════════════════ */
+.literary-shell {
+  --gold: #d4af6e;
+  --gold-light: #f0dcb0;
+  --gold-deep: #a9863f;
+  --ink: #f1e9db;
+  --muted: #b8ab94;
+  --line: rgba(212,175,110,.28);
+  --line-strong: rgba(212,175,110,.55);
+  --bg-base: #14100c;
+  --bg-warm: #1c1610;
+  --card-bg: rgba(255,255,255,.022);
 
-  width: min(100% - 36px, 1050px);
-  margin: 48px auto 90px;
-  padding: 20px clamp(8px, 4vw, 48px) 45px;
-  color: var(--ink);
+  /* پس‌زمینهٔ هنری: گرادیان گرم + بافت کاغذ + هالهٔ طلایی */
+  background:
+    radial-gradient(1200px 600px at 80% -10%, rgba(212,175,110,.10), transparent 60%),
+    radial-gradient(900px 500px at 10% 110%, rgba(212,175,110,.07), transparent 65%),
+    repeating-linear-gradient(
+      0deg,
+      rgba(255,255,255,.012) 0px,
+      rgba(255,255,255,.012) 1px,
+      transparent 1px,
+      transparent 3px
+    ),
+    linear-gradient(180deg, var(--bg-warm), var(--bg-base) 65%);
+  padding: clamp(20px, 4vw, 60px) 0 clamp(40px, 6vw, 90px);
   font-family: "Vazirmatn", sans-serif;
-  direction: rtl;
-  line-height: 2.5;
 }
 
-/* مسیر بازگشت */
+/* ═══════════════════════════════════════
+   قاب اصلی صفحه
+   ═══════════════════════════════════════ */
+.literary-page {
+  width: min(100% - 32px, 1050px);
+  margin: 0 auto;
+  padding: clamp(18px, 3vw, 38px) clamp(14px, 4vw, 56px) 48px;
+  color: var(--ink);
+  direction: rtl;
+  line-height: 2.5;
+  background:
+    linear-gradient(180deg, rgba(255,255,255,.02), rgba(255,255,255,.005));
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  box-shadow:
+    0 30px 70px -30px rgba(0,0,0,.75),
+    inset 0 1px 0 rgba(255,255,255,.04);
+  position: relative;
+}
 
+/* قاب دوتایی طلایی گوشه‌ها */
+.literary-page::before {
+  content: "";
+  position: absolute;
+  inset: 8px;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  pointer-events: none;
+  opacity: .55;
+}
+
+/* ═══════════════════════════════════════
+   نوار مسیر
+   ═══════════════════════════════════════ */
 .literary-nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
   gap: 15px;
   padding-bottom: 16px;
-  border-bottom: 1px solid var(--line);
+  border-bottom: 2px solid var(--line-strong);
   color: var(--muted);
   font-size: .85rem;
+  letter-spacing: .02em;
 }
+.literary-nav-current { opacity: .6; }
 
 .literary-nav a,
 .literary-return {
   color: var(--gold);
   text-decoration: none;
+  transition: color .2s ease, transform .2s ease;
 }
-
 .literary-nav a:hover,
 .literary-return:hover {
   color: var(--gold-light);
 }
 
-/* عنوان */
-
+/* ═══════════════════════════════════════
+   هدر و تیتر نستعلیق
+   ═══════════════════════════════════════ */
 .literary-header {
-  max-width: 900px;
+  max-width: 880px;
   margin: 0 auto;
-  padding: clamp(45px, 8vw, 85px) 0 15px;
+  padding: clamp(40px, 7vw, 80px) 0 10px;
   text-align: center;
 }
 
 .literary-eyebrow {
-  margin: 0 0 20px;
+  margin: 0 0 18px;
   color: var(--gold);
   font-size: .9rem;
-  letter-spacing: .12em;
+  letter-spacing: .14em;
+  text-transform: uppercase;
 }
 
 .literary-title {
   margin: 0 auto;
   color: var(--gold-light);
   font-family: "Noto Nastaliq Urdu", "Vazirmatn", serif;
-  font-size: clamp(2.1rem, 5.5vw, 4rem);
+  font-size: clamp(2rem, 5.6vw, 4.1rem);
   font-weight: 600;
-  line-height: 2.25;
+  line-height: 2.2;
   text-wrap: balance;
+  text-shadow: 0 2px 30px rgba(212,175,110,.18);
 }
 
 .literary-subtitle {
   max-width: 720px;
   margin: 18px auto 0;
   color: var(--muted);
+  font-family: "Noto Nastaliq Urdu", "Vazirmatn", serif;
   font-size: 1.05rem;
-  line-height: 2.2;
+  line-height: 2.3;
 }
 
 .literary-meta {
@@ -190,264 +246,286 @@ layout: default
   margin-top: 30px;
   font-size: .88rem;
 }
-
 .literary-meta > span {
   display: inline-flex;
   gap: 9px;
   align-items: baseline;
 }
+.meta-label { color: var(--gold); font-size: .8rem; }
 
-.meta-label {
-  color: var(--gold);
-  font-size: .8rem;
-}
-
+/* زینت */
 .literary-ornament {
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 17px;
-  margin: 38px auto;
+  margin: 36px auto;
   color: var(--gold);
 }
-
 .literary-ornament span {
   width: min(24%, 145px);
-  height: 1px;
+  height: 2px;
   background: linear-gradient(to left, transparent, var(--gold));
+  border-radius: 2px;
 }
-
 .literary-ornament b {
   font-size: 1.2rem;
   font-weight: 400;
+  text-shadow: 0 0 18px rgba(212,175,110,.5);
 }
 
-/* تصویر شاخص */
-
+/* ═══════════════════════════════════════
+   جای تصویر شاخص
+   ═══════════════════════════════════════ */
 .literary-cover {
-  width: min(100%, 900px);
-  margin: 30px auto 55px;
+  width: min(100%, 880px);
+  margin: 26px auto 52px;
   text-align: center;
 }
-
 .literary-cover img {
   display: block;
   width: 100%;
-  max-height: 590px;
+  max-height: 580px;
   object-fit: cover;
   object-position: center;
-  box-shadow: 0 18px 45px rgba(0,0,0,.22);
+  border-radius: 10px;
+  border: 1px solid var(--line-strong);
+  box-shadow: 0 22px 55px -18px rgba(0,0,0,.8);
 }
-
 .literary-cover figcaption {
   margin-top: 12px;
   color: var(--muted);
   font-size: .82rem;
 }
 
-/* مقدمه */
+/* حالت خالی: کادر هنری تا وقتی تصویر اضافه نشده */
+.literary-cover-placeholder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  height: clamp(200px, 34vw, 300px);
+  border: 1.5px dashed var(--line-strong);
+  border-radius: 12px;
+  background:
+    radial-gradient(circle at center, rgba(212,175,110,.08), transparent 70%),
+    repeating-linear-gradient(
+      45deg,
+      rgba(212,175,110,.04) 0 10px,
+      transparent 10px 20px
+    );
+  color: var(--gold);
+  opacity: .8;
+}
+.literary-cover-placeholder span { font-size: 1.6rem; }
+.literary-cover-placeholder small { color: var(--muted); font-size: .8rem; }
 
+/* ═══════════════════════════════════════
+   مقدمه
+   ═══════════════════════════════════════ */
 .literary-intro {
-  max-width: 790px;
-  margin: 45px auto 55px;
-  padding: 4px 25px 4px 0;
-  border-right: 2px solid var(--gold);
+  max-width: 800px;
+  margin: 44px auto 54px;
+  padding: 6px 26px 6px 0;
+  border-right: 3px solid var(--gold);
   color: var(--gold-light);
   font-family: "Noto Nastaliq Urdu", "Vazirmatn", serif;
   font-size: 1.15rem;
   line-height: 2.8;
+  background: linear-gradient(to left, rgba(212,175,110,.06), transparent);
+  border-radius: 4px 0 0 4px;
 }
 
-/* متن اصلی */
-
+/* ═══════════════════════════════════════
+   متن اصلی — هر پاراگراف مشخص
+   ═══════════════════════════════════════ */
 .literary-content {
-  max-width: 790px;
+  max-width: 800px;
   margin: 0 auto;
   color: var(--ink);
   font-size: clamp(1rem, 1.35vw, 1.12rem);
-  line-height: 2.8;
+  line-height: 2.85;
   text-align: justify;
   text-justify: inter-word;
   overflow-wrap: break-word;
 }
 
+/* هر پاراگراف یک کارت با نوار طلایی */
 .literary-content p {
-  margin: 0 0 2em;
-  padding: 0;
-  text-indent: 1.35em;
-  line-height: 2.8;
+  position: relative;
+  margin: 0 0 1.5em;
+  padding: 16px 20px 16px 18px;
+  border-radius: 8px;
+  background: var(--card-bg);
+  border: 1px solid transparent;
+  border-right: 3px solid var(--gold-deep);
+  transition: background .25s ease, border-color .25s ease, transform .25s ease;
+}
+.literary-content p::marker { content: ""; }
+
+.literary-content p:hover {
+  background: rgba(212,175,110,.055);
+  border-right-color: var(--gold);
+  transform: translateX(-2px);
 }
 
-.literary-content p + p {
-  margin-top: .35em;
-}
-
+/* پاراگراف اول: برجسته‌تر */
 .literary-content > p:first-child {
   color: var(--gold-light);
   font-size: 1.13em;
+  border-right-width: 4px;
+  background: linear-gradient(to left, rgba(212,175,110,.09), rgba(212,175,110,.02));
 }
 
-/* تیترهای داخل اثر */
-
+/* ═══════════════════════════════════════
+   سرتیترهای داخل متن (نستعلیق)
+   ═══════════════════════════════════════ */
 .literary-content h2,
 .literary-content h3,
 .literary-content h4 {
   color: var(--gold-light);
   font-family: "Noto Nastaliq Urdu", "Vazirmatn", serif;
   font-weight: 600;
-  line-height: 2.4;
-  margin: 2.5em 0 1em;
+  line-height: 2.3;
+  margin: 2.4em 0 .9em;
   text-align: right;
   text-wrap: balance;
 }
-
 .literary-content h2 {
-  font-size: 1.8rem;
+  font-size: 1.85rem;
   padding-bottom: 12px;
-  border-bottom: 1px solid var(--line);
+  border-bottom: 2px solid var(--line-strong);
 }
+.literary-content h3 { font-size: 1.5rem; }
+.literary-content h4 { font-size: 1.25rem; }
 
-.literary-content h3 {
-  font-size: 1.5rem;
-}
-
-.literary-content h4 {
-  font-size: 1.25rem;
-}
-
-/* نقل‌قول */
-
+/* ═══════════════════════════════════════
+   نقل‌قول
+   ═══════════════════════════════════════ */
 .literary-content blockquote {
-  margin: 2.6em 0;
-  padding: 20px 28px;
-  border-right: 2px solid var(--gold);
+  margin: 2.4em 0;
+  padding: 22px 28px;
+  border-right: 3px solid var(--gold);
+  border-radius: 8px;
   color: var(--gold-light);
-  background: rgba(201,166,107,.055);
+  background: rgba(212,175,110,.06);
   font-family: "Noto Nastaliq Urdu", "Vazirmatn", serif;
   font-size: 1.1rem;
   line-height: 2.7;
 }
-
-.literary-content blockquote p:last-child {
-  margin-bottom: 0;
+.literary-content blockquote p {
+  margin-bottom: 1em;
+  padding: 0;
+  background: none;
+  border: 0;
+  transform: none;
 }
+.literary-content blockquote p:last-child { margin-bottom: 0; }
 
-/* تصاویر داخل متن */
-
+/* ═══════════════════════════════════════
+   تصاویر، فهرست، پیوند، جداکننده
+   ═══════════════════════════════════════ */
 .literary-content img {
   display: block;
   max-width: 100%;
   height: auto;
   margin: 38px auto;
+  border-radius: 8px;
+  border: 1px solid var(--line);
 }
-
-/* فهرست و پیوند */
 
 .literary-content ul,
 .literary-content ol {
   padding-right: 30px;
   margin: 1.5em 0;
 }
-
 .literary-content li {
   margin-bottom: .7em;
+  line-height: 2.6;
 }
-
 .literary-content a {
   color: var(--gold-light);
   text-decoration: underline;
   text-underline-offset: 5px;
+  text-decoration-thickness: 1px;
 }
+.literary-content a:hover { color: #fff; }
 
 .literary-content hr {
-  width: 85px;
-  margin: 45px auto;
+  width: 100px;
+  margin: 48px auto;
   border: 0;
-  border-top: 1px solid var(--gold);
+  height: 2px;
+  background: linear-gradient(to left, transparent, var(--gold), transparent);
 }
 
-/* پایان اثر */
-
+/* ═══════════════════════════════════════
+   پایان اثر
+   ═══════════════════════════════════════ */
 .literary-footer {
-  max-width: 790px;
-  margin: 65px auto 0;
+  max-width: 800px;
+  margin: 60px auto 0;
   text-align: center;
 }
-
 .literary-footer > p {
   margin: 0 0 22px;
   color: var(--muted);
   font-family: "Noto Nastaliq Urdu", "Vazirmatn", serif;
   font-size: 1rem;
 }
-
 .literary-return {
   display: inline-block;
-  padding: 8px 22px;
-  border: 1px solid var(--line);
+  padding: 9px 26px;
+  border: 1px solid var(--line-strong);
+  border-radius: 999px;
   font-size: .88rem;
+  transition: background .2s ease, color .2s ease, border-color .2s ease;
+}
+.literary-return:hover {
+  background: rgba(212,175,110,.12);
+  border-color: var(--gold);
 }
 
-/* موبایل */
-
+/* ═══════════════════════════════════════
+   موبایل
+   ═══════════════════════════════════════ */
 @media (max-width: 600px) {
   .literary-page {
-    width: calc(100% - 24px);
-    margin: 20px auto 50px;
-    padding: 12px 3px 30px;
+    width: calc(100% - 16px);
+    padding: 14px 10px 32px;
+    border-radius: 14px;
   }
-
-  .literary-header {
-    padding-top: 38px;
-  }
-
+  .literary-header { padding-top: 34px; }
   .literary-title {
-    font-size: clamp(1.85rem, 7vw, 2.35rem);
-    line-height: 2.3;
+    font-size: clamp(1.8rem, 7vw, 2.4rem);
+    line-height: 2.25;
   }
-
-  .literary-meta {
-    gap: 10px 18px;
-    font-size: .8rem;
-  }
-
+  .literary-meta { gap: 10px 18px; font-size: .8rem; }
   .literary-content {
     font-size: 1rem;
-    line-height: 2.65;
+    line-height: 2.7;
     text-align: right;
   }
-
   .literary-content p {
-    line-height: 2.65;
-    margin-bottom: 1.8em;
-    text-indent: 1em;
+    padding: 13px 14px;
+    line-height: 2.7;
+    margin-bottom: 1.2em;
   }
-
-  .literary-content h2 {
-    font-size: 1.5rem;
-  }
-
-  .literary-intro {
-    padding-right: 16px;
-    font-size: 1rem;
-  }
-
-  .literary-cover {
-    margin: 25px auto 40px;
-  }
-
-  .literary-content blockquote {
-    padding: 15px 18px;
-  }
+  .literary-content h2 { font-size: 1.5rem; }
+  .literary-intro { padding-right: 16px; font-size: 1rem; }
+  .literary-cover { margin: 22px auto 38px; }
+  .literary-content blockquote { padding: 16px 18px; }
 }
 
-/* دسترسی‌پذیری */
-
+/* ═══════════════════════════════════════
+   دسترسی‌پذیری
+   ═══════════════════════════════════════ */
 .literary-page a:focus-visible {
   outline: 2px solid var(--gold-light);
   outline-offset: 5px;
+  border-radius: 4px;
 }
-
 @media (prefers-reduced-motion: reduce) {
   .literary-page *,
   .literary-page *::before,
@@ -458,37 +536,38 @@ layout: default
   }
 }
 
-/* چاپ */
-
+/* ═══════════════════════════════════════
+   چاپ
+   ═══════════════════════════════════════ */
 @media print {
+  .literary-shell { background: #fff; padding: 0; }
   .literary-page {
     width: 100%;
     margin: 0;
     padding: 0;
+    border: 0;
+    box-shadow: none;
     color: #222;
+    background: #fff;
   }
-
+  .literary-page::before { display: none; }
   .literary-nav,
-  .literary-footer {
-    display: none;
-  }
+  .literary-footer,
+  .literary-cover-placeholder { display: none; }
 
   .literary-title,
   .literary-content,
   .literary-content h2,
   .literary-content h3,
   .literary-content blockquote,
-  .literary-intro {
-    color: #222;
-  }
+  .literary-intro { color: #222; }
 
-  .literary-content {
-    font-size: 12pt;
-    line-height: 2.2;
+  .literary-content { font-size: 12pt; line-height: 2.2; }
+  .literary-content p {
+    background: none;
+    border-right-color: #999;
+    padding: 0 10px 0 0;
   }
-
-  .literary-cover img {
-    box-shadow: none;
-  }
+  .literary-cover img { box-shadow: none; }
 }
 </style>
