@@ -1,0 +1,436 @@
+
+---
+layout: default
+---
+
+{% assign collection_name = page.collection | default: "" %}
+
+{% assign collection_title = "آثار" %}
+{% assign collection_url = "/" %}
+
+{% case collection_name %}
+  {% when "stories" %}
+    {% assign collection_title = "داستانک‌ها" %}
+    {% assign collection_url = "/stories/" %}
+  {% when "poetry" %}
+    {% assign collection_title = "شعرها" %}
+    {% assign collection_url = "/poetry/" %}
+  {% when "books" %}
+    {% assign collection_title = "کتاب‌ها" %}
+    {% assign collection_url = "/books/" %}
+  {% when "screenplays" %}
+    {% assign collection_title = "فیلمنامه‌ها" %}
+    {% assign collection_url = "/screenplays/" %}
+  {% when "series" %}
+    {% assign collection_title = "مجموعه‌های نمایشی" %}
+    {% assign collection_url = "/series/" %}
+{% endcase %}
+
+<article class="work-page">
+
+  <div class="work-topline">
+    <a class="work-back" href="{{ collection_url | relative_url }}">
+      <span aria-hidden="true">←</span>
+      بازگشت به {{ collection_title }}
+    </a>
+
+    <span class="work-category">{{ collection_title }}</span>
+  </div>
+
+  <header class="work-header">
+
+    <div class="work-heading">
+
+      <p class="work-eyebrow">روایت‌ها و نوشته‌ها</p>
+
+      <h1 class="work-title">{{ page.title | escape }}</h1>
+
+      {% if page.subtitle %}
+        <p class="work-subtitle">{{ page.subtitle | escape }}</p>
+      {% endif %}
+
+      <div class="work-meta">
+
+        {% if page.author %}
+          <span class="work-author">
+            <span class="meta-label">نویسنده</span>
+            {{ page.author | escape }}
+          </span>
+        {% endif %}
+
+        {% if page.date %}
+          <span class="work-date">
+            <span class="meta-label">تاریخ انتشار</span>
+            <time datetime="{{ page.date | date: '%Y-%m-%d' }}">
+              {{ page.date | date: "%Y/%m/%d" }}
+            </time>
+          </span>
+        {% endif %}
+
+      </div>
+    </div>
+
+    {% if page.image %}
+      <figure class="work-cover">
+        <img
+          src="{{ page.image | relative_url }}"
+          alt="{{ page.title | escape }}"
+          loading="eager"
+        >
+      </figure>
+    {% endif %}
+
+    <div class="work-title-rule">
+      <span></span>
+    </div>
+
+  </header>
+
+  {% if page.excerpt %}
+    <div class="work-intro">
+      {{ page.excerpt }}
+    </div>
+  {% endif %}
+
+  <div class="work-content">
+    {{ content }}
+  </div>
+
+  <footer class="work-footer">
+
+    <div class="work-end-mark" aria-hidden="true">✦</div>
+
+    <p class="work-end-note">
+      پایان یک روایت، آغاز ماندگاری آن در ذهن است.
+    </p>
+
+    <a class="work-back-bottom" href="{{ collection_url | relative_url }}">
+      بازگشت به {{ collection_title }}
+      <span aria-hidden="true">←</span>
+    </a>
+
+  </footer>
+
+</article>
+
+<style>
+.work-page {
+  --work-bg: #171511;
+  --work-panel: #211d17;
+  --work-ink: #f1e9dc;
+  --work-muted: #b5a995;
+  --work-gold: #c8a66a;
+  --work-border: rgba(200, 166, 106, 0.25);
+
+  width: min(100% - 36px, 900px);
+  margin: 55px auto 90px;
+  color: var(--work-ink);
+  direction: rtl;
+  font-family: "Vazirmatn", sans-serif;
+}
+
+.work-topline {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 35px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--work-border);
+}
+
+.work-back,
+.work-back-bottom {
+  color: var(--work-gold);
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: color 0.2s ease;
+}
+
+.work-back:hover,
+.work-back-bottom:hover {
+  color: var(--work-ink);
+}
+
+.work-back span,
+.work-back-bottom span {
+  display: inline-block;
+  margin-right: 5px;
+}
+
+.work-category {
+  color: var(--work-muted);
+  font-size: 0.8rem;
+  letter-spacing: 0.04em;
+}
+
+.work-header {
+  text-align: center;
+}
+
+.work-heading {
+  max-width: 760px;
+  margin: 0 auto;
+}
+
+.work-eyebrow {
+  margin: 0 0 22px;
+  color: var(--work-gold);
+  font-size: 0.85rem;
+  letter-spacing: 0.08em;
+}
+
+.work-title {
+  margin: 0 auto;
+  color: var(--work-ink);
+  font-size: clamp(2rem, 5vw, 3.4rem);
+  font-weight: 800;
+  line-height: 1.8;
+  letter-spacing: -0.04em;
+}
+
+.work-subtitle {
+  margin: 12px auto 0;
+  color: var(--work-muted);
+  font-size: 1.05rem;
+  line-height: 2;
+}
+
+.work-meta {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 28px;
+  margin-top: 27px;
+  color: var(--work-muted);
+  font-size: 0.88rem;
+}
+
+.work-meta span {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.meta-label {
+  color: var(--work-gold);
+  font-size: 0.78rem;
+}
+
+.work-cover {
+  width: 100%;
+  max-height: 470px;
+  margin: 42px auto 0;
+  overflow: hidden;
+  border: 1px solid var(--work-border);
+  border-radius: 5px;
+  background: var(--work-panel);
+}
+
+.work-cover img {
+  display: block;
+  width: 100%;
+  max-height: 470px;
+  object-fit: cover;
+}
+
+.work-title-rule {
+  display: flex;
+  justify-content: center;
+  margin: 42px 0 48px;
+}
+
+.work-title-rule span {
+  width: 90px;
+  height: 2px;
+  background: var(--work-gold);
+}
+
+.work-intro {
+  margin: 0 auto 38px;
+  padding: 24px 28px;
+  border-right: 3px solid var(--work-gold);
+  background: var(--work-panel);
+  color: var(--work-muted);
+  font-size: 1.05rem;
+  line-height: 2.2;
+}
+
+.work-content {
+  max-width: 720px;
+  margin: 0 auto;
+  color: var(--work-ink);
+  font-size: 1.08rem;
+  font-weight: 400;
+  line-height: 2.6;
+  text-align: justify;
+  overflow-wrap: break-word;
+}
+
+.work-content p {
+  margin: 0 0 1.7em;
+}
+
+.work-content p:first-of-type::first-letter {
+  color: var(--work-gold);
+}
+
+.work-content h2,
+.work-content h3,
+.work-content h4 {
+  margin: 2.5em 0 1em;
+  color: var(--work-gold);
+  font-weight: 700;
+  line-height: 1.9;
+}
+
+.work-content h2 {
+  font-size: 1.65rem;
+}
+
+.work-content h3 {
+  font-size: 1.35rem;
+}
+
+.work-content h4 {
+  font-size: 1.15rem;
+}
+
+.work-content blockquote {
+  margin: 2.5em 0;
+  padding: 20px 25px;
+  border-right: 3px solid var(--work-gold);
+  background: var(--work-panel);
+  color: var(--work-muted);
+  font-size: 1.05rem;
+  line-height: 2.4;
+}
+
+.work-content img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  margin: 35px auto;
+  border-radius: 4px;
+}
+
+.work-content a {
+  color: var(--work-gold);
+  text-decoration: underline;
+  text-underline-offset: 5px;
+}
+
+.work-content a:hover {
+  color: var(--work-ink);
+}
+
+.work-content ul,
+.work-content ol {
+  padding-right: 28px;
+  margin: 1.5em 0;
+}
+
+.work-content li {
+  margin-bottom: 0.7em;
+}
+
+.work-content hr {
+  width: 70px;
+  margin: 45px auto;
+  border: 0;
+  border-top: 1px solid var(--work-gold);
+}
+
+.work-footer {
+  margin-top: 65px;
+  padding-top: 30px;
+  border-top: 1px solid var(--work-border);
+  text-align: center;
+}
+
+.work-end-mark {
+  color: var(--work-gold);
+  font-size: 1.6rem;
+}
+
+.work-end-note {
+  margin: 12px 0 25px;
+  color: var(--work-muted);
+  font-size: 0.9rem;
+}
+
+.work-back-bottom {
+  display: inline-block;
+  padding: 10px 20px;
+  border: 1px solid var(--work-border);
+  border-radius: 3px;
+}
+
+@media (max-width: 600px) {
+  .work-page {
+    width: min(100% - 28px, 900px);
+    margin-top: 30px;
+    margin-bottom: 55px;
+  }
+
+  .work-topline {
+    margin-bottom: 25px;
+  }
+
+  .work-title {
+    font-size: 1.9rem;
+    line-height: 1.9;
+  }
+
+  .work-meta {
+    gap: 12px 20px;
+    font-size: 0.8rem;
+  }
+
+  .work-content {
+    font-size: 1rem;
+    line-height: 2.35;
+    text-align: right;
+  }
+
+  .work-intro {
+    padding: 18px;
+    font-size: 0.95rem;
+  }
+
+  .work-title-rule {
+    margin: 30px 0 35px;
+  }
+}
+
+@media print {
+  .work-page {
+    width: 100%;
+    margin: 0;
+    color: #222;
+  }
+
+  .work-topline,
+  .work-back-bottom,
+  .work-footer {
+    display: none;
+  }
+
+  .work-title,
+  .work-content,
+  .work-content h2,
+  .work-content h3 {
+    color: #222;
+  }
+
+  .work-content {
+    font-size: 12pt;
+    line-height: 2;
+  }
+
+  .work-content blockquote {
+    color: #333;
+    background: transparent;
+  }
+}
+</style>
