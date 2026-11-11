@@ -25,31 +25,30 @@ layout: default
     {%- assign collection_url = "/series/" -%}
 {%- endcase -%}
 
+{%- assign has_cover = false -%}
+{%- if page.image and page.image != "" -%}
+  {%- assign has_cover = true -%}
+{%- endif -%}
+
 <article
-  class="literary-page"
+  class="literary-page{% if has_cover %} has-cover{% else %} no-cover{% endif %}"
   lang="fa"
   dir="rtl"
   itemscope
   itemtype="https://schema.org/CreativeWork"
 >
 
-  <div class="literary-ornament literary-ornament-top" aria-hidden="true">
-    <span>❧</span>
-  </div>
-
-  <nav class="literary-topbar" aria-label="ناوبری اثر">
-    <a class="literary-back" href="{{ collection_url | relative_url }}">
+  <nav class="literary-nav" aria-label="مسیر صفحه">
+    <a href="{{ collection_url | relative_url }}">
       <span aria-hidden="true">←</span>
       بازگشت به {{ collection_title | escape }}
     </a>
-    <span class="literary-category">{{ collection_title | escape }}</span>
+    <span class="nav-current">{{ collection_title | escape }}</span>
   </nav>
 
   <header class="literary-header">
 
-    <div class="literary-symbol" aria-hidden="true">✦</div>
-
-    <p class="literary-kicker">از دفتر روایت‌ها</p>
+    <p class="literary-eyebrow">دفتر روایت‌ها و اندیشه‌ها</p>
 
     <h1 class="literary-title" itemprop="name">
       {{ page.title | escape }}
@@ -64,15 +63,15 @@ layout: default
     <div class="literary-meta">
 
       {% if page.author %}
-        <span itemprop="author" itemscope itemtype="https://schema.org/Person">
-          <small>نویسنده</small>
+        <span class="meta-item" itemprop="author" itemscope itemtype="https://schema.org/Person">
+          <span class="meta-label">نویسنده</span>
           <span itemprop="name">{{ page.author | escape }}</span>
         </span>
       {% endif %}
 
       {% if page.date %}
-        <span>
-          <small>تاریخ نگارش</small>
+        <span class="meta-item">
+          <span class="meta-label">تاریخ انتشار</span>
           <time datetime="{{ page.date | date: '%Y-%m-%d' }}" itemprop="dateCreated">
             {{ page.date | date: "%Y/%m/%d" }}
           </time>
@@ -81,34 +80,51 @@ layout: default
 
     </div>
 
-    <div class="literary-divider" aria-hidden="true">
+    <div class="literary-ornament" aria-hidden="true">
       <span></span>
-      <b>❖</b>
+      <b>✦</b>
       <span></span>
     </div>
 
-    {% if page.image %}
-      <figure class="literary-cover">
-        <div class="literary-cover-inner">
-          <img
-            src="{{ page.image | relative_url }}"
-            {% if page.image_srcset %}
-              srcset="{{ page.image_srcset }}"
-              sizes="(max-width: 760px) 100vw, 760px"
-            {% endif %}
-            {% if page.image_width %}width="{{ page.image_width }}"{% endif %}
-            {% if page.image_height %}height="{{ page.image_height }}"{% endif %}
-            alt="{{ page.title | escape }}"
-            loading="eager"
-            decoding="async"
-            fetchpriority="high"
-            itemprop="image"
-          >
-        </div>
-      </figure>
+  </header>
+
+  <figure class="literary-cover{% unless has_cover %} cover-placeholder{% endunless %}">
+
+    {% if has_cover %}
+
+      <img
+        src="{{ page.image | relative_url }}"
+        {% if page.image_srcset %}
+          srcset="{{ page.image_srcset | escape }}"
+          sizes="(max-width: 760px) 100vw, 1100px"
+        {% endif %}
+        {% if page.image_width %}width="{{ page.image_width }}"{% endif %}
+        {% if page.image_height %}height="{{ page.image_height }}"{% endif %}
+        alt="{{ page.image_alt | default: page.title | escape }}"
+        loading="eager"
+        decoding="async"
+        fetchpriority="high"
+        itemprop="image"
+      >
+
+      {% if page.image_caption %}
+        <figcaption>{{ page.image_caption | escape }}</figcaption>
+      {% endif %}
+
+    {% else %}
+
+      <div class="cover-placeholder-inner" aria-label="جایگاه تصویر شاخص اثر">
+        <span class="placeholder-ornament" aria-hidden="true">❖</span>
+        <span class="placeholder-label">تصویر شاخص روایت</span>
+        <span class="placeholder-title">{{ page.title | escape }}</span>
+        <span class="placeholder-author">
+          {{ page.author | default: site.title | escape }}
+        </span>
+      </div>
+
     {% endif %}
 
-  </header>
+  </figure>
 
   {% if page.excerpt %}
     <div class="literary-intro" itemprop="abstract">
@@ -116,620 +132,692 @@ layout: default
     </div>
   {% endif %}
 
-  <div class="literary-body" itemprop="text">
+  <div class="literary-content" itemprop="text">
     {{ content }}
   </div>
 
   <footer class="literary-footer">
 
-    <div class="literary-divider" aria-hidden="true">
+    <div class="literary-ornament" aria-hidden="true">
       <span></span>
-      <b>✦</b>
+      <b>❧</b>
       <span></span>
     </div>
 
-    <div class="literary-end-symbol" aria-hidden="true">❧</div>
-
-    <p class="literary-closing">
-      هر روایت، پنجره‌ای است رو به جهانی که در خاطر ما زنده می‌ماند.
+    <p class="footer-phrase">
+      پایان یک روایت، آغاز ماندگاری آن در خاطر است.
     </p>
 
-    <a class="literary-back-bottom" href="{{ collection_url | relative_url }}">
+    {% if page.author %}
+      <p class="footer-author">{{ page.author | escape }}</p>
+    {% endif %}
+
+    <a class="literary-return" href="{{ collection_url | relative_url }}">
       بازگشت به {{ collection_title | escape }}
-      <span aria-hidden="true">←</span>
     </a>
 
   </footer>
 
-  <div class="literary-ornament literary-ornament-bottom" aria-hidden="true">
-    <span>❧</span>
-  </div>
-
 </article>
 
 <style>
-/* =====================================================
-   طراحی اختصاصی صفحه اثر
-   همه استایل‌ها محدود به literary-page هستند.
-   ===================================================== */
+/* =========================================================
+   1. طراحی کلی نشریه
+   ========================================================= */
 
 .literary-page {
-  --paper: #211c16;
-  --paper-light: #2a231b;
-  --paper-soft: #332a20;
   --gold: #c9a66b;
-  --gold-light: #e7d0a0;
-  --gold-pale: #f1e2c3;
-  --ink: #f0e8dc;
-  --muted: #c0b29e;
-  --line: rgba(201,166,107,.28);
-  --shadow: rgba(0,0,0,.32);
+  --gold-light: #e9d7b5;
+  --gold-soft: rgba(201,166,107,.15);
+  --ink: #e9e1d5;
+  --muted: #b5a894;
+  --line: rgba(201,166,107,.27);
+  --surface: #17130f;
 
   position: relative;
   isolation: isolate;
-  overflow: hidden;
 
-  width: min(100% - 32px, 1080px);
-  margin: 55px auto 90px;
-  padding: clamp(24px, 5.5vw, 70px);
+  width: min(100% - 36px, 1180px);
+  margin: 25px auto 100px;
+  padding: 0 clamp(12px, 4vw, 55px) 55px;
 
   color: var(--ink);
   direction: rtl;
   font-family: "Vazirmatn", system-ui, sans-serif;
-  line-height: 2;
-
-  background:
-    radial-gradient(ellipse at 50% 0%, rgba(201,166,107,.13), transparent 48%),
-    radial-gradient(ellipse at 0% 100%, rgba(201,166,107,.06), transparent 40%),
-    linear-gradient(145deg, #29231c, #191612 75%);
-
-  border: 1px solid var(--line);
-
-  box-shadow:
-    0 28px 80px var(--shadow),
-    inset 0 0 70px rgba(201,166,107,.025);
+  font-feature-settings: "ss01";
+  line-height: 2.5;
+  -webkit-font-smoothing: antialiased;
+  background: transparent;
 }
 
-/* قاب تزئینی داخلی */
+/* حاشیه ظریف صفحه */
 
-.literary-page::before {
+.literary-page::before,
+.literary-page::after {
   content: "";
   position: absolute;
-  z-index: -1;
-  inset: 12px;
-  border: 1px solid rgba(201,166,107,.10);
   pointer-events: none;
+  width: 35px;
+  height: 35px;
+  opacity: .5;
+}
+
+.literary-page::before {
+  top: 0;
+  right: 0;
+  border-top: 1px solid var(--gold);
+  border-right: 1px solid var(--gold);
 }
 
 .literary-page::after {
-  content: "✦";
-  position: absolute;
-  z-index: -1;
-  left: 50%;
-  bottom: 22px;
-  transform: translateX(-50%);
-  color: rgba(201,166,107,.08);
-  font-size: 120px;
-  pointer-events: none;
+  bottom: 0;
+  left: 0;
+  border-bottom: 1px solid var(--gold);
+  border-left: 1px solid var(--gold);
 }
-
-/* انتخاب متن */
 
 .literary-page ::selection {
   background: var(--gold);
-  color: #211c16;
+  color: #17130f;
 }
 
-/* تزئینات گوشه‌ها */
+/* =========================================================
+   2. مسیر بازگشت
+   ========================================================= */
 
-.literary-ornament {
-  text-align: center;
-  color: var(--gold);
-  font-size: 2rem;
-  opacity: .8;
-  line-height: 1;
-}
-
-.literary-ornament-top {
-  margin-bottom: 20px;
-}
-
-.literary-ornament-bottom {
-  margin-top: 40px;
-  transform: rotate(180deg);
-}
-
-/* نوار بالایی */
-
-.literary-topbar {
+.literary-nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
   gap: 15px;
-  padding-bottom: 18px;
+
+  padding: 8px 0 15px;
   border-bottom: 1px solid var(--line);
+
+  color: var(--muted);
+  font-size: .82rem;
 }
 
-.literary-back,
-.literary-back-bottom {
+.literary-nav a {
   color: var(--gold);
   text-decoration: none;
-  transition: color .25s ease, background .25s ease;
+  transition: color .2s ease;
 }
 
-.literary-back {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  min-height: 44px;
-  font-size: .9rem;
+.literary-nav a span {
+  margin-left: 7px;
 }
 
-.literary-back:hover,
-.literary-back-bottom:hover {
-  color: var(--gold-pale);
+.literary-nav a:hover {
+  color: var(--gold-light);
 }
 
-.literary-category {
-  color: var(--muted);
-  font-size: .85rem;
-}
-
-/* سربرگ اثر */
+/* =========================================================
+   3. عنوان و شناسنامه اثر
+   ========================================================= */
 
 .literary-header {
+  max-width: 930px;
+  margin: 0 auto;
+  padding: clamp(50px, 8vw, 95px) 0 15px;
   text-align: center;
-  padding-top: clamp(35px, 6vw, 65px);
 }
 
-.literary-symbol {
+.literary-eyebrow {
+  margin: 0 0 25px;
   color: var(--gold);
-  font-size: 2.3rem;
-  margin-bottom: 12px;
-  text-shadow: 0 0 25px rgba(201,166,107,.25);
-}
-
-.literary-kicker {
-  margin: 0 0 20px;
-  color: var(--gold);
-  font-size: .9rem;
+  font-size: .85rem;
   letter-spacing: .08em;
 }
 
-.literary-title {
-  max-width: 900px;
-  margin: 0 auto;
+.literary-eyebrow::before,
+.literary-eyebrow::after {
+  content: "✦";
+  margin: 0 13px;
+  opacity: .65;
+}
 
+.literary-title {
+  margin: 0 auto;
   color: var(--gold-light);
+
   font-family: "Noto Nastaliq Urdu", "Vazirmatn", serif;
-  font-size: clamp(2.1rem, 5.7vw, 4rem);
+  font-size: clamp(2.1rem, 5.5vw, 4rem);
   font-weight: 600;
   line-height: 2.25;
 
-  text-shadow:
-    0 3px 15px rgba(0,0,0,.4),
-    0 0 35px rgba(201,166,107,.10);
-
   text-wrap: balance;
+  text-shadow: 0 8px 30px rgba(201,166,107,.16);
 }
 
 .literary-subtitle {
-  max-width: 750px;
-  margin: 18px auto 0;
+  max-width: 760px;
+  margin: 20px auto 0;
   color: var(--muted);
   font-size: 1.05rem;
   line-height: 2.2;
+  text-wrap: balance;
 }
 
 .literary-meta {
   display: flex;
   justify-content: center;
-  align-items: center;
   flex-wrap: wrap;
-  gap: 18px 38px;
+  gap: 12px 35px;
+
   margin-top: 32px;
   color: var(--ink);
-  font-size: .9rem;
+  font-size: .85rem;
 }
 
-.literary-meta span {
+.meta-item {
   display: inline-flex;
-  align-items: baseline;
   gap: 9px;
+  align-items: baseline;
 }
 
-.literary-meta small {
+.meta-label {
   color: var(--gold);
   font-size: .78rem;
 }
 
-/* جداکننده تزئینی */
-
-.literary-divider {
+.literary-ornament {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 18px;
-  margin: 42px auto;
+  gap: 17px;
+  margin: 40px auto;
   color: var(--gold);
 }
 
-.literary-divider span {
-  width: min(25%, 150px);
+.literary-ornament span {
+  width: min(22%, 145px);
   height: 1px;
   background: linear-gradient(to left, transparent, var(--gold));
 }
 
-.literary-divider span:last-child {
+.literary-ornament span:last-child {
   transform: rotate(180deg);
 }
 
-.literary-divider b {
+.literary-ornament b {
   font-size: 1.25rem;
   font-weight: 400;
 }
 
-/* تصویر اثر */
+/* =========================================================
+   4. تصویر شاخص
+   ========================================================= */
 
 .literary-cover {
-  max-width: 780px;
-  margin: 40px auto 0;
-  padding: 9px;
-
-  background: linear-gradient(
-    135deg,
-    #765b35,
-    #e0c58e,
-    #9c7945,
-    #d7bc86
-  );
-
-  box-shadow: 0 20px 50px rgba(0,0,0,.35);
-}
-
-.literary-cover-inner {
-  overflow: hidden;
-  background: var(--paper);
+  position: relative;
+  width: min(100%, 1050px);
+  margin: 35px auto 70px;
+  text-align: center;
 }
 
 .literary-cover img {
   display: block;
   width: 100%;
-  height: auto;
-  max-height: 500px;
+  max-height: 610px;
   object-fit: cover;
-  transition: transform .6s ease;
+  object-position: center;
+
+  border: 1px solid rgba(201,166,107,.32);
+  box-shadow: 0 22px 55px rgba(0,0,0,.28);
 }
 
-@media (hover: hover) {
-  .literary-cover:hover img {
-    transform: scale(1.025);
-  }
+.literary-cover figcaption {
+  margin-top: 13px;
+  color: var(--muted);
+  font-size: .8rem;
 }
 
-/* مقدمه اثر */
+/* جایگاه تصویر در صورت نبود تصویر واقعی */
+
+.cover-placeholder {
+  min-height: 320px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+
+  background:
+    radial-gradient(ellipse at center, rgba(201,166,107,.13), transparent 65%),
+    linear-gradient(135deg, rgba(201,166,107,.045), transparent 60%);
+}
+
+.cover-placeholder-inner {
+  width: 100%;
+  min-height: 320px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 30px;
+}
+
+.placeholder-ornament {
+  color: var(--gold);
+  font-size: 2.3rem;
+  opacity: .8;
+}
+
+.placeholder-label {
+  margin-top: 8px;
+  color: var(--gold);
+  font-size: .75rem;
+  letter-spacing: .08em;
+}
+
+.placeholder-title {
+  max-width: 750px;
+  margin-top: 18px;
+  color: var(--gold-light);
+  font-family: "Noto Nastaliq Urdu", "Vazirmatn", serif;
+  font-size: clamp(1.5rem, 3vw, 2.4rem);
+  line-height: 2.4;
+}
+
+.placeholder-author {
+  margin-top: 8px;
+  color: var(--muted);
+  font-size: .85rem;
+}
+
+/* =========================================================
+   5. پیش درآمد
+   ========================================================= */
 
 .literary-intro {
-  max-width: 820px;
-  margin: 48px auto;
-  padding: 25px 32px;
+  max-width: 790px;
+  margin: 45px auto 65px;
+  padding: 12px 25px 12px 0;
 
-  border-right: 3px solid var(--gold);
-  background:
-    linear-gradient(100deg, rgba(201,166,107,.035), rgba(201,166,107,.12));
+  border-right: 2px solid var(--gold);
+  color: var(--gold-light);
 
-  color: var(--gold-pale);
   font-family: "Noto Nastaliq Urdu", "Vazirmatn", serif;
   font-size: 1.15rem;
-  line-height: 2.7;
+  line-height: 2.8;
+
+  background: linear-gradient(to left, rgba(201,166,107,.07), transparent 65%);
 }
 
-/* متن اصلی */
+/* =========================================================
+   6. ستون اصلی خواندن
+   ========================================================= */
 
-.literary-body {
-  max-width: 800px;
+.literary-content {
+  width: min(100%, 790px);
   margin: 0 auto;
 
   color: var(--ink);
-  font-size: 1.12rem;
-  font-weight: 400;
+  font-size: clamp(1rem, 1.3vw, 1.12rem);
   line-height: 2.85;
+
   text-align: justify;
   text-justify: inter-word;
-  overflow-wrap: break-word;
+  overflow-wrap: anywhere;
+  word-break: normal;
 }
 
-@supports (text-wrap: pretty) {
-  .literary-body p {
-    text-wrap: pretty;
-  }
-}
+.literary-content p {
+  margin: 0 0 1.85em;
+  padding: 0;
 
-.literary-body p {
-  margin: 0 0 1.9em;
   text-indent: 1.4em;
+  line-height: 2.85;
+}
+
+.literary-content p + p {
+  margin-top: .25em;
 }
 
 /* پاراگراف آغازین */
 
-.literary-body > p:first-child {
-  color: var(--gold-pale);
-  font-size: 1.2rem;
-  line-height: 2.9;
-  border-right: 2px solid rgba(201,166,107,.55);
-  padding-right: 20px;
-  margin-bottom: 2.1em;
+.literary-content > p:first-child {
+  color: var(--gold-light);
+  font-size: 1.08em;
 }
 
-/* تیترهای داخل اثر */
+/* متن‌های دارای شکست خط */
 
-.literary-body h2,
-.literary-body h3,
-.literary-body h4 {
+.literary-content br {
+  display: block;
+  content: "";
+  margin-top: .45em;
+}
+
+/* =========================================================
+   7. تیترهای میان متن
+   ========================================================= */
+
+.literary-content h2 {
+  margin: 3.3em 0 1.2em;
+  padding-bottom: 13px;
+
   color: var(--gold-light);
   font-family: "Noto Nastaliq Urdu", "Vazirmatn", serif;
+  font-size: 1.8rem;
   font-weight: 600;
-  line-height: 2.5;
-  margin: 2.7em 0 1.2em;
-  scroll-margin-top: 2em;
-}
+  line-height: 2.4;
 
-.literary-body h2 {
-  font-size: 1.85rem;
-  padding-bottom: 10px;
+  text-align: right;
+  text-wrap: balance;
   border-bottom: 1px solid var(--line);
 }
 
-.literary-body h3 {
-  font-size: 1.55rem;
+.literary-content h2::before {
+  content: "❖";
+  display: block;
+  margin-bottom: 8px;
+  color: var(--gold);
+  font-family: serif;
+  font-size: .65em;
 }
 
-.literary-body h4 {
-  font-size: 1.3rem;
-}
-
-/* نقل قول */
-
-.literary-body blockquote {
-  position: relative;
-  margin: 2.7em 0;
-  padding: 25px 32px;
-
-  border-right: 3px solid var(--gold);
-  background:
-    linear-gradient(100deg, rgba(201,166,107,.04), rgba(201,166,107,.10));
-
-  color: var(--gold-pale);
-  font-family: "Noto Nastaliq Urdu", "Vazirmatn", serif;
-  font-size: 1.15rem;
-  line-height: 2.8;
-}
-
-.literary-body blockquote p:last-child {
-  margin-bottom: 0;
-}
-
-/* پیوندها */
-
-.literary-body a {
+.literary-content h3 {
+  margin: 2.5em 0 1em;
   color: var(--gold-light);
-  text-decoration: underline;
-  text-decoration-thickness: 1px;
-  text-underline-offset: 5px;
+
+  font-family: "Noto Nastaliq Urdu", "Vazirmatn", serif;
+  font-size: 1.45rem;
+  font-weight: 600;
+  line-height: 2.4;
+  text-align: right;
 }
 
-.literary-body a:hover {
+.literary-content h3::before {
+  content: "✦";
+  margin-left: .6em;
   color: var(--gold);
 }
 
-/* تصاویر داخل متن */
+.literary-content h4 {
+  margin: 2em 0 .8em;
+  color: var(--gold-light);
+  font-size: 1.15rem;
+  font-weight: 600;
+}
 
-.literary-body img {
+/* =========================================================
+   8. نقل قول
+   ========================================================= */
+
+.literary-content blockquote {
+  position: relative;
+  margin: 2.8em 0;
+  padding: 22px 28px;
+
+  border-right: 2px solid var(--gold);
+  color: var(--gold-light);
+
+  background: rgba(201,166,107,.045);
+  font-family: "Noto Nastaliq Urdu", "Vazirmatn", serif;
+  font-size: 1.08rem;
+  line-height: 2.7;
+}
+
+.literary-content blockquote::before {
+  content: "❝";
+  position: absolute;
+  top: -17px;
+  right: 13px;
+  color: var(--gold);
+  font-size: 1.8rem;
+  opacity: .7;
+}
+
+.literary-content blockquote p:last-child {
+  margin-bottom: 0;
+}
+
+/* =========================================================
+   9. تصاویر داخل متن
+   ========================================================= */
+
+.literary-content img {
   display: block;
   max-width: 100%;
   height: auto;
-  margin: 38px auto;
+  margin: 40px auto;
+
   border: 1px solid var(--line);
+  box-shadow: 0 15px 35px rgba(0,0,0,.23);
 }
 
-/* فهرست‌ها */
-
-.literary-body ul,
-.literary-body ol {
-  padding-right: 32px;
-  margin: 1.6em 0;
+.literary-content figure {
+  margin: 2.7em 0;
+  text-align: center;
 }
 
-.literary-body li {
-  margin-bottom: .8em;
+.literary-content figure img {
+  margin: 0 auto 12px;
 }
 
-/* جداکننده متن */
+.literary-content figcaption {
+  color: var(--muted);
+  font-size: .8rem;
+  line-height: 2;
+}
 
-.literary-body hr {
+/* =========================================================
+   10. فهرست‌ها و پیوندها
+   ========================================================= */
+
+.literary-content ul,
+.literary-content ol {
+  margin: 1.5em 0;
+  padding-right: 30px;
+}
+
+.literary-content li {
+  margin-bottom: .7em;
+}
+
+.literary-content a {
+  color: var(--gold-light);
+  text-decoration: underline;
+  text-underline-offset: 5px;
+}
+
+.literary-content a:hover {
+  color: var(--gold);
+}
+
+.literary-content hr {
   width: 90px;
   margin: 50px auto;
   border: 0;
   border-top: 1px solid var(--gold);
 }
 
-/* کد و جدول احتمالی */
+/* =========================================================
+   11. کد و جدول
+   ========================================================= */
 
-.literary-body pre,
-.literary-body code {
-  direction: ltr;
-  text-align: left;
-  overflow-wrap: anywhere;
-}
-
-.literary-body pre {
+.literary-content pre {
   max-width: 100%;
   overflow-x: auto;
   padding: 18px;
-  background: var(--paper-light);
+  direction: ltr;
+  text-align: left;
+  background: #100e0b;
   border: 1px solid var(--line);
 }
 
-.literary-body table {
+.literary-content code {
+  font-family: monospace;
+  font-size: .9em;
+}
+
+.literary-content table {
   width: 100%;
   border-collapse: collapse;
-  margin: 30px 0;
+  margin: 2em 0;
+  font-size: .9em;
 }
 
-.literary-body th,
-.literary-body td {
-  padding: 12px;
+.literary-content th,
+.literary-content td {
+  padding: 10px;
   border: 1px solid var(--line);
+  text-align: right;
 }
 
-/* پایان اثر */
+.literary-content th {
+  color: var(--gold-light);
+}
+
+/* =========================================================
+   12. پایان اثر
+   ========================================================= */
 
 .literary-footer {
-  margin-top: 70px;
+  max-width: 790px;
+  margin: 70px auto 0;
   text-align: center;
 }
 
-.literary-end-symbol {
-  color: var(--gold);
-  font-size: 2rem;
-}
-
-.literary-closing {
-  max-width: 650px;
-  margin: 18px auto 30px;
+.footer-phrase {
+  margin: 0 0 10px;
   color: var(--muted);
   font-family: "Noto Nastaliq Urdu", "Vazirmatn", serif;
-  font-size: 1.05rem;
-  line-height: 2.7;
+  font-size: 1rem;
 }
 
-.literary-back-bottom {
-  display: inline-flex;
-  justify-content: center;
-  align-items: center;
-  gap: 8px;
-  min-height: 46px;
-  padding: 10px 26px;
+.footer-author {
+  margin: 0 0 25px;
+  color: var(--gold);
+  font-size: .85rem;
+}
+
+.literary-return {
+  display: inline-block;
+  padding: 8px 23px;
   border: 1px solid var(--line);
-  font-size: .9rem;
+  color: var(--gold);
+  text-decoration: none;
+  font-size: .85rem;
+  transition: background .2s ease, border-color .2s ease;
 }
 
-.literary-back-bottom:hover {
-  background: rgba(201,166,107,.08);
+.literary-return:hover {
   border-color: var(--gold);
+  background: rgba(201,166,107,.06);
 }
 
-/* دسترسی‌پذیری صفحه‌کلید */
-
-.literary-page a:focus-visible {
-  outline: 2px solid var(--gold-light);
-  outline-offset: 5px;
-  border-radius: 2px;
-}
-
-/* موبایل */
+/* =========================================================
+   13. موبایل
+   ========================================================= */
 
 @media (max-width: 600px) {
 
   .literary-page {
-    width: calc(100% - 16px);
-    margin: 20px auto 45px;
-    padding: 22px 17px;
+    width: calc(100% - 24px);
+    margin: 15px auto 50px;
+    padding: 0 5px 35px;
   }
 
-  .literary-page::before {
-    inset: 7px;
+  .literary-page::before,
+  .literary-page::after {
+    width: 20px;
+    height: 20px;
+  }
+
+  .literary-nav {
+    font-size: .75rem;
   }
 
   .literary-header {
-    padding-top: 30px;
+    padding-top: 40px;
   }
 
   .literary-title {
-    font-size: clamp(1.8rem, 7vw, 2.2rem);
-    line-height: 2.35;
-  }
-
-  .literary-kicker {
-    font-size: .82rem;
+    font-size: clamp(1.8rem, 7vw, 2.35rem);
+    line-height: 2.3;
   }
 
   .literary-meta {
-    gap: 15px 20px;
-    font-size: .8rem;
+    gap: 10px 18px;
+    font-size: .77rem;
   }
 
-  .literary-divider {
-    margin: 30px auto;
+  .literary-cover {
+    margin: 25px auto 45px;
   }
 
-  .literary-body {
+  .cover-placeholder,
+  .cover-placeholder-inner {
+    min-height: 235px;
+  }
+
+  .literary-content {
     font-size: 1rem;
-    line-height: 2.55;
+    line-height: 2.7;
     text-align: right;
   }
 
-  .literary-body > p:first-child {
-    font-size: 1.05rem;
-    padding-right: 13px;
+  .literary-content p {
+    margin-bottom: 1.7em;
+    line-height: 2.7;
+    text-indent: 1em;
   }
 
-  .literary-body h2 {
-    font-size: 1.55rem;
+  .literary-content h2 {
+    font-size: 1.5rem;
   }
 
-  .literary-body h3 {
-    font-size: 1.35rem;
+  .literary-content h3 {
+    font-size: 1.3rem;
   }
 
   .literary-intro {
-    padding: 18px;
-    font-size: 1rem;
-    line-height: 2.6;
-  }
-
-  .literary-body blockquote {
-    padding: 18px;
+    padding-right: 16px;
     font-size: 1rem;
   }
 
-  .literary-topbar {
-    gap: 8px;
-    font-size: .8rem;
-  }
-
-  .literary-footer {
-    margin-top: 45px;
+  .literary-content blockquote {
+    padding: 15px 18px;
   }
 }
 
-/* کاهش حرکت برای کاربران حساس به حرکت */
+/* =========================================================
+   14. دسترسی‌پذیری
+   ========================================================= */
+
+.literary-page a:focus-visible {
+  outline: 2px solid var(--gold-light);
+  outline-offset: 5px;
+}
 
 @media (prefers-reduced-motion: reduce) {
   .literary-page *,
   .literary-page *::before,
   .literary-page *::after {
+    animation: none !important;
+    transition: none !important;
     scroll-behavior: auto !important;
-    transition-duration: .01ms !important;
-    animation-duration: .01ms !important;
-    animation-iteration-count: 1 !important;
   }
 }
-
-/* کنتراست بیشتر */
 
 @media (prefers-contrast: more) {
   .literary-page {
-    --muted: #e0d3bd;
+    --muted: #e0d5c5;
     --line: rgba(201,166,107,.6);
   }
 
-  .literary-body {
-    color: #fff8ec;
+  .literary-content {
+    color: #fff8ed;
   }
 }
 
-/* چاپ */
+/* =========================================================
+   15. چاپ
+   ========================================================= */
 
 @media print {
 
@@ -739,48 +827,44 @@ layout: default
     padding: 0;
     color: #222;
     background: white;
-    border: 0;
-    box-shadow: none;
   }
 
   .literary-page::before,
   .literary-page::after,
-  .literary-topbar,
-  .literary-footer,
-  .literary-ornament {
+  .literary-nav,
+  .literary-footer {
     display: none;
   }
 
   .literary-title,
-  .literary-body,
-  .literary-body h2,
-  .literary-body h3,
-  .literary-body h4,
-  .literary-body blockquote,
+  .literary-content,
+  .literary-content h2,
+  .literary-content h3,
+  .literary-content h4,
+  .literary-content blockquote,
   .literary-intro {
     color: #222;
-    background: transparent;
     text-shadow: none;
   }
 
-  .literary-body {
+  .literary-content {
     font-size: 12pt;
     line-height: 2.2;
   }
 
-  .literary-cover {
+  .literary-content p {
+    line-height: 2.2;
+  }
+
+  .literary-intro,
+  .literary-content blockquote {
+    border-right-color: #999;
+    background: none;
+  }
+
+  .literary-cover img,
+  .literary-content img {
     box-shadow: none;
-    background: transparent;
-    padding: 0;
-  }
-
-  .literary-cover img {
-    max-height: none;
-  }
-
-  .literary-body a {
-    color: #222;
-    text-decoration: underline;
   }
 }
 </style>
