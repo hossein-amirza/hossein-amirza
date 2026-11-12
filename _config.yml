@@ -6,10 +6,9 @@ title: "حسین محمدی آمیرزا"
 tagline: "روایت انسان، در امتداد تاریخ"
 description: "وب‌سایت رسمی حسین محمدی آمیرزا؛ نویسنده، شاعر، پژوهشگر تاریخ و فیلمنامه‌نویس"
 
-# برای SEO و پیش‌نمایش شبکه‌های اجتماعی
 keywords: "حسین محمدی آمیرزا, نویسنده, شاعر, پژوهشگر تاریخ, فیلمنامه‌نویس, کتاب, شعر, داستانک, وبلاگ"
-logo: "/assets/images/logo.png"
-image: "/assets/images/og-cover.jpg"
+logo: "/images/hossein-mohammadi.png"
+image: "/images/og-cover.jpg"
 
 lang: "fa"
 locale: "fa_IR"
@@ -17,8 +16,9 @@ timezone: "Asia/Tehran"
 encoding: "utf-8"
 date_format: "%Y/%m/%d"
 
+# ⚠️ مهم: مخزن شما special repository است → سایت در ریشه دامنه منتشر می‌شود
 url: "https://hossein-amirza.github.io"
-baseurl: "/hossein-amirza"
+baseurl: ""
 
 # =====================================================
 # نویسنده
@@ -27,18 +27,10 @@ baseurl: "/hossein-amirza"
 author:
   name: "حسین محمدی آمیرزا"
   bio: "نویسنده، شاعر، پژوهشگر تاریخ و فیلمنامه‌نویس"
-  # در صورت تمایل ایمیل یا آواتار را اضافه کنید:
-  # email: "info@example.com"
-  # avatar: "/assets/images/author.jpg"
 
-# شبکه‌های اجتماعی — در صورت نیاز لینک‌ها را پر کنید
 social:
   name: "حسین محمدی آمیرزا"
   links: []
-  # links:
-  #   - "https://t.me/username"
-  #   - "https://instagram.com/username"
-  #   - "https://twitter.com/username"
 
 # =====================================================
 # منوی اصلی
@@ -47,28 +39,22 @@ social:
 navigation:
   - title: "خانه"
     url: "/"
-
   - title: "درباره من"
     url: "/about/"
-
   - title: "کتاب‌ها"
     url: "/books/"
-
   - title: "فیلمنامه‌ها"
     url: "/screenplays/"
-
+  - title: "نمایشنامه‌ها"
+    url: "/plays/"
   - title: "داستانک‌ها"
     url: "/stories/"
-
   - title: "شعرها"
     url: "/poetry/"
-
   - title: "وبلاگ"
     url: "/blog/"
-
   - title: "مجموعه‌های نمایشی"
     url: "/series/"
-
   - title: "تماس"
     url: "/contact/"
 
@@ -92,8 +78,8 @@ kramdown:
     span:
       line_numbers: false
 
-# آدرس مطالب وبلاگ فعلی حفظ می‌شود
-permalink: /articles/:categories/:title/
+# وبلاگ: آدرس /blog/… (نه /articles/)
+permalink: /blog/:year/:month/:title/
 
 relative_links:
   enabled: true
@@ -107,15 +93,12 @@ future: false
 show_excerpts: true
 excerpt_separator: "<!--more-->"
 
-# صفحه‌بندی استاندارد مطالب وبلاگ
+# صفحه‌بندی وبلاگ
 paginate: 10
-paginate_path: "/page/:num/"
+paginate_path: "/blog/page/:num/"
 
 # =====================================================
-# شش بخش محتوایی
-#
-# وبلاگ از سیستم استاندارد _posts استفاده می‌کند.
-# پنج مجموعه دیگر با پوشه‌های مستقل ساخته می‌شوند.
+# مجموعه‌ها — هر بخش پوشه مستقل خودش
 # =====================================================
 
 collections:
@@ -128,6 +111,11 @@ collections:
   screenplays:
     output: true
     permalink: /screenplays/:name/
+    sort_by: "date"
+
+  plays:
+    output: true
+    permalink: /plays/:name/
     sort_by: "date"
 
   stories:
@@ -151,7 +139,6 @@ collections:
 
 defaults:
 
-  # وبلاگ
   - scope:
       path: ""
       type: posts
@@ -161,7 +148,6 @@ defaults:
       comments: false
       share: true
 
-  # کتاب‌ها
   - scope:
       path: ""
       type: books
@@ -170,7 +156,6 @@ defaults:
       lang: fa
       comments: false
 
-  # فیلمنامه‌ها
   - scope:
       path: ""
       type: screenplays
@@ -179,7 +164,14 @@ defaults:
       lang: fa
       comments: false
 
-  # داستانک‌ها
+  - scope:
+      path: ""
+      type: plays
+    values:
+      layout: work
+      lang: fa
+      comments: false
+
   - scope:
       path: ""
       type: stories
@@ -188,7 +180,6 @@ defaults:
       lang: fa
       comments: false
 
-  # شعرها
   - scope:
       path: ""
       type: poetry
@@ -197,7 +188,6 @@ defaults:
       lang: fa
       comments: false
 
-  # مجموعه‌های نمایشی
   - scope:
       path: ""
       type: series
@@ -207,7 +197,7 @@ defaults:
       comments: false
 
 # =====================================================
-# افزونه‌های سازگار با GitHub Pages
+# افزونه‌ها
 # =====================================================
 
 plugins:
@@ -217,35 +207,23 @@ plugins:
   - jekyll-relative-links
   - jekyll-paginate
 
-# =====================================================
-# تنظیمات تکمیلی افزونه‌ها
-# =====================================================
-
-# خوراک RSS
 feed:
   path: "feed.xml"
   posts_limit: 20
   excerpt_only: false
 
-# نقشه سایت
 sitemap:
   path: "sitemap.xml"
   exclude:
     - "/404.html"
     - "/search/"
 
-# SEO — برای jekyll-seo-tag
 twitter:
-  username: ""          # در صورت وجود، پر کنید
+  username: ""
   card: summary_large_image
 
-# وب‌مستر (در صورت نیاز فعال کنید)
-# webmaster_verifications:
-#   google: "YOUR_GOOGLE_CODE"
-#   bing: "YOUR_BING_CODE"
-
 # =====================================================
-# فشرده‌سازی خروجی (سازگار با GitHub Pages)
+# فشرده‌سازی خروجی
 # =====================================================
 
 compress_html:
@@ -259,7 +237,7 @@ compress_html:
   startings: [html, head, body]
 
 # =====================================================
-# تنظیمات محیط توسعه
+# محیط توسعه
 # =====================================================
 
 strict_front_matter: false
@@ -271,7 +249,7 @@ sass:
   style: compressed
 
 # =====================================================
-# فایل‌های مستثنی از انتشار
+# فایل‌های مستثنی
 # =====================================================
 
 exclude:
@@ -288,3 +266,4 @@ exclude:
   - .idea
   - "*.log"
   - "*.tmp"
+  - test.html
