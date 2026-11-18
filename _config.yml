@@ -1,3 +1,4 @@
+
 # =====================================================
 # تنظیمات اصلی وب‌سایت حسین محمدی آمیرزا
 # =====================================================
@@ -16,9 +17,9 @@ timezone: "Asia/Tehran"
 encoding: "utf-8"
 date_format: "%Y/%m/%d"
 
-# ⚠️ مهم: مخزن شما special repository است → سایت در ریشه دامنه منتشر می‌شود
+# آدرس اصلی سایت در GitHub Pages
 url: "https://hossein-amirza.github.io"
-baseurl: ""
+baseurl: "/hossein-amirza"
 
 # =====================================================
 # نویسنده
@@ -78,7 +79,7 @@ kramdown:
     span:
       line_numbers: false
 
-# وبلاگ: آدرس /blog/… (نه /articles/)
+# وبلاگ
 permalink: /blog/:year/:month/:title/
 
 relative_links:
@@ -98,7 +99,7 @@ paginate: 10
 paginate_path: "/blog/page/:num/"
 
 # =====================================================
-# مجموعه‌ها — هر بخش پوشه مستقل خودش
+# مجموعه‌ها
 # =====================================================
 
 collections:
