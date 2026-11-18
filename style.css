@@ -1013,3 +1013,121 @@ a.series-item:hover {
   }
   .poem-particle { display: none !important; }
 }
+/* =========================================================
+   STORIES — قهوه‌ای کهن + کرم (ادبی)
+   ========================================================= */
+.stories-section {
+  background: #221a13;
+  border-block: 1px solid rgba(200,170,130,.15);
+  padding-block: clamp(60px, 8vw, 100px);
+}
+.stories-section .section-kicker { color: #d8b888; }
+.stories-section .section-heading h2 em { color: #e8d0a8; }
+.stories-section .section-index { color: rgba(200,170,130,.4); }
+.stories-section .stories-intro {
+  max-width: 720px;
+  margin: -10px 0 25px;
+  color: #b8a890;
+  font-size: 15px;
+  line-height: 2.1;
+}
+
+.stories-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 22px;
+}
+.story-card {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 26px 24px;
+  background: #2e241a;
+  border: 1px solid rgba(200,170,130,.2);
+  border-radius: 14px;
+  transition: transform .35s ease, border-color .35s ease,
+              box-shadow .35s ease;
+  text-decoration: none;
+  position: relative;
+  overflow: hidden;
+}
+.story-card:hover {
+  transform: translateY(-6px);
+  border-color: #d8b888;
+  box-shadow: 0 20px 50px rgba(0,0,0,.4);
+}
+.story-card::before {
+  content: "❦";
+  position: absolute;
+  top: 10px;
+  left: 16px;
+  font-size: 3rem;
+  line-height: 1;
+  color: #d8b888;
+  opacity: .08;
+  font-family: Georgia, serif;
+}
+.story-card-number {
+  font-family: Georgia, serif;
+  font-size: 12px;
+  font-weight: 700;
+  color: #d8b888;
+  opacity: .6;
+}
+.story-card-category {
+  font-size: 11px;
+  font-weight: 700;
+  color: #d8b888;
+  letter-spacing: 1px;
+}
+.story-card h3 {
+  font-size: 1.1rem;
+  font-weight: 700;
+  line-height: 1.7;
+  margin: 0;
+  font-family: var(--nastaliq);
+  color: #f5e8d8;
+}
+.story-card-excerpt {
+  font-size: 14px;
+  color: #c0b0a0;
+  line-height: 2;
+  margin: 0;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.story-card-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 6px;
+  padding-top: 12px;
+  border-top: 1px solid rgba(200,170,130,.2);
+  font-size: 12px;
+  color: #a89880;
+}
+.story-card-footer span:last-child {
+  color: #d8b888;
+  font-weight: 700;
+  transition: transform .3s ease;
+}
+.story-card:hover .story-card-footer span:last-child {
+  transform: translateX(-4px);
+}
+.stories-empty {
+  grid-column: 1/-1;
+  text-align: center;
+  padding: 40px 20px;
+  color: #a89880;
+  font-size: 15px;
+}
+
+@media (max-width: 1024px) {
+  .stories-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 680px) {
+  .stories-grid { grid-template-columns: 1fr; gap: 12px; }
+  .story-card { padding: 20px 18px; }
+}
