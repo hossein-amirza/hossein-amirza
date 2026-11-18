@@ -1131,3 +1131,15 @@ a.series-item:hover {
   .stories-grid { grid-template-columns: 1fr; gap: 12px; }
   .story-card { padding: 20px 18px; }
 }
+
+/* اصلاح و تثبیت فونت نستعلیق داستانک‌ها */
+.literary-shell .literary-title,
+.literary-shell .literary-subtitle,
+.literary-shell .literary-content h2,
+.literary-shell .literary-content h3,
+.literary-shell .literary-content h4,
+.literary-shell .literary-intro,
+.literary-shell .literary-footer > p {
+  font-family: "Noto Nastaliq Urdu", serif !important;
+  font-weight: 400 !important;
+}
