@@ -65,7 +65,7 @@ a:focus-visible, button:focus-visible, input:focus-visible {
 .hero-container {
   position: relative;
   display: grid;
-  grid-template-columns: minmax(0, 1.15fr) minmax(280px, .85fr);
+  grid-templa.literary-metate-columns: minmax(0, 1.15fr) minmax(280px, .85fr);
   align-items: center;
   gap: clamp(35px, 7vw, 95px);
 }
@@ -1142,4 +1142,18 @@ a.series-item:hover {
 .literary-shell .literary-footer > p {
   font-family: "Noto Nastaliq Urdu", serif !important;
   font-weight: 400 !important;
+}
+/* فاصله‌گذاری اطلاعات نویسنده و تاریخ در صفحات آثار */
+.literary-meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px 28px;
+  margin: 20px 0;
+}
+
+.literary-meta > span {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 9px;
 }
