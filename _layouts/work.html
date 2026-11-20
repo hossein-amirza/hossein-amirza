@@ -88,8 +88,7 @@ layout: default
         {% endif %}
       </figure>
     {% endif %}
-
-    {% if page.excerpt %}
+{% if page.excerpt and page.collection != "stories" %}
       <div class="literary-intro">
         {{ page.excerpt }}
       </div>
